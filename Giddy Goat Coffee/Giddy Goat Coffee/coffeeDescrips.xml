@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+-
+- phpMyAdmin XML Dump
+- version 3.2.4
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Jul 13, 2012 at 05:12 PM
+- Server version: 5.1.44
+- PHP Version: 5.3.1
+-->
+
+<!--
+- Database: 'coffeeDescrips'
+-->
+<coffeeDescrips>
+  <!-- Table coffees -->
+    <coffees>
+        <index>1</index>
+        <name>Plain Latte</name>
+        <descrip>Our Rock-a-Billy Goat Blend house roasted espresso blended with steamed milk.</descrip>
+    </coffees>
+    <coffees>
+        <index>2</index>
+        <name>Mocha</name>
+        <descrip>Our house blend espresso blended with milk chocolate and steamed milk.</descrip>
+    </coffees>
+    <coffees>
+        <index>3</index>
+        <name>White Mocha</name>
+        <descrip>Our house blend espresso blended with Ghiradelli white chocolate and steamed milk.</descrip>
+    </coffees>
+    <coffees>
+        <index>4</index>
+        <name>Cold Brewed Coffee </name>
+        <descrip>Iced Coffee cold brewed and triple strained!</descrip>
+    </coffees>
+    <coffees>
+        <index>5</index>
+        <name>Shot in the Dark</name>
+        <descrip>Our house blend espresso pulled and added to our fresh brewed house coffee.</descrip>
+    </coffees>
+    <coffees>
+        <index>6</index>
+        <name>Breve</name>
+        <descrip>Our house espresso blended with steamed half and half.</descrip>
+    </coffees>
+    <coffees>
+        <index>7</index>
+        <name>Americano</name>
+        <descrip>Our house blend espresso poured over hot water...lighter in body and acidity than house coffee but bold in flavor.</descrip>
+    </coffees>
+    <coffees>
+        <index>8</index>
+        <name>Chai Latte</name>
+        <descrip>We use David Rio Tiger Chai!  Creamy, sweet and spicy!</descrip>
+    </coffees>
+    <coffees>
+        <index>9</index>
+        <name>Hot Cocoa</name>
+        <descrip>Hershey's syrup and steamed milk...also available with White chocolate...topped with marshmallows or whipped cream.</descrip>
+    </coffees>
+    <coffees>
+        <index>10</index>
+        <name>Steamer</name>
+        <descrip>Any flavor syrup you want mixed with steamed milk.</descrip>
+    </coffees>
+    <coffees>
+        <index>11</index>
+        <name>Flavored Hot Cocoa</name>
+        <descrip>Mix any flavor syrup with Hershey's chocolate and steamed milk.</descrip>
+    </coffees>
+    <coffees>
+        <index>12</index>
+        <name>Turtle Mocha</name>
+        <descrip>Chocolate, Caramel and Toffee Nut.</descrip>
+    </coffees>
+    <coffees>
+        <index>13</index>
+        <name>Monkey Mocha</name>
+        <descrip>Chocolate and Banana.</descrip>
+    </coffees>
+    <coffees>
+        <index>14</index>
+        <name>Elvis Mocha</name>
+        <descrip>Chocolate, Peanut Butter and Banana.</descrip>
+    </coffees>
+    <coffees>
+        <index>15</index>
+        <name>Almond Joyful Mocha</name>
+        <descrip>Chocolate, Almond and Coconut.</descrip>
+    </coffees>
+    <coffees>
+        <index>16</index>
+        <name>German Cake Mocha</name>
+        <descrip>Chocolate, Hazelnut, Coconut and Caramel.</descrip>
+    </coffees>
+    <coffees>
+        <index>17</index>
+        <name>Mexican Mocha</name>
+        <descrip>Dark Chocolate and cinnamon powder.</descrip>
+    </coffees>
+    <coffees>
+        <index>18</index>
+        <name>Campfire Mocha</name>
+        <descrip>Chocolate and Toasted Marshmallow.</descrip>
+    </coffees>
+    <coffees>
+        <index>19</index>
+        <name>P.B Mocha</name>
+        <descrip>Chocolate and Peanut Butter.</descrip>
+    </coffees>
+    <coffees>
+        <index>20</index>
+        <name>Andy's Mint Mocha</name>
+        <descrip>Tastes like an Andes Mint candy!</descrip>
+    </coffees>
+    <coffees>
+        <index>21</index>
+        <name>Italian Job Mocha</name>
+        <descrip>White Chocolate and Tirimisu.</descrip>
+    </coffees>
+    <coffees>
+        <index>22</index>
+        <name>Peppermint Panda Mocha</name>
+        <descrip>Chocolate and Peppermint...tastes like a Yorkshire Peppermint Patty.</descrip>
+    </coffees>
+    <coffees>
+        <index>23</index>
+        <name>Candy Orange Mocha</name>
+        <descrip>Dark Chocolate and Orange.</descrip>
+    </coffees>
+    <coffees>
+        <index>24</index>
+        <name>Em's Shamrock Mocha</name>
+        <descrip>Chocolate, Peppermint and Irish Cream.</descrip>
+    </coffees>
+    <coffees>
+        <index>25</index>
+        <name>Macadamia Nut Mocha</name>
+        <descrip>MilkChocolate and Macadamia Nut.</descrip>
+    </coffees>
+    <coffees>
+        <index>26</index>
+        <name>Wildberry Mocha</name>
+        <descrip>Chocolate, Blackberry and Raspberry.</descrip>
+    </coffees>
+    <coffees>
+        <index>27</index>
+        <name>White Hazelnut Mocha</name>
+        <descrip>White Chocolate and Hazelnut.</descrip>
+    </coffees>
+    <coffees>
+        <index>28</index>
+        <name>Voldemort Latte</name>
+        <descrip>Tastes like an almond biscotti!  Lite chocolate, almond, vanilla and Macadamia Nut.</descrip>
+    </coffees>
+    <coffees>
+        <index>29</index>
+        <name>C3PO Latte</name>
+        <descrip>Coconut and Irish Cream.</descrip>
+    </coffees>
+    <coffees>
+        <index>30</index>
+        <name>Caramel Macchiatto</name>
+        <descrip>Yes, the one Starbucks made famous...Lite Vanilla syrup, espresso, steamed milk, topped with thick velvety foam and a caramel drizzle!</descrip>
+    </coffees>
+    <coffees>
+        <index>31</index>
+        <name>Cina-Bun Latte</name>
+        <descrip>Brown Sugar and Cinnamon syrups blended with espresso, steamed milk, topped with whipped cream, caramel drizzle and cinnamon powder!</descrip>
+    </coffees>
+    <coffees>
+        <index>32</index>
+        <name>Cinnamon Hazelnut Vanilla Latte</name>
+        <descrip>Cinnamon Hazelnut Vanilla ...yes, those three syrups!</descrip>
+    </coffees>
+    <coffees>
+        <index>33</index>
+        <name>Banana's Foster Latte </name>
+        <descrip>Banana, Butter Rum and Caramel.</descrip>
+    </coffees>
+    <coffees>
+        <index>34</index>
+        <name>Honey Bunny Latte</name>
+        <descrip>Honey, Vanilla and Almond.</descrip>
+    </coffees>
+    <coffees>
+        <index>35</index>
+        <name>Lucky Irishman Latte</name>
+        <descrip>Caramel Sauce and Irish Cream.</descrip>
+    </coffees>
+    <coffees>
+        <index>36</index>
+        <name>Banana Bread Latte</name>
+        <descrip>Banana and Brown Sugar Cinnamon.</descrip>
+    </coffees>
+  <!-- Table version -->
+</coffeeDescrips>

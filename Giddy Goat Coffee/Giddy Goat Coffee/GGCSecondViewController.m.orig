@@ -1,0 +1,223 @@
+//
+//  GGCSecondViewController.m
+//  Giddy Goat Coffee
+//
+//  Created by Todd Pickell on 7/5/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "GGCSecondViewController.h"
+
+@interface GGCSecondViewController ()
+
+@end
+
+@implementation GGCSecondViewController
+@synthesize coffeeLabel;
+@synthesize coffeePicker;
+@synthesize coffees = _coffees;
+@synthesize descrips = _descrips;
+
+
+@synthesize versionDate, nameArray, descripArray;
+
+- (void)viewWillAppear:(BOOL)animated
+{
+
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    
+//    NSArray *arrayOfFilePaths = [self arrayFilePaths];
+//
+//    
+//    dispatch_queue_t downloadQueue = dispatch_queue_create("drinks downloader", NULL);
+//    dispatch_async(downloadQueue, ^{
+//            //get coffee data
+//        [self getCoffeesData];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//                //[coffeePicker reloadAllComponents];
+//        });
+//    });
+//    dispatch_release(downloadQueue);
+    [self fetchCoffees];
+    
+        //load nsarray objects
+    _coffees = [[NSArray alloc] initWithArray:nameArray copyItems:YES];
+    
+    _descrips = [[NSArray alloc] initWithArray:descripArray copyItems:YES];
+        
+}
+
+- (void)viewDidUnload
+{
+    [self setCoffeePicker:nil];
+    [self setCoffeeLabel:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
+}
+
+#pragma mark - UIPickerView methods
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [_coffees count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [_coffees objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    [coffeeLabel setText:[_descrips objectAtIndex:row]];
+}
+
+#pragma mark - XML retreival && storage methods
+
+- (void)getCoffeesData
+{
+//        //NSArray *arrayOfFilePaths = [self arrayFilePaths];
+//    NSArray *versionArrayFromFile = [NSArray arrayWithContentsOfFile:[arrayOfFilePaths objectAtIndex:0]];
+//        //if local cache of data exists
+//    if (versionArrayFromFile) {
+//        NSLog(@"Version Array File Found");
+//            //create a url from file version date and base url
+//        NSString *versionDateFromFile = [versionArrayFromFile objectAtIndex:0];
+//        NSString *baseUrl = @"http://192.168.1.102/simple_blog/Giddy/getCoffees.php?versionDate=";
+//        NSString *stringForUrl = [baseUrl stringByAppendingString:versionDateFromFile];
+//        NSLog(@"URLString %@", stringForUrl);
+//        NSURL *UrlToXml = [NSURL URLWithString:stringForUrl];
+//        NSLog(@"NSUrl: %@", UrlToXml);
+//            //get xml data
+//        NSData *xmlData = [[NSData alloc] initWithContentsOfURL:UrlToXml];
+//        NSLog(@"Xml Data: %@", xmlData);
+//            //convert xml to string and dump to log
+//        NSString *xmlCheck = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
+//        NSLog(@"Xml Check: %@", xmlCheck);
+//        
+//            //check to see if got xml update or nil back from server
+//        if (xmlData) {
+//            NSLog(@"xmlCheck != nil");
+//            NSString *vers = [self parseVersionDateFromXmlString:xmlCheck];
+//            NSLog(@"fetch coffes called");
+//            [self fetchCoffees];
+//            [self writeArraysToFile];
+//        }
+//    } else {
+//        NSLog(@"No cache found");
+//        [self fetchCoffees];
+//        [self writeArraysToFile];
+//    }
+}
+
+- (void)fetchCoffees
+{
+    NSLog(@"Fetching fresh coffees");
+        //data containers for xml from service
+    versionDate = [[NSMutableArray alloc] init];
+    nameArray = [[NSMutableArray alloc] init];
+    descripArray = [[NSMutableArray alloc] init];
+    
+    NSString *space = @"  ";
+    
+    [nameArray addObject:space];
+    [descripArray addObject:space];
+    
+    
+    [self parseUsingTBXML];
+}
+
+-(void)writeArraysToFile
+{
+//    NSArray *arrayOfFilePaths = [self arrayFilePaths];
+//    [versionDate writeToFile:[arrayOfFilePaths objectAtIndex:0] atomically:YES];
+//    [nameArray writeToFile:[arrayOfFilePaths objectAtIndex:1] atomically:YES];
+//    [descripArray writeToFile:[arrayOfFilePaths objectAtIndex:2] atomically:YES];
+}
+
+#pragma mark - XML parsing methods
+
+- (void)parseUsingTBXML
+{
+    NSURL *fileUrl = [NSURL fileURLWithPath:[self xmlFilePath]];
+    NSData *xmlData = [[NSData alloc] initWithContentsOfURL:fileUrl];
+    tbxml = [[TBXML alloc] initWithXMLData:xmlData];
+        //NSURL *url = [NSURL URLWithString:@"http://192.168.1.102/simple_blog/Giddy/coffeeDescrips.xml"];
+        //tbxml = [[TBXML alloc] initWithURL:url];
+    
+        //obtain root element
+    TBXMLElement * root = tbxml.rootXMLElement;
+    if (root) {
+        NSLog(@"Got Root Element");
+        TBXMLElement * elem_coffees = [TBXML childElementNamed:@"coffees" parentElement:root];
+        while (elem_coffees != nil) {
+            NSLog(@"elem_coffees != nil");
+            
+            TBXMLElement * elem_name = [TBXML childElementNamed:@"name" parentElement:elem_coffees];
+            NSString *name = [TBXML textForElement:elem_name];
+            NSLog(@"NAME: %@", name);
+            [nameArray addObject:name];
+            
+            TBXMLElement * elem_descrip = [TBXML childElementNamed:@"descrip" parentElement:elem_coffees];
+            NSString *descrip = [TBXML textForElement:elem_descrip];
+            NSLog(@"DESCRIP: %@", descrip);
+            [descripArray addObject:descrip];
+            
+            elem_coffees = [TBXML nextSiblingNamed:@"coffees" searchFromElement:elem_coffees];
+        }
+    }
+    NSLog(@"nameArray: %@", nameArray);
+}
+
+- (NSString *)parseVersionDateFromXmlString:(NSString *)xmlCheck
+{
+        //******get version date from xmlCheck string******
+        //known strings in xml file header
+    NSString *checkString = @"- Generation Time:";
+    NSString *endString = @"- Server version:";
+        //get locations and lengths to calculate where my substring is
+    NSUInteger versionStringLocation = [xmlCheck rangeOfString:checkString].location;
+    NSUInteger versionStringLength = [xmlCheck rangeOfString:checkString].length;
+    NSUInteger serverStringLocation = [xmlCheck rangeOfString:endString].location;
+    NSUInteger versionDateLocation = versionStringLocation + versionStringLength +1;
+        //get substring from xmlxheck string
+    NSLog(@"before getting version date string");
+    NSString *versionDateString = [xmlCheck substringWithRange:NSMakeRange(versionDateLocation, serverStringLocation - versionDateLocation)];
+    NSLog(@"******* Version Date: %@", versionDateString);
+    return versionDateString;
+}
+
+#pragma mark - File paths method
+
+- (NSString *)xmlFilePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+        // Path to save version array data
+    NSString  *coffeeXmlPath = [[paths objectAtIndex:0]
+                            stringByAppendingPathComponent:@"coffeeDescrips.xml"];
+
+    return coffeeXmlPath;
+}
+
+
+@end
