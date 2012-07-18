@@ -8,6 +8,7 @@
 
 #import "GGCFirstViewController.h"
 
+
 @interface GGCFirstViewController ()
 
 @end
@@ -18,11 +19,11 @@
 @synthesize specialsLabel;
 
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
         //get downloads on async thread
     dispatch_queue_t downloadQueue = dispatch_queue_create("status downloader", NULL);
     dispatch_async(downloadQueue, ^{
@@ -201,5 +202,7 @@
                             stringByAppendingPathComponent:@"status.out"];
     return arrayPath;
 }
+
+
 
 @end

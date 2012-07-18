@@ -7,20 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "TBXML.h"
 
 @interface GGCFirstViewController : UIViewController{
     NSMutableArray *updateArray;
     TBXML *tbxml;
 
+
 }
 
+@property (nonatomic)AVAudioPlayer *audio;
 @property (nonatomic)NSMutableArray *updateArray;
 @property (weak, nonatomic) IBOutlet UILabel *specialsLabel;
 
 - (IBAction)gotoMap:(id)sender;
 - (IBAction)gotoFB:(id)sender;
 - (IBAction)gotoTwitter:(id)sender;
+
 
 - (void)getStatusData;
 - (void)fetchSpecials;
