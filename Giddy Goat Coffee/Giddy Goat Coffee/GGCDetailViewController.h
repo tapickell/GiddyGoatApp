@@ -16,5 +16,5 @@
 }
 
 - (IBAction)backgroundTapped:(id)sender;
-- (IBAction)shareMe:(id)sender;
+
 @end

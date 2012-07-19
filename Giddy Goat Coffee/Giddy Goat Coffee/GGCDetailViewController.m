@@ -7,7 +7,7 @@
 //
 
 #import "GGCDetailViewController.h"
-#import <Twitter/Twitter.h>
+
 
 @interface GGCDetailViewController ()
 
@@ -48,27 +48,6 @@
         //[[self parentViewController] dismissModalViewControllerAnimated:YES];
         //[[self parentViewController] dismissViewControllerAnimated:YES completion:nil];
     [self dismissModalViewControllerAnimated:YES];
-}
-
-- (IBAction)shareMe:(id)sender
-{
-    NSString *textToShare = @"@TGGCHRolla ";
-    UIImage *imageToShare = [UIImage imageNamed:@"GiddyScreenShot.png"];
-    NSArray *activityItems = @[textToShare, imageToShare];
-    
-    NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
-    if (versionNumber < 6) {
-        if ([TWTweetComposeViewController canSendTweet])
-        {
-            TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
-            [tweetSheet setInitialText:textToShare];
-            [self presentModalViewController:tweetSheet animated:YES];
-        }
-    } else {
-            //code for ios 6
-        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-        [self presentViewController:activityVC animated:YES completion:nil];
-    }    
 }
 
 @end

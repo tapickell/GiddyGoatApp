@@ -7,6 +7,7 @@
 //
 
 #import "GGCFirstViewController.h"
+#import <Twitter/Twitter.h>
 
 
 @interface GGCFirstViewController ()
@@ -53,7 +54,7 @@
     }
 }
 
-#pragma mark - FirstView Links
+#pragma mark - First View Icon Links
 
 - (IBAction)gotoMap:(id)sender {
     NSMutableString *url = [[NSMutableString alloc] init];
@@ -69,17 +70,27 @@
     [[UIApplication sharedApplication] openURL:mapUrl];
 }
 
-- (IBAction)gotoFB:(id)sender {
-    NSString *url = @"https://www.facebook.com/pages/The-Giddy-Goat-Coffeehouse/81265198875";
-    NSURL *fburl = [[NSURL alloc] initWithString:url];
-    [[UIApplication sharedApplication] openURL:fburl];
+- (IBAction)shareMe:(id)sender
+{
+    NSString *textToShare = @"@TGGCHRolla ";
+    UIImage *imageToShare = [UIImage imageNamed:@"GiddyScreenShot.png"];
+    NSArray *activityItems = @[textToShare, imageToShare];
+    
+    NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
+    if (versionNumber < 6) {
+        if ([TWTweetComposeViewController canSendTweet])
+            {
+            TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+            [tweetSheet setInitialText:textToShare];
+            [self presentModalViewController:tweetSheet animated:YES];
+            }
+    } else {
+            //code for ios 6
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
 }
 
-- (IBAction)gotoTwitter:(id)sender {
-    NSString *url = @"http://twitter.com/TGGCHRolla";
-    NSURL *tweetUrl = [[NSURL alloc] initWithString:url];
-    [[UIApplication sharedApplication] openURL:tweetUrl];
-}
 
 #pragma mark - status update and cache methods
 

@@ -22,8 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *specialsLabel;
 
 - (IBAction)gotoMap:(id)sender;
-- (IBAction)gotoFB:(id)sender;
-- (IBAction)gotoTwitter:(id)sender;
+- (IBAction)shareMe:(id)sender;
+
 
 
 - (void)getStatusData;
