@@ -91,6 +91,41 @@
     }
 }
 
+- (IBAction)photoOpp:(id)sender {
+        //create image picker controller
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    
+        //create action sheet to prompt user with options for pictures
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Send With Photo"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"No Photo"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    
+        //set action sheet style
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    
+        //if camera is available add that to the popup list of options
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            //imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            //add button for camera
+        [actionSheet addButtonWithTitle:@"Camera"];
+    }
+        //if photo library is available add that to the popup list of options
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            //add button for library
+        [actionSheet addButtonWithTitle:@"Photo Library"];
+    }
+        //show action sheet
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+}
+
 
 #pragma mark - status update and cache methods
 

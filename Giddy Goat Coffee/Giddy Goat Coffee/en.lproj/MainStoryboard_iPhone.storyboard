@@ -96,6 +96,21 @@
                                     <segue destination="sYc-41-z3Q" kind="modal" modalTransitionStyle="flipHorizontal" id="QDg-xE-MQ4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="MLB-Q8-Q4A">
+                                <rect key="frame" x="17" y="374" width="29" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="photoOpp:" destination="2" eventType="touchUpInside" id="3fB-j1-EeX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -357,41 +372,6 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO</
         <image name="plastiquePin.png" width="145" height="143"/>
         <image name="routedAction.png" width="162" height="162"/>
     </resources>
-    <classes>
-        <class className="GGCDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backgroundTapped:"/>
-                <relationship kind="action" name="shareMe:"/>
-                <relationship kind="outlet" name="itemDescripLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGCFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCFirstViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="gotoFB:"/>
-                <relationship kind="action" name="gotoMap:"/>
-                <relationship kind="action" name="gotoTwitter:"/>
-                <relationship kind="action" name="shareMe:"/>
-                <relationship kind="outlet" name="specialsLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGCSecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCSecondViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="coffeeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="coffeePicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="GGCThridViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCThridViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="callPopup:"/>
-                <relationship kind="outlet" name="callButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

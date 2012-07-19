@@ -7,22 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
 #import "TBXML.h"
 
-@interface GGCFirstViewController : UIViewController{
+@interface GGCFirstViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+{
     NSMutableArray *updateArray;
     TBXML *tbxml;
-
-
 }
 
-@property (nonatomic)AVAudioPlayer *audio;
 @property (nonatomic)NSMutableArray *updateArray;
 @property (weak, nonatomic) IBOutlet UILabel *specialsLabel;
 
 - (IBAction)gotoMap:(id)sender;
 - (IBAction)shareMe:(id)sender;
+- (IBAction)photoOpp:(id)sender;
 
 
 
