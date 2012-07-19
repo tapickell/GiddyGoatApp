@@ -58,8 +58,6 @@
 		5FDE50B815B652CF00867F05 /* Coffee_bean_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B415B652CF00867F05 /* Coffee_bean_small.png */; };
 		5FDE50B915B652CF00867F05 /* Coffee_bean_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B515B652CF00867F05 /* Coffee_bean_small@2x.png */; };
 		5FDE50BA15B652CF00867F05 /* Coffee_bean_small_flip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B615B652CF00867F05 /* Coffee_bean_small_flip@2x.png */; };
-		5FDE50BF15B74A2D00867F05 /* GoatSound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50BD15B74A2D00867F05 /* GoatSound2.mp3 */; };
-		5FDE50C015B74A2D00867F05 /* GoatSound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50BE15B74A2D00867F05 /* GoatSound1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,8 +122,6 @@
 		5FDE50B415B652CF00867F05 /* Coffee_bean_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coffee_bean_small.png; sourceTree = "<group>"; };
 		5FDE50B515B652CF00867F05 /* Coffee_bean_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coffee_bean_small@2x.png"; sourceTree = "<group>"; };
 		5FDE50B615B652CF00867F05 /* Coffee_bean_small_flip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coffee_bean_small_flip@2x.png"; sourceTree = "<group>"; };
-		5FDE50BD15B74A2D00867F05 /* GoatSound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GoatSound2.mp3; sourceTree = "<group>"; };
-		5FDE50BE15B74A2D00867F05 /* GoatSound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GoatSound1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,8 +224,6 @@
 		5FB7772815A6623900EC7F00 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				5FDE50BD15B74A2D00867F05 /* GoatSound2.mp3 */,
-				5FDE50BE15B74A2D00867F05 /* GoatSound1.mp3 */,
 				5FDE50B315B652CF00867F05 /* Coffee_bean_small_flip.png */,
 				5FDE50B415B652CF00867F05 /* Coffee_bean_small.png */,
 				5FDE50B515B652CF00867F05 /* Coffee_bean_small@2x.png */,
@@ -359,8 +353,6 @@
 				5FDE50B815B652CF00867F05 /* Coffee_bean_small.png in Resources */,
 				5FDE50B915B652CF00867F05 /* Coffee_bean_small@2x.png in Resources */,
 				5FDE50BA15B652CF00867F05 /* Coffee_bean_small_flip@2x.png in Resources */,
-				5FDE50BF15B74A2D00867F05 /* GoatSound2.mp3 in Resources */,
-				5FDE50C015B74A2D00867F05 /* GoatSound1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

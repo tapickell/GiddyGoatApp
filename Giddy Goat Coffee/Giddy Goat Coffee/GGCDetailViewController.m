@@ -52,7 +52,7 @@
 
 - (IBAction)shareMe:(id)sender
 {
-    NSString *textToShare = @"Using The Giddy Goat Coffee House iOS App!";
+    NSString *textToShare = @"@TGGCHRolla ";
     UIImage *imageToShare = [UIImage imageNamed:@"GiddyScreenShot.png"];
     NSArray *activityItems = @[textToShare, imageToShare];
     
