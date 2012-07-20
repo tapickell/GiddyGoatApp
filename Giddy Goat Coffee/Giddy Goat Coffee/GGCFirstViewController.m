@@ -109,6 +109,7 @@
     NSString *choice = [actionSheet buttonTitleAtIndex:buttonIndex];
     if (buttonIndex == [actionSheet cancelButtonIndex]) {
             //No Photos jump to shareMe
+        imageSelected = nil;
         [self shareMe:self];
         return;
     } else if ([choice isEqualToString:CAMERA]) {
@@ -128,15 +129,15 @@
         //extract image
     imageSelected = [info objectForKey:UIImagePickerControllerEditedImage];
     
-    [self dismissViewControllerAnimated:YES completion:^([self shareMe:self])];
-     //[self dismissModalViewControllerAnimated:YES];
+        //[self dismissViewControllerAnimated:YES completion:^([self shareMe:self])];
+    [self dismissViewControllerAnimated:YES completion:^{[self shareMe:self];}];
 }
 
 
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];;
 }
 
 - (IBAction)shareMe:(id)sender
@@ -165,6 +166,7 @@
         
         [self presentViewController:activityVC animated:YES completion:nil];
     }
+    imageSelected = nil;
 }
 
 #pragma mark - status update and cache methods

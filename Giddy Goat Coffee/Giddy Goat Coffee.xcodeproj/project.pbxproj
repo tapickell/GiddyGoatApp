@@ -51,13 +51,13 @@
 		5FB7775215A73FB100EC7F00 /* coffesTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FB7775115A73FB100EC7F00 /* coffesTitle.png */; };
 		5FC3460A15AC7C56005C9DF7 /* GGCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3460915AC7C56005C9DF7 /* GGCDetailViewController.m */; };
 		5FDE50A515B611AB00867F05 /* coffee-bean.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50A315B611AB00867F05 /* coffee-bean.png */; };
-		5FDE50B215B628C400867F05 /* chalkboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B115B628C400867F05 /* chalkboard.png */; };
 		5FDE50B715B652CF00867F05 /* Coffee_bean_small_flip.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B315B652CF00867F05 /* Coffee_bean_small_flip.png */; };
 		5FDE50B815B652CF00867F05 /* Coffee_bean_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B415B652CF00867F05 /* Coffee_bean_small.png */; };
 		5FDE50B915B652CF00867F05 /* Coffee_bean_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B515B652CF00867F05 /* Coffee_bean_small@2x.png */; };
 		5FDE50BA15B652CF00867F05 /* Coffee_bean_small_flip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B615B652CF00867F05 /* Coffee_bean_small_flip@2x.png */; };
 		5FDE50CB15B8823000867F05 /* routedAction.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50CA15B8823000867F05 /* routedAction.png */; };
 		5FDE50CD15B8B8BF00867F05 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDE50CC15B8B8BF00867F05 /* MobileCoreServices.framework */; };
+		5FDE50CF15B9AC8900867F05 /* chalkboard-icon-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50CE15B9AC8900867F05 /* chalkboard-icon-512x512.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,13 +115,13 @@
 		5FC3460815AC7C56005C9DF7 /* GGCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGCDetailViewController.h; sourceTree = "<group>"; };
 		5FC3460915AC7C56005C9DF7 /* GGCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGCDetailViewController.m; sourceTree = "<group>"; };
 		5FDE50A315B611AB00867F05 /* coffee-bean.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coffee-bean.png"; sourceTree = "<group>"; };
-		5FDE50B115B628C400867F05 /* chalkboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chalkboard.png; sourceTree = "<group>"; };
 		5FDE50B315B652CF00867F05 /* Coffee_bean_small_flip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coffee_bean_small_flip.png; sourceTree = "<group>"; };
 		5FDE50B415B652CF00867F05 /* Coffee_bean_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coffee_bean_small.png; sourceTree = "<group>"; };
 		5FDE50B515B652CF00867F05 /* Coffee_bean_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coffee_bean_small@2x.png"; sourceTree = "<group>"; };
 		5FDE50B615B652CF00867F05 /* Coffee_bean_small_flip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coffee_bean_small_flip@2x.png"; sourceTree = "<group>"; };
 		5FDE50CA15B8823000867F05 /* routedAction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = routedAction.png; sourceTree = "<group>"; };
 		5FDE50CC15B8B8BF00867F05 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		5FDE50CE15B9AC8900867F05 /* chalkboard-icon-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chalkboard-icon-512x512.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,12 +226,12 @@
 		5FB7772815A6623900EC7F00 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				5FDE50CE15B9AC8900867F05 /* chalkboard-icon-512x512.png */,
 				5FDE50CA15B8823000867F05 /* routedAction.png */,
 				5FDE50B315B652CF00867F05 /* Coffee_bean_small_flip.png */,
 				5FDE50B415B652CF00867F05 /* Coffee_bean_small.png */,
 				5FDE50B515B652CF00867F05 /* Coffee_bean_small@2x.png */,
 				5FDE50B615B652CF00867F05 /* Coffee_bean_small_flip@2x.png */,
-				5FDE50B115B628C400867F05 /* chalkboard.png */,
 				5FDE50A315B611AB00867F05 /* coffee-bean.png */,
 				5F3389B615B399AC003610D8 /* coffeeCup.png */,
 				5F3389B715B399AC003610D8 /* coffeeCup@2x.png */,
@@ -347,12 +347,12 @@
 				5F3389B815B399AC003610D8 /* coffeeCup.png in Resources */,
 				5F3389B915B399AC003610D8 /* coffeeCup@2x.png in Resources */,
 				5FDE50A515B611AB00867F05 /* coffee-bean.png in Resources */,
-				5FDE50B215B628C400867F05 /* chalkboard.png in Resources */,
 				5FDE50B715B652CF00867F05 /* Coffee_bean_small_flip.png in Resources */,
 				5FDE50B815B652CF00867F05 /* Coffee_bean_small.png in Resources */,
 				5FDE50B915B652CF00867F05 /* Coffee_bean_small@2x.png in Resources */,
 				5FDE50BA15B652CF00867F05 /* Coffee_bean_small_flip@2x.png in Resources */,
 				5FDE50CB15B8823000867F05 /* routedAction.png in Resources */,
+				5FDE50CF15B9AC8900867F05 /* chalkboard-icon-512x512.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
