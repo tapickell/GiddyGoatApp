@@ -19,7 +19,8 @@
 @synthesize updateArray;
 @synthesize specialsLabel;
 
-
+#define CAMERA @"Camera"
+#define LIBRARY @"Photo Library"
 
 - (void)viewDidLoad
 {
@@ -70,30 +71,11 @@
     [[UIApplication sharedApplication] openURL:mapUrl];
 }
 
-- (IBAction)shareMe:(id)sender
-{
-    NSString *textToShare = @"@TGGCHRolla ";
-    UIImage *imageToShare = [UIImage imageNamed:@"GiddyScreenShot.png"];
-    NSArray *activityItems = @[textToShare, imageToShare];
-    
-    NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
-    if (versionNumber < 6) {
-        if ([TWTweetComposeViewController canSendTweet])
-            {
-            TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
-            [tweetSheet setInitialText:textToShare];
-            [self presentModalViewController:tweetSheet animated:YES];
-            }
-    } else {
-            //code for ios 6
-        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-        [self presentViewController:activityVC animated:YES completion:nil];
-    }
-}
+#pragma mark - Social Integration / Photo Upload
 
-- (IBAction)photoOpp:(id)sender {
+- (IBAction)getPhotoForSharing:(id)sender {
         //create image picker controller
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
     
         //create action sheet to prompt user with options for pictures
@@ -110,22 +92,80 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             //imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
             //add button for camera
-        [actionSheet addButtonWithTitle:@"Camera"];
+        [actionSheet addButtonWithTitle:CAMERA];
     }
         //if photo library is available add that to the popup list of options
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
             //add button for library
-        [actionSheet addButtonWithTitle:@"Photo Library"];
+        [actionSheet addButtonWithTitle:LIBRARY];
     }
         //show action sheet
-    [actionSheet showInView:self.view];
+    [actionSheet showInView:self.parentViewController.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    
+    NSString *desired = (NSString *)kUTTypeImage;
+    NSString *choice = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if (buttonIndex == [actionSheet cancelButtonIndex]) {
+            //No Photos jump to shareMe
+        [self shareMe:self];
+        return;
+    } else if ([choice isEqualToString:CAMERA]) {
+            //get photo from camera
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else if ([choice isEqualToString:LIBRARY]) {
+            //get photo from library
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    imagePicker.allowsEditing = YES;
+    imagePicker.mediaTypes = [NSArray arrayWithObject:desired];
+    [self.parentViewController presentModalViewController:imagePicker animated:YES];
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+        //extract image
+    imageSelected = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    [self dismissViewControllerAnimated:YES completion:^([self shareMe:self])];
+     //[self dismissModalViewControllerAnimated:YES];
+}
+
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)shareMe:(id)sender
+{
+    NSString *textToShare = @"@TGGCHRolla ";
+    NSArray *activityItems;
+    if (imageSelected) {
+        activityItems = @[textToShare, imageSelected];
+    } else {
+        activityItems = @[textToShare];
+    }
+    NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
+    if (versionNumber < 6) {
+        if ([TWTweetComposeViewController canSendTweet])
+            {
+            TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+            [tweetSheet setInitialText:textToShare];
+            if (imageSelected) {
+                [tweetSheet addImage:imageSelected];
+            }
+            [self presentModalViewController:tweetSheet animated:YES];
+            }
+    } else {
+            //code for ios 6
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+        
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
+}
 
 #pragma mark - status update and cache methods
 

@@ -57,6 +57,7 @@
 		5FDE50B915B652CF00867F05 /* Coffee_bean_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B515B652CF00867F05 /* Coffee_bean_small@2x.png */; };
 		5FDE50BA15B652CF00867F05 /* Coffee_bean_small_flip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B615B652CF00867F05 /* Coffee_bean_small_flip@2x.png */; };
 		5FDE50CB15B8823000867F05 /* routedAction.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50CA15B8823000867F05 /* routedAction.png */; };
+		5FDE50CD15B8B8BF00867F05 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDE50CC15B8B8BF00867F05 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 		5FDE50B515B652CF00867F05 /* Coffee_bean_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coffee_bean_small@2x.png"; sourceTree = "<group>"; };
 		5FDE50B615B652CF00867F05 /* Coffee_bean_small_flip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coffee_bean_small_flip@2x.png"; sourceTree = "<group>"; };
 		5FDE50CA15B8823000867F05 /* routedAction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = routedAction.png; sourceTree = "<group>"; };
+		5FDE50CC15B8B8BF00867F05 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FDE50CD15B8B8BF00867F05 /* MobileCoreServices.framework in Frameworks */,
 				5F819B1915AE571D00323E0D /* Twitter.framework in Frameworks */,
 				5F819B1215AE18C100323E0D /* Social.framework in Frameworks */,
 				5F44BF1C15AA595C001709E5 /* libz.dylib in Frameworks */,
@@ -157,6 +160,7 @@
 		5FB776BC15A6157B00EC7F00 = {
 			isa = PBXGroup;
 			children = (
+				5FDE50CC15B8B8BF00867F05 /* MobileCoreServices.framework */,
 				5F3389B415B398CB003610D8 /* Default@2x.png */,
 				5F33899F15B3000B003610D8 /* Default.png */,
 				5F819B1815AE571D00323E0D /* Twitter.framework */,

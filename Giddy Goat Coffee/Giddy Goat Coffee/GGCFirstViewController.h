@@ -7,23 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "TBXML.h"
 
 @interface GGCFirstViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     NSMutableArray *updateArray;
     TBXML *tbxml;
+    UIImagePickerController *imagePicker;
+    UIImage *imageSelected;
 }
 
 @property (nonatomic)NSMutableArray *updateArray;
 @property (weak, nonatomic) IBOutlet UILabel *specialsLabel;
+@property (strong, nonatomic)UIImagePickerController *imagePicker;
+@property (strong, nonatomic)UIImage *imageSelected;
 
 - (IBAction)gotoMap:(id)sender;
+
+- (IBAction)getPhotoForSharing:(id)sender;
+
+
 - (IBAction)shareMe:(id)sender;
-- (IBAction)photoOpp:(id)sender;
-
-
-
 - (void)getStatusData;
 - (void)fetchSpecials;
 - (NSString *)statusArrayFilePath;
