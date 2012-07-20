@@ -35,14 +35,11 @@
 		5FB776D815A6157C00EC7F00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB776D715A6157C00EC7F00 /* main.m */; };
 		5FB776DC15A6157D00EC7F00 /* GGCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB776DB15A6157D00EC7F00 /* GGCAppDelegate.m */; };
 		5FB776DF15A6157D00EC7F00 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FB776DD15A6157D00EC7F00 /* MainStoryboard_iPhone.storyboard */; };
-		5FB776E215A6157D00EC7F00 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FB776E015A6157D00EC7F00 /* MainStoryboard_iPad.storyboard */; };
 		5FB776E515A6157D00EC7F00 /* GGCFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB776E415A6157D00EC7F00 /* GGCFirstViewController.m */; };
 		5FB776EC15A6157D00EC7F00 /* GGCSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB776EB15A6157D00EC7F00 /* GGCSecondViewController.m */; };
 		5FB776FB15A6175B00EC7F00 /* GGCThridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB776FA15A6175B00EC7F00 /* GGCThridViewController.m */; };
-		5FB7771915A6305C00EC7F00 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 5FB7771215A6305B00EC7F00 /* iTunesArtwork */; };
 		5FB7771B15A6316200EC7F00 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FB7771A15A6316200EC7F00 /* Icon@2x.png */; };
 		5FB7771D15A6318500EC7F00 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FB7771C15A6318500EC7F00 /* Icon.png */; };
-		5FB7771F15A631BA00EC7F00 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FB7771E15A631BA00EC7F00 /* Icon-72.png */; };
 		5FB7772515A6594C00EC7F00 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FB7772415A6594C00EC7F00 /* house.png */; };
 		5FB7772715A65E5D00EC7F00 /* coffees.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5FB7772615A65E5D00EC7F00 /* coffees.xml */; };
 		5FB7774715A696E100EC7F00 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB7774615A696E100EC7F00 /* MapKit.framework */; };
@@ -58,6 +55,9 @@
 		5FDE50CB15B8823000867F05 /* routedAction.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50CA15B8823000867F05 /* routedAction.png */; };
 		5FDE50CD15B8B8BF00867F05 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FDE50CC15B8B8BF00867F05 /* MobileCoreServices.framework */; };
 		5FDE50CF15B9AC8900867F05 /* chalkboard-icon-512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50CE15B9AC8900867F05 /* chalkboard-icon-512x512.png */; };
+		5FDE50D315B9F8A100867F05 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50D215B9F8A100867F05 /* iTunesArtwork */; };
+		5FDE50D515B9F8D400867F05 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50D415B9F8D400867F05 /* Icon-Small.png */; };
+		5FDE50D715B9F8DD00867F05 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50D615B9F8DD00867F05 /* Icon-Small@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,17 +95,14 @@
 		5FB776DA15A6157D00EC7F00 /* GGCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGCAppDelegate.h; sourceTree = "<group>"; };
 		5FB776DB15A6157D00EC7F00 /* GGCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGCAppDelegate.m; sourceTree = "<group>"; };
 		5FB776DE15A6157D00EC7F00 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		5FB776E115A6157D00EC7F00 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		5FB776E315A6157D00EC7F00 /* GGCFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGCFirstViewController.h; sourceTree = "<group>"; };
 		5FB776E415A6157D00EC7F00 /* GGCFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGCFirstViewController.m; sourceTree = "<group>"; };
 		5FB776EA15A6157D00EC7F00 /* GGCSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGCSecondViewController.h; sourceTree = "<group>"; };
 		5FB776EB15A6157D00EC7F00 /* GGCSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGCSecondViewController.m; sourceTree = "<group>"; };
 		5FB776F915A6175B00EC7F00 /* GGCThridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGCThridViewController.h; sourceTree = "<group>"; };
 		5FB776FA15A6175B00EC7F00 /* GGCThridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGCThridViewController.m; sourceTree = "<group>"; };
-		5FB7771215A6305B00EC7F00 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		5FB7771A15A6316200EC7F00 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		5FB7771C15A6318500EC7F00 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		5FB7771E15A631BA00EC7F00 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		5FB7772415A6594C00EC7F00 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
 		5FB7772615A65E5D00EC7F00 /* coffees.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = coffees.xml; sourceTree = "<group>"; };
 		5FB7774615A696E100EC7F00 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -122,6 +119,9 @@
 		5FDE50CA15B8823000867F05 /* routedAction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = routedAction.png; sourceTree = "<group>"; };
 		5FDE50CC15B8B8BF00867F05 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		5FDE50CE15B9AC8900867F05 /* chalkboard-icon-512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chalkboard-icon-512x512.png"; sourceTree = "<group>"; };
+		5FDE50D215B9F8A100867F05 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		5FDE50D415B9F8D400867F05 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		5FDE50D615B9F8DD00867F05 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +167,8 @@
 				5F819B1115AE18C100323E0D /* Social.framework */,
 				5F44BF1B15AA595C001709E5 /* libz.dylib */,
 				5F44BF1915AA5953001709E5 /* libz.1.2.5.dylib */,
-				5FB7771E15A631BA00EC7F00 /* Icon-72.png */,
+				5FDE50D415B9F8D400867F05 /* Icon-Small.png */,
+				5FDE50D615B9F8DD00867F05 /* Icon-Small@2x.png */,
 				5FB7771C15A6318500EC7F00 /* Icon.png */,
 				5FB7771A15A6316200EC7F00 /* Icon@2x.png */,
 				5F44BF0B15AA4D02001709E5 /* TBXML */,
@@ -205,7 +206,6 @@
 				5FB776DA15A6157D00EC7F00 /* GGCAppDelegate.h */,
 				5FB776DB15A6157D00EC7F00 /* GGCAppDelegate.m */,
 				5FB776DD15A6157D00EC7F00 /* MainStoryboard_iPhone.storyboard */,
-				5FB776E015A6157D00EC7F00 /* MainStoryboard_iPad.storyboard */,
 				5FB7772815A6623900EC7F00 /* Graphics */,
 				5FB776D215A6157C00EC7F00 /* Supporting Files */,
 			);
@@ -226,6 +226,7 @@
 		5FB7772815A6623900EC7F00 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				5FDE50D215B9F8A100867F05 /* iTunesArtwork */,
 				5FDE50CE15B9AC8900867F05 /* chalkboard-icon-512x512.png */,
 				5FDE50CA15B8823000867F05 /* routedAction.png */,
 				5FDE50B315B652CF00867F05 /* Coffee_bean_small_flip.png */,
@@ -249,7 +250,6 @@
 				5F33899915B2E7FF003610D8 /* phone@2x.png */,
 				5FB7772415A6594C00EC7F00 /* house.png */,
 				5F33899B15B2E9B5003610D8 /* house@2x.png */,
-				5FB7771215A6305B00EC7F00 /* iTunesArtwork */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -322,11 +322,8 @@
 			files = (
 				5FB776D615A6157C00EC7F00 /* InfoPlist.strings in Resources */,
 				5FB776DF15A6157D00EC7F00 /* MainStoryboard_iPhone.storyboard in Resources */,
-				5FB776E215A6157D00EC7F00 /* MainStoryboard_iPad.storyboard in Resources */,
-				5FB7771915A6305C00EC7F00 /* iTunesArtwork in Resources */,
 				5FB7771B15A6316200EC7F00 /* Icon@2x.png in Resources */,
 				5FB7771D15A6318500EC7F00 /* Icon.png in Resources */,
-				5FB7771F15A631BA00EC7F00 /* Icon-72.png in Resources */,
 				5FB7772515A6594C00EC7F00 /* house.png in Resources */,
 				5FB7772715A65E5D00EC7F00 /* coffees.xml in Resources */,
 				5FB7774F15A73B3500EC7F00 /* giddyTitle.png in Resources */,
@@ -353,6 +350,9 @@
 				5FDE50BA15B652CF00867F05 /* Coffee_bean_small_flip@2x.png in Resources */,
 				5FDE50CB15B8823000867F05 /* routedAction.png in Resources */,
 				5FDE50CF15B9AC8900867F05 /* chalkboard-icon-512x512.png in Resources */,
+				5FDE50D315B9F8A100867F05 /* iTunesArtwork in Resources */,
+				5FDE50D515B9F8D400867F05 /* Icon-Small.png in Resources */,
+				5FDE50D715B9F8DD00867F05 /* Icon-Small@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,14 +391,6 @@
 				5FB776DE15A6157D00EC7F00 /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		5FB776E015A6157D00EC7F00 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5FB776E115A6157D00EC7F00 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -458,6 +450,7 @@
 				GCC_PREFIX_HEADER = "Giddy Goat Coffee/Giddy Goat Coffee-Prefix.pch";
 				INFOPLIST_FILE = "Giddy Goat Coffee/Giddy Goat Coffee-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -469,6 +462,7 @@
 				GCC_PREFIX_HEADER = "Giddy Goat Coffee/Giddy Goat Coffee-Prefix.pch";
 				INFOPLIST_FILE = "Giddy Goat Coffee/Giddy Goat Coffee-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
