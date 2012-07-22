@@ -68,12 +68,11 @@
     } else {
             //code for ios 6 map integration
         NSLog(@"opening maps app in iOS 6");
-        //old code using url replaced with new api for mapkit
-        //[url appendString:@"http://maps.apple.com/maps?q=704+n+bishop+Ave+suite+2+rolla+mo+65401"];
         
-        //new code using mkmapitem
+        //new code using mkmapitem & mkplacemark
         MKPlacemark *giddyPlacemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(37.949807,-91.776859) addressDictionary:nil];
         MKMapItem *giddyLocation = [[MKMapItem alloc] initWithPlacemark:giddyPlacemark];
+            //add extra features to display in map app
         giddyLocation.name = @"Giddy Goat Coffee";
         giddyLocation.phoneNumber = @"+15734266750";
         giddyLocation.url = [NSURL URLWithString:@"http://tggch.com"];
@@ -81,8 +80,6 @@
         //open in iOS6 maps
         [giddyLocation openInMapsWithLaunchOptions:nil];
     }
-    //NSURL *mapUrl = [[NSURL alloc] initWithString:url];
-    //[[UIApplication sharedApplication] openURL:mapUrl];
 }
 
 #pragma mark - Social Integration / Photo Upload
