@@ -20,8 +20,8 @@
 
 @property (nonatomic)NSMutableArray *updateArray;
 @property (weak, nonatomic) IBOutlet UILabel *specialsLabel;
-@property (strong, nonatomic)UIImagePickerController *imagePicker;
-@property (strong, nonatomic)UIImage *imageSelected;
+@property (weak, nonatomic)UIImagePickerController *imagePicker;
+@property (weak, nonatomic)UIImage *imageSelected;
 
 - (IBAction)gotoMap:(id)sender;
 

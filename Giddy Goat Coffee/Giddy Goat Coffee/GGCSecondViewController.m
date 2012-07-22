@@ -90,7 +90,7 @@
     [nameArray addObject:space];
     [descripArray addObject:space];
     
-    tbxml = [TBXML tbxmlWithXMLFile:@"coffeeDescrips.xml"];
+    tbxml = [TBXML tbxmlWithXMLFile:@"coffees.xml"];
     
         //obtain root element
     TBXMLElement * root = tbxml.rootXMLElement;

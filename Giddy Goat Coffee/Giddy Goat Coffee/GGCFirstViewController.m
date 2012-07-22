@@ -11,10 +11,6 @@
 #import <MapKit/MapKit.h>
 
 
-@interface GGCFirstViewController ()
-
-@end
-
 @implementation GGCFirstViewController
 
 @synthesize updateArray;
@@ -59,12 +55,11 @@
 #pragma mark - First View Icon Links
 
 - (IBAction)gotoMap:(id)sender {
-    NSMutableString *url = [[NSMutableString alloc] init];
     NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
     if (versionNumber < 6) {
-        [url appendString:@"http://maps.google.com/maps?q=704+n+bishop+Ave+suite+2+rolla+mo+65401&ll=37.949807,-91.776859"];
-        NSURL *mapUrl = [[NSURL alloc] initWithString:url];
+        NSURL *mapUrl = [[NSURL alloc] initWithString:@"http://maps.google.com/maps?q=704+n+bishop+Ave+suite+2+rolla+mo+65401&ll=37.949807,-91.776859"];
         [[UIApplication sharedApplication] openURL:mapUrl];
+        mapUrl = nil;
     } else {
             //code for ios 6 map integration
         NSLog(@"opening maps app in iOS 6");
@@ -257,6 +252,7 @@
     [updateArray addObject:updateString];
     NSLog(@"Saving XML to file system");
     [updateArray writeToFile:[self statusArrayFilePath] atomically:YES];
+    url = nil;
 }
 
 - (void)compareDates:(NSArray *)arrayFromFile months_p:(NSInteger *)months_p days_p:(NSInteger *)days_p
