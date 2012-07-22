@@ -26,7 +26,6 @@
 		5F44BF1A15AA5953001709E5 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F44BF1915AA5953001709E5 /* libz.1.2.5.dylib */; };
 		5F44BF1C15AA595C001709E5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F44BF1B15AA595C001709E5 /* libz.dylib */; };
 		5F819B1215AE18C100323E0D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F819B1115AE18C100323E0D /* Social.framework */; };
-		5F819B1515AE278300323E0D /* action.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F819B1415AE278300323E0D /* action.png */; };
 		5F819B1915AE571D00323E0D /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F819B1815AE571D00323E0D /* Twitter.framework */; };
 		5FB776CC15A6157C00EC7F00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB776CB15A6157C00EC7F00 /* UIKit.framework */; };
 		5FB776CE15A6157C00EC7F00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB776CD15A6157C00EC7F00 /* Foundation.framework */; };
@@ -47,7 +46,6 @@
 		5FB7774F15A73B3500EC7F00 /* giddyTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FB7774E15A73B3500EC7F00 /* giddyTitle.png */; };
 		5FB7775215A73FB100EC7F00 /* coffesTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FB7775115A73FB100EC7F00 /* coffesTitle.png */; };
 		5FC3460A15AC7C56005C9DF7 /* GGCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3460915AC7C56005C9DF7 /* GGCDetailViewController.m */; };
-		5FDE50A515B611AB00867F05 /* coffee-bean.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50A315B611AB00867F05 /* coffee-bean.png */; };
 		5FDE50B715B652CF00867F05 /* Coffee_bean_small_flip.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B315B652CF00867F05 /* Coffee_bean_small_flip.png */; };
 		5FDE50B815B652CF00867F05 /* Coffee_bean_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B415B652CF00867F05 /* Coffee_bean_small.png */; };
 		5FDE50B915B652CF00867F05 /* Coffee_bean_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FDE50B515B652CF00867F05 /* Coffee_bean_small@2x.png */; };
@@ -82,7 +80,6 @@
 		5F44BF1915AA5953001709E5 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		5F44BF1B15AA595C001709E5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5F819B1115AE18C100323E0D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		5F819B1415AE278300323E0D /* action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action.png; sourceTree = "<group>"; };
 		5F819B1815AE571D00323E0D /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5FB776C715A6157C00EC7F00 /* Giddy Goat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Giddy Goat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB776CB15A6157C00EC7F00 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -111,7 +108,6 @@
 		5FB7775115A73FB100EC7F00 /* coffesTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffesTitle.png; sourceTree = "<group>"; };
 		5FC3460815AC7C56005C9DF7 /* GGCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGCDetailViewController.h; sourceTree = "<group>"; };
 		5FC3460915AC7C56005C9DF7 /* GGCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGCDetailViewController.m; sourceTree = "<group>"; };
-		5FDE50A315B611AB00867F05 /* coffee-bean.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coffee-bean.png"; sourceTree = "<group>"; };
 		5FDE50B315B652CF00867F05 /* Coffee_bean_small_flip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coffee_bean_small_flip.png; sourceTree = "<group>"; };
 		5FDE50B415B652CF00867F05 /* Coffee_bean_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coffee_bean_small.png; sourceTree = "<group>"; };
 		5FDE50B515B652CF00867F05 /* Coffee_bean_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coffee_bean_small@2x.png"; sourceTree = "<group>"; };
@@ -233,14 +229,12 @@
 				5FDE50B415B652CF00867F05 /* Coffee_bean_small.png */,
 				5FDE50B515B652CF00867F05 /* Coffee_bean_small@2x.png */,
 				5FDE50B615B652CF00867F05 /* Coffee_bean_small_flip@2x.png */,
-				5FDE50A315B611AB00867F05 /* coffee-bean.png */,
 				5F3389B615B399AC003610D8 /* coffeeCup.png */,
 				5F3389B715B399AC003610D8 /* coffeeCup@2x.png */,
 				5F3389B015B38269003610D8 /* bkgd-grayStripe@2x.png */,
 				5F3389B115B38269003610D8 /* bkgd-grayStripe.png */,
 				5F3389AC15B3806A003610D8 /* bkgd-woodgrain@2x.png */,
 				5F3389AD15B3806A003610D8 /* bkgd-woodgrain.png */,
-				5F819B1415AE278300323E0D /* action.png */,
 				5F2811FE15ADCB7E008C1C0A /* giddyInformation.png */,
 				5F2811F815ADC5DD008C1C0A /* giddyCreditsGreen.png */,
 				5FB7775115A73FB100EC7F00 /* coffesTitle.png */,
@@ -332,7 +326,6 @@
 				5F2811EA15AD2182008C1C0A /* phone.png in Resources */,
 				5F2811F915ADC5DD008C1C0A /* giddyCreditsGreen.png in Resources */,
 				5F2811FF15ADCB7E008C1C0A /* giddyInformation.png in Resources */,
-				5F819B1515AE278300323E0D /* action.png in Resources */,
 				5F33899A15B2E7FF003610D8 /* phone@2x.png in Resources */,
 				5F33899C15B2E9B5003610D8 /* house@2x.png in Resources */,
 				5F3389A015B3000B003610D8 /* Default.png in Resources */,
@@ -343,7 +336,6 @@
 				5F3389B515B398CB003610D8 /* Default@2x.png in Resources */,
 				5F3389B815B399AC003610D8 /* coffeeCup.png in Resources */,
 				5F3389B915B399AC003610D8 /* coffeeCup@2x.png in Resources */,
-				5FDE50A515B611AB00867F05 /* coffee-bean.png in Resources */,
 				5FDE50B715B652CF00867F05 /* Coffee_bean_small_flip.png in Resources */,
 				5FDE50B815B652CF00867F05 /* Coffee_bean_small.png in Resources */,
 				5FDE50B915B652CF00867F05 /* Coffee_bean_small@2x.png in Resources */,
