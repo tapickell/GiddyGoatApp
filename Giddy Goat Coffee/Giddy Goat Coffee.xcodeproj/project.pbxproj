@@ -25,7 +25,7 @@
 		5F44BF1215AA55A3001709E5 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F44BF1015AA55A3001709E5 /* TBXML.m */; };
 		5F44BF1A15AA5953001709E5 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F44BF1915AA5953001709E5 /* libz.1.2.5.dylib */; };
 		5F44BF1C15AA595C001709E5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F44BF1B15AA595C001709E5 /* libz.dylib */; };
-		5F819B1215AE18C100323E0D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F819B1115AE18C100323E0D /* Social.framework */; };
+		5F819B1215AE18C100323E0D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F819B1115AE18C100323E0D /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5F819B1915AE571D00323E0D /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F819B1815AE571D00323E0D /* Twitter.framework */; };
 		5FB776CC15A6157C00EC7F00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB776CB15A6157C00EC7F00 /* UIKit.framework */; };
 		5FB776CE15A6157C00EC7F00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB776CD15A6157C00EC7F00 /* Foundation.framework */; };
