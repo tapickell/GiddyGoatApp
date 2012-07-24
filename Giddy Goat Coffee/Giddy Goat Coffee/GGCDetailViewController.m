@@ -44,7 +44,7 @@
 }
 
 - (IBAction)backgroundTapped:(id)sender {
-    NSLog(@"Background tapped");
+        //NSLog(@"Background tapped");
         //[[self parentViewController] dismissModalViewControllerAnimated:YES];
         //[[self parentViewController] dismissViewControllerAnimated:YES completion:nil];
     [self dismissModalViewControllerAnimated:YES];

@@ -95,19 +95,19 @@
         //obtain root element
     TBXMLElement * root = tbxml.rootXMLElement;
     if (root) {
-        NSLog(@"Got Root Element");
+            //NSLog(@"Got Root Element");
         TBXMLElement * elem_coffees = [TBXML childElementNamed:@"coffees" parentElement:root];
         while (elem_coffees != nil) {
-            NSLog(@"elem_coffees != nil");
+                //NSLog(@"elem_coffees != nil");
             
             TBXMLElement * elem_name = [TBXML childElementNamed:@"name" parentElement:elem_coffees];
             NSString *name = [TBXML textForElement:elem_name];
-            NSLog(@"NAME: %@", name);
+                //NSLog(@"NAME: %@", name);
             [nameArray addObject:name];
             
             TBXMLElement * elem_descrip = [TBXML childElementNamed:@"descrip" parentElement:elem_coffees];
             NSString *descrip = [TBXML textForElement:elem_descrip];
-            NSLog(@"DESCRIP: %@", descrip);
+                //NSLog(@"DESCRIP: %@", descrip);
             [descripArray addObject:descrip];
             
             elem_coffees = [TBXML nextSiblingNamed:@"coffees" searchFromElement:elem_coffees];

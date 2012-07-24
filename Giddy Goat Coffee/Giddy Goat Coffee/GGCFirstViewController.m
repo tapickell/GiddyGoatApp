@@ -62,7 +62,7 @@
         mapUrl = nil;
     } else {
             //code for ios 6 map integration
-        NSLog(@"opening maps app in iOS 6");
+            //NSLog(@"opening maps app in iOS 6");
         
         //new code using mkmapitem & mkplacemark
         MKPlacemark *giddyPlacemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(37.949807,-91.776859) addressDictionary:nil];
@@ -187,16 +187,16 @@
         NSInteger days;
         [self compareDates:arrayFromFile months_p:&months days_p:&days];
             
-        NSLog(@"Months: %d Days: %d", months, days);
+            //NSLog(@"Months: %d Days: %d", months, days);
         
         if (days > 0 || months > 0) {
                 //get fresh feed
-            NSLog(@"Getting fresh data");
+                //NSLog(@"Getting fresh data");
             [self fetchSpecials];
         } else {
-            NSLog(@"Loading cache data");
+                //NSLog(@"Loading cache data");
             updateArray = [[NSMutableArray alloc] initWithContentsOfFile:[self statusArrayFilePath]];
-            NSLog(@"Update Array: %@", updateArray);
+                //NSLog(@"Update Array: %@", updateArray);
         }
     } else {
             //if no file on file system yet get fresh feed
@@ -210,8 +210,9 @@
     
     updateArray = [[NSMutableArray alloc] init];
     
-    NSMutableString *updateString = [[NSMutableString alloc] init];
-    NSMutableString *dateString = [[NSMutableString alloc] init];
+        //try to use just strings instead of mutableStrings with append
+    NSString *updateString = [[NSMutableString alloc] init];
+    NSString *dateString = [[NSMutableString alloc] init];
     
     NSData *xmlData = [[NSData alloc] initWithContentsOfURL:url];
         //convert xml to string and dump to log
@@ -225,32 +226,28 @@
             //obtain root element
         TBXMLElement * root = tbxml.rootXMLElement;
         if (root) {
-            NSLog(@"Got Root Element");
+                //NSLog(@"Got Root Element");
             TBXMLElement * elem_status = [TBXML childElementNamed:@"status" parentElement:root];
             while (elem_status != nil) {
-                NSLog(@"elem_status != nil");
+                    //NSLog(@"elem_status != nil");
                 
                 TBXMLElement * elem_date = [TBXML childElementNamed:@"created_at" parentElement:elem_status];
-                NSString *date = [TBXML textForElement:elem_date];
-                NSLog(@"Status Date:  %@", date);
-                [dateString appendString:date];
+                dateString = [dateString stringByAppendingString:[TBXML textForElement:elem_date]];
                 
                 TBXMLElement * elem_text = [TBXML childElementNamed:@"text" parentElement:elem_status];
-                NSString *text = [TBXML textForElement:elem_text];
-                NSLog(@"Status: %@", text);
-                [updateString appendString:text];
+                updateString = [updateString stringByAppendingString:[TBXML textForElement:elem_text]];
                 
                 elem_status = [TBXML nextSiblingNamed:@"status" searchFromElement:elem_status];
             }
         }
     } else {
             //just in case feed is down
-        [dateString appendString:@"2012-01-01 00:00:00 +0000"];
-        [updateString appendString:@"No specials listed today. Please check back later."];
+        dateString = [dateString stringByAppendingString:@"2012-01-01 00:00:00 +0000"];
+        updateString = [updateString stringByAppendingString:@"No specials listed today. Please check back later."];
     }
     [updateArray addObject:dateString];
     [updateArray addObject:updateString];
-    NSLog(@"Saving XML to file system");
+        //NSLog(@"Saving XML to file system");
     [updateArray writeToFile:[self statusArrayFilePath] atomically:YES];
     url = nil;
 }
@@ -262,9 +259,9 @@
     dateFormatter.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
         //get date from array
     NSDate *dateFromFile = [dateFormatter dateFromString:[arrayFromFile objectAtIndex:0]];
-        NSLog(@"File Date:    %@", dateFromFile);
+        //NSLog(@"File Date:    %@", dateFromFile);
     NSDate *now = [NSDate date];
-        NSLog(@"Current Date: %@", now);
+        //NSLog(@"Current Date: %@", now);
         //convert dates to days and months for comparison
     NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSUInteger units = NSMonthCalendarUnit | NSDayCalendarUnit;
@@ -276,7 +273,7 @@
     NSDateComponents *fileComps = [cal components:units fromDate:dateFromFile];
     NSInteger dayComp = [nowComps day] - [fileComps day];
     NSInteger monthComp = [nowComps month] - [fileComps month];
-    NSLog(@"Manual; Months: %d Days: %d", monthComp, dayComp);
+        //NSLog(@"Manual; Months: %d Days: %d", monthComp, dayComp);
     
     
         //NSDateComponents *comp = [cal components:units fromDate:now toDate:dateFromFile options:0];

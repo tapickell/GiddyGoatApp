@@ -14,13 +14,13 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    UIDevice *device = [UIDevice currentDevice];
-    
-    if ([[device model] isEqualToString:@"iPhone"] ) {
-        NSLog(@"Your device is an iPhone.");
-    } else {
-        NSLog(@"Your device doesn't support this feature.");
-    }
+//    UIDevice *device = [UIDevice currentDevice];
+//    
+//    if ([[device model] isEqualToString:@"iPhone"] ) {
+//            //NSLog(@"Your device is an iPhone.");
+//    } else {
+//            //NSLog(@"Your device doesn't support this feature.");
+//    }
 }
 
 - (void)viewDidLoad
@@ -50,10 +50,10 @@
 {
     UIDevice *device = [UIDevice currentDevice];
     if ([[device model] isEqualToString:@"iPhone"] ) {
-        NSLog(@"Calling Giddy Goat Coffee House");
+            //NSLog(@"Calling Giddy Goat Coffee House");
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://5734266750"]]];
     } else {
-        NSLog(@"Your device doesn't support this feature.");
+            //NSLog(@"Your device doesn't support this feature.");
     }
 }
 
