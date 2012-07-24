@@ -40,7 +40,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+    return interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 - (IBAction)backgroundTapped:(id)sender {

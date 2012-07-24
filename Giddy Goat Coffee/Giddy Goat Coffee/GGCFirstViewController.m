@@ -45,11 +45,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
+    return interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 #pragma mark - First View Icon Links
@@ -62,7 +58,7 @@
         mapUrl = nil;
     } else {
             //code for ios 6 map integration
-            //NSLog(@"opening maps app in iOS 6");
+            ////NSLog(@"opening maps app in iOS 6");
         
         //new code using mkmapitem & mkplacemark
         MKPlacemark *giddyPlacemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(37.949807,-91.776859) addressDictionary:nil];
@@ -183,11 +179,12 @@
     arrayPath = [self statusArrayFilePath];
     NSArray *arrayFromFile = [NSArray arrayWithContentsOfFile:arrayPath];
     if (arrayFromFile) {
+        //NSLog(@"ArrayFromFile: [0]:%@ [1]:%@", [arrayFromFile objectAtIndex:0], [arrayFromFile objectAtIndex:1]);
         NSInteger months;
         NSInteger days;
         [self compareDates:arrayFromFile months_p:&months days_p:&days];
             
-            //NSLog(@"Months: %d Days: %d", months, days);
+            ////NSLog(@"Months: %d Days: %d", months, days);
         
         if (days > 0 || months > 0) {
                 //get fresh feed
@@ -196,7 +193,7 @@
         } else {
                 //NSLog(@"Loading cache data");
             updateArray = [[NSMutableArray alloc] initWithContentsOfFile:[self statusArrayFilePath]];
-                //NSLog(@"Update Array: %@", updateArray);
+                ////NSLog(@"Update Array: %@", updateArray);
         }
     } else {
             //if no file on file system yet get fresh feed
@@ -217,7 +214,7 @@
     NSData *xmlData = [[NSData alloc] initWithContentsOfURL:url];
         //convert xml to string and dump to log
         //NSString *xmlCheck = [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding];
-        //NSLog(@"xmlCheck:\n%@", xmlCheck);
+        ////NSLog(@"xmlCheck:\n%@", xmlCheck);
     
     if (xmlData) {
             //tbxml = [[TBXML alloc] initWithXMLData:xmlData];
@@ -226,10 +223,10 @@
             //obtain root element
         TBXMLElement * root = tbxml.rootXMLElement;
         if (root) {
-                //NSLog(@"Got Root Element");
+                ////NSLog(@"Got Root Element");
             TBXMLElement * elem_status = [TBXML childElementNamed:@"status" parentElement:root];
             while (elem_status != nil) {
-                    //NSLog(@"elem_status != nil");
+                    ////NSLog(@"elem_status != nil");
                 
                 TBXMLElement * elem_date = [TBXML childElementNamed:@"created_at" parentElement:elem_status];
                 dateString = [dateString stringByAppendingString:[TBXML textForElement:elem_date]];
@@ -241,13 +238,13 @@
             }
         }
     } else {
-            //just in case feed is down
-        dateString = [dateString stringByAppendingString:@"2012-01-01 00:00:00 +0000"];
+            //just in case feed is down *July 6, 2012 2:23:59* 
+        dateString = [dateString stringByAppendingString:@"2012-07-06 14:23:59 +0000"];
         updateString = [updateString stringByAppendingString:@"No specials listed today. Please check back later."];
     }
     [updateArray addObject:dateString];
     [updateArray addObject:updateString];
-        //NSLog(@"Saving XML to file system");
+        ////NSLog(@"Saving XML to file system");
     [updateArray writeToFile:[self statusArrayFilePath] atomically:YES];
     url = nil;
 }
@@ -278,7 +275,7 @@
     
         //NSDateComponents *comp = [cal components:units fromDate:now toDate:dateFromFile options:0];
         //save comparison as nsinteger
-        //NSLog(@"Months: %d Days: %d", [comp month], [comp day]);
+        ////NSLog(@"Months: %d Days: %d", [comp month], [comp day]);
     *months_p = monthComp;
     *days_p = dayComp;
     
