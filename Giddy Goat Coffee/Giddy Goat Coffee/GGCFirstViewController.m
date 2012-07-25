@@ -112,6 +112,7 @@
     if (buttonIndex == [actionSheet cancelButtonIndex]) {
             //No Photos jump to shareMe
         imageSelected = nil;
+            //imageURL = nil;
         [self shareMe:self];
         return;
     } else if ([choice isEqualToString:CAMERA]) {
@@ -130,6 +131,8 @@
 {
         //extract image
     imageSelected = [info objectForKey:UIImagePickerControllerEditedImage];
+        //imageURL = [info valueForKey:UIImagePickerControllerReferenceURL];
+        //NSLog(@"imageSelected url: %@",imageURL);
     
         //[self dismissViewControllerAnimated:YES completion:^([self shareMe:self])];
     [self dismissViewControllerAnimated:YES completion:^{[self shareMe:self];}];
@@ -147,6 +150,8 @@
     NSString *textToShare = @"@TGGCHRolla ";
     NSArray *activityItems;
     if (imageSelected) {
+            //NSLog(@"Image Selected: %@", imageSelected);
+        
         activityItems = @[textToShare, imageSelected];
     } else {
         activityItems = @[textToShare];
@@ -169,6 +174,7 @@
         [self presentViewController:activityVC animated:YES completion:nil];
     }
     imageSelected = nil;
+        //imageURL = nil;
 }
 
 #pragma mark - status update and cache methods

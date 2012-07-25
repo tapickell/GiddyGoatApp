@@ -16,12 +16,14 @@
     TBXML *tbxml;
     UIImagePickerController *imagePicker;
     UIImage *imageSelected;
+    NSURL *imageURL;
 }
 
 @property (nonatomic)NSMutableArray *updateArray;
 @property (weak, nonatomic) IBOutlet UILabel *specialsLabel;
 @property (weak, nonatomic)UIImagePickerController *imagePicker;
 @property (weak, nonatomic)UIImage *imageSelected;
+@property (weak, nonatomic)NSURL *imageUrl;
 
 - (IBAction)gotoMap:(id)sender;
 
