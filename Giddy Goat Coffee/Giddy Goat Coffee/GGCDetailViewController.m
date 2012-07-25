@@ -28,6 +28,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [TestFlight passCheckpoint:@"VIEWING_CREDITS_PAGE"];
 }
 
 - (void)viewDidUnload
@@ -47,6 +48,7 @@
         //NSLog(@"Background tapped");
         //[[self parentViewController] dismissModalViewControllerAnimated:YES];
         //[[self parentViewController] dismissViewControllerAnimated:YES completion:nil];
+    [TestFlight passCheckpoint:@"DONE_VIEWING_CREDITS_PAGE"];
     [self dismissModalViewControllerAnimated:YES];
 }
 

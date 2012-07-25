@@ -48,18 +48,19 @@
     return interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
-#pragma mark - First View Icon Links
+#pragma mark - Maps Integration for iOS5 and iOS6
 
 - (IBAction)gotoMap:(id)sender {
     NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
     if (versionNumber < 6) {
+        [TestFlight passCheckpoint:@"USING_GOOGLE_MAPS_IOS5"];
         NSURL *mapUrl = [[NSURL alloc] initWithString:@"http://maps.google.com/maps?q=704+n+bishop+Ave+suite+2+rolla+mo+65401&ll=37.949807,-91.776859"];
         [[UIApplication sharedApplication] openURL:mapUrl];
         mapUrl = nil;
     } else {
             //code for ios 6 map integration
             ////NSLog(@"opening maps app in iOS 6");
-        
+        [TestFlight passCheckpoint:@"USING_APPLE_MAPS_IOS6"];
         //new code using mkmapitem & mkplacemark
         MKPlacemark *giddyPlacemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(37.949807,-91.776859) addressDictionary:nil];
         MKMapItem *giddyLocation = [[MKMapItem alloc] initWithPlacemark:giddyPlacemark];
@@ -111,15 +112,18 @@
     NSString *choice = [actionSheet buttonTitleAtIndex:buttonIndex];
     if (buttonIndex == [actionSheet cancelButtonIndex]) {
             //No Photos jump to shareMe
+        [TestFlight passCheckpoint:@"NOT_SHARING_PHOTO"];
         imageSelected = nil;
             //imageURL = nil;
         [self shareMe:self];
         return;
     } else if ([choice isEqualToString:CAMERA]) {
             //get photo from camera
+        [TestFlight passCheckpoint:@"TAKING_PIC_TO_SHARE"];
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     } else if ([choice isEqualToString:LIBRARY]) {
             //get photo from library
+        [TestFlight passCheckpoint:@"GETTING_PIC_FROM_LIBRARY"];
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     imagePicker.allowsEditing = YES;
@@ -147,6 +151,7 @@
 
 - (IBAction)shareMe:(id)sender
 {
+    [TestFlight passCheckpoint:@"USING_SOCIAL_FEATURES"];
     NSString *textToShare = @"@TGGCHRolla ";
     NSArray *activityItems;
     if (imageSelected) {
@@ -244,6 +249,7 @@
             }
         }
     } else {
+        [TestFlight passCheckpoint:@"TWITTER_FEED_WAS_DOWN!!!"];
             //just in case feed is down *July 6, 2012 2:23:59* 
         dateString = [dateString stringByAppendingString:@"2012-07-06 14:23:59 +0000"];
         updateString = [updateString stringByAppendingString:@"No specials listed today. Please check back later."];

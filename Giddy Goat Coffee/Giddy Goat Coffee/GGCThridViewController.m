@@ -51,6 +51,7 @@
     UIDevice *device = [UIDevice currentDevice];
     if ([[device model] isEqualToString:@"iPhone"] ) {
             //NSLog(@"Calling Giddy Goat Coffee House");
+        [TestFlight passCheckpoint:@"USING_CALL_FEATURE"];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://5734266750"]]];
     } else {
             //NSLog(@"Your device doesn't support this feature.");
