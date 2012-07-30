@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2809" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2818" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1884"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1900"/>
     </dependencies>
     <scenes>
         <!--First View Controller - First-->
@@ -66,7 +66,7 @@
                                     <action selector="gotoMap:" destination="2" eventType="touchUpInside" id="Kh0-oP-7aH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" minimumFontSize="10" text="" textAlignment="center" autoshrinkMode="minimumFontSize" id="3rZ-hz-8U5">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" minimumFontSize="10" text="" textAlignment="center" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="252" id="3rZ-hz-8U5">
                                 <rect key="frame" x="34" y="158" width="252" height="157"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <nil key="highlightedColor"/>
@@ -105,7 +105,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-59" y="-314"/>
+            <point key="canvasLocation" x="-59" y="-396"/>
+        </scene>
+        <!--Punch View Controller - Punch-->
+        <scene sceneID="nND-pa-rOS">
+            <objects>
+                <viewController title="Punch" id="pSx-Cg-BxJ" customClass="GGCPunchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="As9-Hd-GPP">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pEL-HT-dfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-590" y="290"/>
         </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="13">
@@ -140,7 +154,7 @@
                                 <rect key="frame" x="-6" y="297" width="45" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="10" text="" textAlignment="center" autoshrinkMode="minimumFontSize" id="qzT-x6-4lt">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="10" text="" textAlignment="center" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="280" id="qzT-x6-4lt">
                                 <rect key="frame" x="20" y="297" width="280" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="highlightedColor"/>
@@ -198,7 +212,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594" y="140"/>
+            <point key="canvasLocation" x="-590" y="-396"/>
         </scene>
         <!--Thrid View Controller - Third-->
         <scene sceneID="aEr-3D-zRJ">
@@ -247,7 +261,7 @@
                                     <segue destination="sYc-41-z3Q" kind="modal" modalTransitionStyle="flipHorizontal" id="spd-i3-5Th"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="12" baselineAdjustment="alignBaselines" minimumFontSize="10" autoshrinkMode="minimumFontSize" id="F35-zB-JKD">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="12" baselineAdjustment="alignBaselines" minimumFontSize="10" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="144" id="F35-zB-JKD">
                                 <rect key="frame" x="93" y="123" width="144" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="highlightedColor"/>
@@ -319,7 +333,7 @@ Sunday
                                     <action selector="backgroundTapped:" destination="sYc-41-z3Q" eventType="touchUpInside" id="c3J-Gc-OOp"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="24" baselineAdjustment="alignBaselines" minimumFontSize="10" autoshrinkMode="minimumFontSize" id="QNx-mK-Jjn">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="24" baselineAdjustment="alignBaselines" minimumFontSize="10" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="225" id="QNx-mK-Jjn">
                                 <rect key="frame" x="57" y="82" width="225" height="350"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="highlightedColor"/>
@@ -375,12 +389,48 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
         <image name="plastiquePin.png" width="145" height="143"/>
         <image name="routedAction.png" width="162" height="162"/>
     </resources>
+    <classes>
+        <class className="GGCDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTapped:"/>
+                <relationship kind="outlet" name="itemDescripLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGCFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCFirstViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getPhotoForSharing:"/>
+                <relationship kind="action" name="gotoMap:"/>
+                <relationship kind="action" name="shareMe:"/>
+                <relationship kind="outlet" name="specialsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGCPunchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCPunchViewController.h"/>
+        </class>
+        <class className="GGCSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCSecondViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="coffeeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="coffeePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="GGCThridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCThridViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="callPopup:"/>
+                <relationship kind="outlet" name="callButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="spd-i3-5Th"/>
+        <segue reference="VEb-0l-oqy"/>
     </inferredMetricsTieBreakers>
 </document>

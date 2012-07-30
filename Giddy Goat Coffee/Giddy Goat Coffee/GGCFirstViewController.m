@@ -15,6 +15,8 @@
 
 @synthesize updateArray;
 @synthesize specialsLabel;
+@synthesize imagePicker = _imagePicker;
+@synthesize imageSelected = _imageSelected;
 
 #define CAMERA @"Camera"
 #define LIBRARY @"Photo Library"
