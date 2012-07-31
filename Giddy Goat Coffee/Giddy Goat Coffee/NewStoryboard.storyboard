@@ -313,35 +313,7 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="center" image="bkgd-woodgrain.png" id="0vQ-Dv-Tgg"/>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="XKv-cE-rUY">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="fbX-5v-kNv"/>
-                                    <constraint firstAttribute="height" constant="60" id="oEr-mo-szI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="routedAction.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="giddyTitle.png" id="Bgo-dQ-5qe"/>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="SZl-wJ-JYz">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="Ab3-Tv-Wsr"/>
-                                    <constraint firstAttribute="width" constant="55" id="p1U-MM-fSA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="plastiquePin.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" minimumFontSize="10" text="" textAlignment="center" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="252" id="rud-Nc-WWE">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="252" id="HCW-GN-RBL"/>
@@ -381,24 +353,12 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
                                     <constraint firstAttribute="width" constant="45" id="Hbm-Ya-pgb"/>
                                 </constraints>
                             </imageView>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="Awi-ma-EGJ">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rud-Nc-WWE" firstAttribute="trailing" secondItem="BrL-fE-jJP" secondAttribute="trailing" type="default" id="0u5-yk-UlQ"/>
                             <constraint firstItem="nAX-dD-qam" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="1Dj-fu-TYl"/>
                             <constraint firstItem="MXe-2j-lTf" firstAttribute="top" secondItem="Bgo-dQ-5qe" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7QY-xy-Aio"/>
-                            <constraint firstItem="XKv-cE-rUY" firstAttribute="leading" secondItem="SZl-wJ-JYz" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="APq-4g-ca3"/>
-                            <constraint firstItem="XKv-cE-rUY" firstAttribute="centerY" secondItem="SZl-wJ-JYz" secondAttribute="centerY" type="default" id="CW2-90-frU"/>
                             <constraint firstItem="0vQ-Dv-Tgg" firstAttribute="bottom" secondItem="wa3-Vh-Ndj" secondAttribute="bottom" type="default" id="HCV-qy-vkn"/>
                             <constraint firstItem="rud-Nc-WWE" firstAttribute="top" secondItem="1mJ-df-B0W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LdI-oP-6HL"/>
                             <constraint firstItem="rud-Nc-WWE" firstAttribute="centerX" secondItem="Bgo-dQ-5qe" secondAttribute="centerX" type="default" id="NaD-ZW-wMd"/>
@@ -407,17 +367,13 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
                             <constraint firstItem="MXe-2j-lTf" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="33" id="YsQ-6C-EYN"/>
                             <constraint firstItem="MaT-2q-5AZ" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" type="default" id="ZSB-yF-Xah"/>
                             <constraint firstItem="Bgo-dQ-5qe" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ag5-0m-azI"/>
-                            <constraint firstItem="SZl-wJ-JYz" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="94" id="bSq-33-3Ce"/>
                             <constraint firstItem="0vQ-Dv-Tgg" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" type="default" id="cfQ-1m-Qh5"/>
-                            <constraint firstAttribute="bottom" secondItem="Awi-ma-EGJ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="dfZ-ad-0qq"/>
+                            <constraint firstItem="1mJ-df-B0W" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="282" id="dI4-e9-Km5"/>
                             <constraint firstItem="nAX-dD-qam" firstAttribute="top" secondItem="rud-Nc-WWE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="er9-Dp-yAh"/>
                             <constraint firstItem="Bgo-dQ-5qe" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nDx-NO-vRx"/>
                             <constraint firstItem="BrL-fE-jJP" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="130" id="oQY-A1-I0w"/>
-                            <constraint firstItem="1mJ-df-B0W" firstAttribute="leading" secondItem="Awi-ma-EGJ" secondAttribute="leading" type="default" id="pL8-US-zzg"/>
-                            <constraint firstAttribute="trailing" secondItem="Awi-ma-EGJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="t2H-8d-atR"/>
                             <constraint firstAttribute="trailing" secondItem="Bgo-dQ-5qe" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="uLs-CV-aa2"/>
                             <constraint firstItem="nAX-dD-qam" firstAttribute="top" secondItem="MaT-2q-5AZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xFE-dU-aUR"/>
-                            <constraint firstAttribute="bottom" secondItem="XKv-cE-rUY" secondAttribute="bottom" constant="5" id="xxu-yT-ACu"/>
                             <constraint firstItem="1mJ-df-B0W" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="152" id="y1a-Wu-Zbx"/>
                         </constraints>
                     </view>
@@ -437,8 +393,6 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
         <image name="giddyCreditsGreen.png" width="184" height="90"/>
         <image name="giddyInformation.png" width="310" height="90"/>
         <image name="giddyTitle.png" width="479" height="183"/>
-        <image name="plastiquePin.png" width="145" height="143"/>
-        <image name="routedAction.png" width="162" height="162"/>
     </resources>
     <classes>
         <class className="AwesomeMenu" superclassName="UIView">
@@ -465,6 +419,7 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
         <class className="GGCPunchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCPunchViewController.h"/>
             <relationships>
+                <relationship kind="action" name="gotoMap:"/>
                 <relationship kind="outlet" name="menu" candidateClass="AwesomeMenu"/>
             </relationships>
         </class>

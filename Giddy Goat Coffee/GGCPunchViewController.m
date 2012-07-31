@@ -7,6 +7,7 @@
 //
 
 #import "GGCPunchViewController.h"
+#import <Twitter/Twitter.h>
 #import <MapKit/MapKit.h>
 
 @interface GGCPunchViewController ()
@@ -15,7 +16,12 @@
 
 @implementation GGCPunchViewController
 
+@synthesize imagePicker = _imagePicker;
+@synthesize imageSelected = _imageSelected;
 @synthesize menu;
+
+#define CAMERA @"Camera"
+#define LIBRARY @"Photo Library"
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,9 +32,18 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self getMenuDisplay];
+}
+
+#pragma mark - awesome menu display methods
+
+- (void)getMenuDisplay
+{
 	// Do any additional setup after loading the view.
     AwesomeMenuItem *menuItem1 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"map-marker.png"] highlightedImage:nil ContentImage:nil highlightedContentImage:nil];
     AwesomeMenuItem *menuItem2 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bubbleIcon.png"] highlightedImage:nil ContentImage:nil highlightedContentImage:nil];
@@ -60,6 +75,7 @@
             break;
         case 1:
             //go to social
+            [self getPhotoForSharing:self];
             break;
         case 2:
             //got to specials
@@ -104,6 +120,117 @@
         [giddyLocation openInMapsWithLaunchOptions:nil];
     }
 }
+
+#pragma mark - Social Integration / Photo Upload
+
+- (IBAction)getPhotoForSharing:(id)sender {
+    //create image picker controller
+    imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    
+    //create action sheet to prompt user with options for pictures
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Send With Photo"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"No Photo"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    
+    //set action sheet style
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    
+    //if camera is available add that to the popup list of options
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        //imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        //add button for camera
+        [actionSheet addButtonWithTitle:CAMERA];
+    }
+    //if photo library is available add that to the popup list of options
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        //add button for library
+        [actionSheet addButtonWithTitle:LIBRARY];
+    }
+    //show action sheet
+    //issues with displaying
+    //[actionSheet showInView:self.parentViewController.view];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *desired = (NSString *)kUTTypeImage;
+    NSString *choice = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if (buttonIndex == [actionSheet cancelButtonIndex]) {
+        //No Photos jump to shareMe
+        [TestFlight passCheckpoint:@"NOT_SHARING_PHOTO"];
+        imageSelected = nil;
+        //imageURL = nil;
+        [self shareMe:self];
+        return;
+    } else if ([choice isEqualToString:CAMERA]) {
+        //get photo from camera
+        [TestFlight passCheckpoint:@"TAKING_PIC_TO_SHARE"];
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else if ([choice isEqualToString:LIBRARY]) {
+        //get photo from library
+        [TestFlight passCheckpoint:@"GETTING_PIC_FROM_LIBRARY"];
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    imagePicker.allowsEditing = YES;
+    imagePicker.mediaTypes = [NSArray arrayWithObject:desired];
+    [self.parentViewController presentModalViewController:imagePicker animated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //extract image
+    imageSelected = [info objectForKey:UIImagePickerControllerEditedImage];
+    //imageURL = [info valueForKey:UIImagePickerControllerReferenceURL];
+    //NSLog(@"imageSelected url: %@",imageURL);
+    
+    //[self dismissViewControllerAnimated:YES completion:^([self shareMe:self])];
+    [self dismissViewControllerAnimated:YES completion:^{[self shareMe:self];}];
+}
+
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];;
+}
+
+- (IBAction)shareMe:(id)sender
+{
+    [TestFlight passCheckpoint:@"USING_SOCIAL_FEATURES"];
+    NSString *textToShare = @"@TGGCHRolla ";
+    NSArray *activityItems;
+    if (imageSelected) {
+        //NSLog(@"Image Selected: %@", imageSelected);
+        
+        activityItems = @[textToShare, imageSelected];
+    } else {
+        activityItems = @[textToShare];
+    }
+    NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
+    if (versionNumber < 6) {
+        if ([TWTweetComposeViewController canSendTweet])
+        {
+            TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+            [tweetSheet setInitialText:textToShare];
+            if (imageSelected) {
+                [tweetSheet addImage:imageSelected];
+            }
+            [self presentModalViewController:tweetSheet animated:YES];
+        }
+    } else {
+        //code for ios 6
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+        
+        [self presentViewController:activityVC animated:YES completion:nil];
+    }
+    imageSelected = nil;
+    //imageURL = nil;
+}
+
 
 - (void)didReceiveMemoryWarning
 {

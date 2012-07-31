@@ -29,6 +29,8 @@
 
 @property (nonatomic, retain)IBOutlet AwesomeMenu *menu;
 
+- (void)getMenuDisplay;
+
 - (IBAction)gotoMap:(id)sender;
 
 - (IBAction)getPhotoForSharing:(id)sender;
