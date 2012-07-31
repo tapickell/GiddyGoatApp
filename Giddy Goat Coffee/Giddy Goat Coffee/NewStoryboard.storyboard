@@ -7,17 +7,8 @@
         <!--Punch View Controller - Punch-->
         <scene sceneID="bvN-Dv-b2n">
             <objects>
-                <viewController title="Punch" id="uPT-cH-3Uf" customClass="GGCPunchViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HyM-J4-1qf">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="view" destination="HyM-J4-1qf" id="Bxh-V0-hQT"/>
-                    </connections>
-                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p90-Sj-om9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Punch" title="Punch" id="uPT-cH-3Uf" customClass="GGCPunchViewController" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="-244" y="-320"/>
         </scene>

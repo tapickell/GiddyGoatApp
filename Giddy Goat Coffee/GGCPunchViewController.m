@@ -29,13 +29,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    AwesomeMenuItem *menuItem1 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"map-marker.png"]];
-    AwesomeMenuItem *menuItem2 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bubbleIcon.png"]];
-    AwesomeMenuItem *menuItem3 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"pricetag.png"]];
-    AwesomeMenuItem *menuItem4 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"coffeeCup.png"]];
-    AwesomeMenuItem *menuItem5 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"group.png"]];
-    AwesomeMenuItem *menuItem6 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"phone.png"]];
+    AwesomeMenuItem *menuItem1 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"map-marker.png"] highlightedImage:nil ContentImage:nil highlightedContentImage:nil];
+    AwesomeMenuItem *menuItem2 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bubbleIcon.png"] highlightedImage:nil ContentImage:nil highlightedContentImage:nil];
+    AwesomeMenuItem *menuItem3 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"pricetag.png"] highlightedImage:nil ContentImage:nil highlightedContentImage:nil];
+    AwesomeMenuItem *menuItem4 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"coffeeCup.png"] highlightedImage:nil ContentImage:nil highlightedContentImage:nil];
+    AwesomeMenuItem *menuItem5 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"group.png"] highlightedImage:nil ContentImage:nil highlightedContentImage:nil];
+    AwesomeMenuItem *menuItem6 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"phone.png"] highlightedImage:nil ContentImage:nil highlightedContentImage:nil];
     NSArray *menus = [NSArray arrayWithObjects:menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, menuItem6,  nil];
+    
+    
     menu = [[AwesomeMenu alloc] initWithFrame:self.view.window.bounds menus:menus];
     menu.startPoint = CGPointMake(160.0, 430.0);
     menu.menuWholeAngle = M_PI / 1.1;

@@ -41,7 +41,7 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
 
 @synthesize nearRadius, endRadius, farRadius, timeOffset, rotateAngle, menuWholeAngle, startPoint, expandRotation, closeRotation;
 @synthesize expanding = _expanding;
-@synthesize delegate = _delegate;
+@synthesize delegate = delegate;
 @synthesize menusArray = _menusArray;
 
 #pragma mark - initialization & cleaning up
@@ -155,6 +155,7 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
 #pragma mark - AwesomeMenuItem delegates
 - (void)AwesomeMenuItemTouchesBegan:(AwesomeMenuItem *)item
 {
+    //NSLog(@"Item in touches began: %@", item);
     if (item == _addButton) 
     {
         self.expanding = !self.isExpanding;
@@ -162,6 +163,7 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
 }
 - (void)AwesomeMenuItemTouchesEnd:(AwesomeMenuItem *)item
 {
+    //NSLog(@"Item in touches ended: %@", item);
     // exclude the "add" button
     if (item == _addButton) 
     {
@@ -192,9 +194,10 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
         _addButton.transform = CGAffineTransformMakeRotation(angle);
     }];
     
-    if ([_delegate respondsToSelector:@selector(AwesomeMenu:didSelectIndex:)])
+    if ([delegate respondsToSelector:@selector(AwesomeMenu:didSelectIndex:)])
     {
-        [_delegate AwesomeMenu:self didSelectIndex:item.tag - 1000];
+        //NSLog(@"INside awesomeMenu if delegate responds to selector: did select index");
+        [delegate AwesomeMenu:self didSelectIndex:item.tag - 1000];
     }
 }
 
