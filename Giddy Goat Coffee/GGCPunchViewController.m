@@ -85,6 +85,8 @@
             break;
         case 4:
             //go to credits
+            //[self presentDetailsView];
+            [self performSegueWithIdentifier:@"segueToCredits" sender:self];
             break;
         case 5:
             //call giddy
@@ -248,6 +250,16 @@
     }
 }
 
+#pragma mark - present details view
+
+- (void)presentDetailsView
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"NewStoryboard" bundle:nil];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"GGCDetailViewController"];
+    [vc setModalPresentationStyle:UIModalPresentationFullScreen];
+    
+    [self presentModalViewController:vc animated:YES];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
