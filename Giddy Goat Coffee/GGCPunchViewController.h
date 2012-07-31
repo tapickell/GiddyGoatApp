@@ -30,4 +30,6 @@
 
 - (IBAction)shareMe:(id)sender;
 
+- (IBAction)callPopup:(id)sender;
+
 @end
