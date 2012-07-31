@@ -7,6 +7,7 @@
 //
 
 #import "GGCPunchViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface GGCPunchViewController ()
 
@@ -52,6 +53,56 @@
 - (void)AwesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx
 {
     NSLog(@"Select the index : %d",idx);
+    switch (idx) {
+        case 0:
+            //go to maps
+            [self gotoMap:self];
+            break;
+        case 1:
+            //go to social
+            break;
+        case 2:
+            //got to specials
+            break;
+        case 3:
+            //go to cofffees
+            break;
+        case 4:
+            //go to credits
+            break;
+        case 5:
+            //call giddy
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - Maps Integration for iOS5 and iOS6
+
+- (IBAction)gotoMap:(id)sender {
+    NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
+    if (versionNumber < 6) {
+        [TestFlight passCheckpoint:@"USING_GOOGLE_MAPS_IOS5"];
+        NSURL *mapUrl = [[NSURL alloc] initWithString:@"http://maps.google.com/maps?q=704+n+bishop+Ave+suite+2+rolla+mo+65401&ll=37.949807,-91.776859"];
+        [[UIApplication sharedApplication] openURL:mapUrl];
+        mapUrl = nil;
+    } else {
+        //code for ios 6 map integration
+        ////NSLog(@"opening maps app in iOS 6");
+        [TestFlight passCheckpoint:@"USING_APPLE_MAPS_IOS6"];
+        //new code using mkmapitem & mkplacemark
+        MKPlacemark *giddyPlacemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(37.949807,-91.776859) addressDictionary:nil];
+        MKMapItem *giddyLocation = [[MKMapItem alloc] initWithPlacemark:giddyPlacemark];
+        //add extra features to display in map app
+        giddyLocation.name = @"Giddy Goat Coffee";
+        giddyLocation.phoneNumber = @"+15734266750";
+        giddyLocation.url = [NSURL URLWithString:@"http://tggch.com"];
+        
+        //open in iOS6 maps
+        [giddyLocation openInMapsWithLaunchOptions:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning

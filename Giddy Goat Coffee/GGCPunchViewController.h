@@ -16,4 +16,7 @@
 }
 
 @property (nonatomic, retain)IBOutlet AwesomeMenu *menu;
+
+- (IBAction)gotoMap:(id)sender;
+
 @end
