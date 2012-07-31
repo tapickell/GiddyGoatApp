@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AwesomeMenu.h"
+#import "AwesomeMenuItem.h"
 
-@interface GGCPunchViewController : UIViewController
+@interface GGCPunchViewController : UIViewController <AwesomeMenuDelegate>
+{
+    //AwesomeMenu *menu;
+}
 
+@property (nonatomic, retain)IBOutlet AwesomeMenu *menu;
 @end
