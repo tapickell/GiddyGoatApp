@@ -177,7 +177,9 @@
     }
     imagePicker.allowsEditing = YES;
     imagePicker.mediaTypes = [NSArray arrayWithObject:desired];
-    [self.parentViewController presentModalViewController:imagePicker animated:YES];
+    //issues on new view
+    //[self.parentViewController presentModalViewController:imagePicker animated:YES];
+    [self presentModalViewController:imagePicker animated:YES];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
