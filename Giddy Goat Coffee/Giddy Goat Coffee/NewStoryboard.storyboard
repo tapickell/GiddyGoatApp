@@ -8,14 +8,36 @@
         <scene sceneID="bvN-Dv-b2n">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p90-Sj-om9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="Punch" title="Punch" id="uPT-cH-3Uf" customClass="GGCPunchViewController" sceneMemberID="viewController"/>
+                <viewController storyboardIdentifier="punch" title="Punch" id="uPT-cH-3Uf" customClass="GGCPunchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xBB-tC-vwS">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="bkgd-woodgrain.png" id="HVY-UA-QKV"/>
+                            <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="giddyTitle.png" id="hpc-Uo-NW2">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="117" id="86b-LF-mXm"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HVY-UA-QKV" firstAttribute="top" secondItem="xBB-tC-vwS" secondAttribute="top" type="default" id="5nu-Hp-Ofg"/>
+                            <constraint firstItem="hpc-Uo-NW2" firstAttribute="top" secondItem="xBB-tC-vwS" secondAttribute="top" constant="2" id="KNX-ca-JUn"/>
+                            <constraint firstItem="hpc-Uo-NW2" firstAttribute="leading" secondItem="xBB-tC-vwS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nDP-2G-npX"/>
+                            <constraint firstAttribute="trailing" secondItem="hpc-Uo-NW2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pgi-1h-UQR"/>
+                            <constraint firstItem="HVY-UA-QKV" firstAttribute="leading" secondItem="xBB-tC-vwS" secondAttribute="leading" type="default" id="qqw-PX-nvx"/>
+                            <constraint firstItem="HVY-UA-QKV" firstAttribute="bottom" secondItem="xBB-tC-vwS" secondAttribute="bottom" type="default" id="uoH-aB-NB6"/>
+                        </constraints>
+                    </view>
+                </viewController>
             </objects>
             <point key="canvasLocation" x="-244" y="-320"/>
         </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="xlV-Yh-thQ">
             <objects>
-                <viewController title="Second" id="WDN-2L-Qp3" customClass="GGCSecondViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="coffees" title="Second" id="WDN-2L-Qp3" customClass="GGCSecondViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cs4-hI-32E">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -99,7 +121,7 @@
         <!--Thrid View Controller - Third-->
         <scene sceneID="fXt-22-9tw">
             <objects>
-                <viewController title="Third" id="Ziq-bw-V9h" customClass="GGCThridViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="phone" title="Third" id="Ziq-bw-V9h" customClass="GGCThridViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fig-3d-SRw">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -213,7 +235,7 @@ Sunday
         <!--Detail View Controller - Detail-->
         <scene sceneID="hVT-JS-LYd">
             <objects>
-                <viewController title="Detail" id="ohC-3f-rmB" customClass="GGCDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="credits" title="Detail" id="ohC-3f-rmB" customClass="GGCDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rzX-ff-oyK">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -285,7 +307,7 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
         <!--First View Controller - First-->
         <scene sceneID="AH8-K2-HAQ">
             <objects>
-                <viewController title="First" id="ijl-Gu-uXS" customClass="GGCFirstViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="specials" title="First" id="ijl-Gu-uXS" customClass="GGCFirstViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wa3-Vh-Ndj">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -436,6 +458,7 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
                 <relationship kind="action" name="getPhotoForSharing:"/>
                 <relationship kind="action" name="gotoMap:"/>
                 <relationship kind="action" name="shareMe:"/>
+                <relationship kind="outlet" name="menu" candidateClass="AwesomeMenu"/>
                 <relationship kind="outlet" name="specialsLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

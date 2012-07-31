@@ -64,10 +64,11 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
         self.menusArray = aMenusArray;
         
         // add the "Add" Button.
-        _addButton = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg-addbutton.png"]
-                                       highlightedImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"] 
-                                           ContentImage:[UIImage imageNamed:@"icon-plus.png"] 
-                                highlightedContentImage:[UIImage imageNamed:@"icon-plus-highlighted.png"]];
+//        _addButton = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg-addbutton.png"]
+//                                       highlightedImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"] 
+//                                           ContentImage:[UIImage imageNamed:@"icon-plus.png"] 
+//                                highlightedContentImage:[UIImage imageNamed:@"icon-plus-highlighted.png"]];
+        _addButton = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"big-green-button.png"] highlightedImage:[UIImage imageNamed:@"big-green-button-highlighted.png"] ContentImage:nil highlightedContentImage:nil];
         _addButton.delegate = self;
         _addButton.center = self.startPoint;
         [self addSubview:_addButton];
@@ -189,10 +190,10 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
     _expanding = NO;
     
     // rotate "add" button
-    float angle = self.isExpanding ? -M_PI_4 : 0.0f;
-    [UIView animateWithDuration:0.2f animations:^{
-        _addButton.transform = CGAffineTransformMakeRotation(angle);
-    }];
+//    float angle = self.isExpanding ? -M_PI_4 : 0.0f;
+//    [UIView animateWithDuration:0.2f animations:^{
+//        _addButton.transform = CGAffineTransformMakeRotation(angle);
+//    }];
     
     if ([delegate respondsToSelector:@selector(AwesomeMenu:didSelectIndex:)])
     {
@@ -254,11 +255,11 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
 	
     _expanding = expanding;    
     
-    // rotate add button
-    float angle = self.isExpanding ? -M_PI_4 : 0.0f;
-    [UIView animateWithDuration:0.2f animations:^{
-        _addButton.transform = CGAffineTransformMakeRotation(angle);
-    }];
+//    // rotate add button
+//    float angle = self.isExpanding ? -M_PI_4 : 0.0f;
+//    [UIView animateWithDuration:0.2f animations:^{
+//        _addButton.transform = CGAffineTransformMakeRotation(angle);
+//    }];
     
     // expand or close animation
     if (!_timer) 

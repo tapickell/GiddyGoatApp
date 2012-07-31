@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "TBXML.h"
+#import "AwesomeMenu/AwesomeMenu.h"
+#import "AwesomeMenu/AwesomeMenuItem.h"
 
-@interface GGCFirstViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface GGCFirstViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AwesomeMenuDelegate>
 {
     NSMutableArray *updateArray;
     TBXML *tbxml;
@@ -24,6 +26,8 @@
 @property (weak, nonatomic)UIImagePickerController *imagePicker;
 @property (weak, nonatomic)UIImage *imageSelected;
 @property (weak, nonatomic)NSURL *imageUrl;
+
+@property (nonatomic, retain)IBOutlet AwesomeMenu *menu;
 
 - (IBAction)gotoMap:(id)sender;
 
