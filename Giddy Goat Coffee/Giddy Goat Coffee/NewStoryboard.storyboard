@@ -39,13 +39,11 @@
                     </view>
                     <connections>
                         <segue destination="ohC-3f-rmB" kind="modal" identifier="segueToCredits" modalTransitionStyle="flipHorizontal" id="12L-0J-sDb"/>
-                        <segue destination="WDN-2L-Qp3" kind="modal" identifier="segueToCoffees" modalTransitionStyle="crossDissolve" animates="NO" id="dIu-PA-Yoa"/>
-                        <segue destination="ijl-Gu-uXS" kind="modal" identifier="segueToSpecials" modalTransitionStyle="crossDissolve" animates="NO" id="i82-mK-Mc3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p90-Sj-om9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-553" y="-468"/>
+            <point key="canvasLocation" x="-487" y="-402"/>
         </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="xlV-Yh-thQ">
@@ -66,11 +64,6 @@
                                     <outlet property="delegate" destination="WDN-2L-Qp3" id="GbM-LH-2M2"/>
                                 </connections>
                             </pickerView>
-                            <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="coffesTitle.png" id="Mda-9L-NLw">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="JEY-P0-LLF"/>
-                                </constraints>
-                            </imageView>
                             <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Coffee_bean_small.png" id="mGR-Gb-mUD">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="04t-tD-tMP"/>
@@ -95,26 +88,53 @@
                                 <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             </label>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="LQR-iP-Pc5">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0ME-4e-0e5"/>
+                                    <constraint firstAttribute="width" constant="44" id="Kl5-r0-LwL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="arrow-west.png" backgroundImage="bg-menuitem.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnToCenter:" destination="WDN-2L-Qp3" eventType="touchUpInside" id="Abj-KD-2OQ"/>
+                                </connections>
+                            </button>
+                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Coffees" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="Ju3-Wq-d9h">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="99" id="5d6-IZ-KiK"/>
+                                    <constraint firstAttribute="height" constant="21" id="ObW-cO-O5f"/>
+                                </constraints>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="mGR-Gb-mUD" secondAttribute="bottom" constant="21" id="3CZ-tV-LK5"/>
+                            <constraint firstItem="a90-63-LrL" firstAttribute="leading" secondItem="cs4-hI-32E" secondAttribute="leading" constant="7" id="45z-fc-bul"/>
                             <constraint firstItem="Lvz-Hj-ssU" firstAttribute="leading" secondItem="cs4-hI-32E" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="8IM-fU-Db6"/>
+                            <constraint firstItem="mGR-Gb-mUD" firstAttribute="top" secondItem="C1y-sA-bbw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Br9-ZG-aCs"/>
                             <constraint firstItem="KhU-Ms-DLM" firstAttribute="leading" secondItem="cs4-hI-32E" secondAttribute="leading" type="default" id="DNV-56-Xgy"/>
                             <constraint firstItem="KhU-Ms-DLM" firstAttribute="bottom" secondItem="cs4-hI-32E" secondAttribute="bottom" type="default" id="Dk9-uW-cIG"/>
-                            <constraint firstAttribute="trailing" secondItem="mGR-Gb-mUD" secondAttribute="trailing" constant="3" id="Em5-ud-pea"/>
-                            <constraint firstItem="Lvz-Hj-ssU" firstAttribute="top" secondItem="cs4-hI-32E" secondAttribute="top" constant="71" id="GEl-Ug-Ak0"/>
+                            <constraint firstItem="Lvz-Hj-ssU" firstAttribute="top" secondItem="cs4-hI-32E" secondAttribute="top" constant="79" id="Hq2-4V-T4j"/>
                             <constraint firstItem="C1y-sA-bbw" firstAttribute="leading" secondItem="cs4-hI-32E" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Ivc-wA-O16"/>
-                            <constraint firstItem="Mda-9L-NLw" firstAttribute="top" secondItem="cs4-hI-32E" secondAttribute="top" type="default" id="JCe-zb-RYq"/>
-                            <constraint firstItem="C1y-sA-bbw" firstAttribute="top" secondItem="Lvz-Hj-ssU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="NMM-Sh-fUw"/>
-                            <constraint firstAttribute="trailing" secondItem="Mda-9L-NLw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="QUx-bl-Zfv"/>
-                            <constraint firstItem="a90-63-LrL" firstAttribute="leading" secondItem="cs4-hI-32E" secondAttribute="leading" type="default" id="VXY-bO-JC2"/>
-                            <constraint firstItem="Mda-9L-NLw" firstAttribute="leading" secondItem="cs4-hI-32E" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VnQ-A2-iPD"/>
-                            <constraint firstItem="ic0-C6-1yG" firstAttribute="top" secondItem="Lvz-Hj-ssU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="WQg-2b-Zyl"/>
-                            <constraint firstAttribute="bottom" secondItem="a90-63-LrL" secondAttribute="bottom" constant="159" id="Y90-af-Q5h"/>
-                            <constraint firstItem="ic0-C6-1yG" firstAttribute="leading" secondItem="cs4-hI-32E" secondAttribute="leading" constant="-4" id="bdJ-7u-8Qs"/>
+                            <constraint firstAttribute="trailing" secondItem="mGR-Gb-mUD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Jdz-7G-K3h"/>
+                            <constraint firstAttribute="bottom" secondItem="a90-63-LrL" secondAttribute="bottom" constant="143" id="PsY-DU-vlh"/>
+                            <constraint firstItem="mGR-Gb-mUD" firstAttribute="top" secondItem="ic0-C6-1yG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="R9i-D7-Dvq"/>
+                            <constraint firstItem="Ju3-Wq-d9h" firstAttribute="top" secondItem="cs4-hI-32E" secondAttribute="top" constant="25" id="Tx5-KJ-WLR"/>
                             <constraint firstAttribute="trailing" secondItem="Lvz-Hj-ssU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="bzX-n5-hBI"/>
+                            <constraint firstItem="Ju3-Wq-d9h" firstAttribute="centerX" secondItem="Lvz-Hj-ssU" secondAttribute="centerX" type="default" id="c2W-IL-mvc"/>
                             <constraint firstItem="KhU-Ms-DLM" firstAttribute="top" secondItem="cs4-hI-32E" secondAttribute="top" type="default" id="dJ5-Gj-Rno"/>
+                            <constraint firstItem="ic0-C6-1yG" firstAttribute="top" secondItem="cs4-hI-32E" secondAttribute="top" constant="391" id="dQg-rf-B9Q"/>
+                            <constraint firstItem="LQR-iP-Pc5" firstAttribute="top" secondItem="cs4-hI-32E" secondAttribute="top" constant="14" id="fMa-7J-0PJ"/>
+                            <constraint firstItem="ic0-C6-1yG" firstAttribute="leading" secondItem="cs4-hI-32E" secondAttribute="leading" constant="283" id="hhi-rv-CMV"/>
+                            <constraint firstItem="LQR-iP-Pc5" firstAttribute="leading" secondItem="cs4-hI-32E" secondAttribute="leading" constant="21" id="nFf-RT-iSs"/>
                             <constraint firstAttribute="trailing" secondItem="C1y-sA-bbw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="r90-Oj-e1h"/>
                         </constraints>
                     </view>
@@ -127,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeJ-6G-Xhw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46" y="175"/>
+            <point key="canvasLocation" x="480" y="-402"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="hVT-JS-LYd">
@@ -204,7 +224,7 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNx-eX-dXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121" y="-286"/>
+            <point key="canvasLocation" x="-479" y="318"/>
         </scene>
         <!--First View Controller - First-->
         <scene sceneID="AH8-K2-HAQ">
@@ -217,32 +237,27 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
                             <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="bkgd-woodgrain.png" id="0vQ-Dv-Tgg"/>
                             <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="chalkboard-icon-512x512.png" id="wVV-1w-OLD">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="274" id="OKl-sr-1Zc"/>
-                                    <constraint firstAttribute="height" constant="364" id="n32-fV-7En"/>
+                                    <constraint firstAttribute="height" constant="410" id="XII-b3-PRW"/>
+                                    <constraint firstAttribute="width" constant="290" id="m1Z-mE-Ac9"/>
                                 </constraints>
                             </imageView>
-                            <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="giddyTitle.png" id="Bgo-dQ-5qe">
+                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" minimumFontSize="10" text="" textAlignment="center" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="213" id="rud-Nc-WWE">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="117" id="38q-bb-O4K"/>
-                                </constraints>
-                            </imageView>
-                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" minimumFontSize="10" text="" textAlignment="center" autoshrinkMode="minimumFontSize" preferredMaxLayoutWidth="232" id="rud-Nc-WWE">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="232" id="QN1-Dl-iRd"/>
-                                    <constraint firstAttribute="height" constant="199" id="oY2-lY-HoF"/>
+                                    <constraint firstAttribute="height" constant="209" id="aMT-7q-LgA"/>
+                                    <constraint firstAttribute="width" constant="213" id="w0g-Sa-Qsu"/>
                                 </constraints>
                                 <nil key="highlightedColor"/>
                                 <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             </label>
-                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Daily Specials:" autoshrinkMode="minimumFontSize" id="MXe-2j-lTf">
+                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" text="Daily Specials" autoshrinkMode="minimumFontSize" id="MXe-2j-lTf">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="134" id="UeZ-vV-Ipc"/>
-                                    <constraint firstAttribute="height" constant="27" id="xbo-Dh-ZK9"/>
+                                    <constraint firstAttribute="width" constant="165" id="9o5-CO-E2k"/>
+                                    <constraint firstAttribute="height" constant="27" id="AVw-1h-HzB"/>
                                 </constraints>
                                 <nil key="highlightedColor"/>
-                                <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                             </label>
                             <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Coffee_bean_small.png" id="BrL-fE-jJP">
                                 <constraints>
@@ -260,57 +275,80 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
                                     <constraint firstAttribute="width" constant="45" id="acy-hH-vuV"/>
                                 </constraints>
                             </imageView>
+                            <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Coffee_bean_small_flip.png" id="cZb-8u-tR4">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="Qrz-qd-bV1"/>
+                                </constraints>
+                            </imageView>
                             <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Coffee_bean_small_flip.png" id="MaT-2q-5AZ">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="Hbm-Ya-pgb"/>
                                 </constraints>
                             </imageView>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="hjb-Kf-6V0">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LsM-Lf-J6p"/>
+                                    <constraint firstAttribute="width" constant="44" id="MWW-Eg-dTN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="arrow-east.png" backgroundImage="bg-menuitem.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToCenter:" destination="ijl-Gu-uXS" eventType="touchUpInside" id="pB5-1G-Rgw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Bgo-dQ-5qe" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="DWs-jY-D6B"/>
-                            <constraint firstItem="BrL-fE-jJP" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="118" id="Fbt-Im-5TQ"/>
+                            <constraint firstItem="hjb-Kf-6V0" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="14" id="1Kv-sM-DF8"/>
+                            <constraint firstItem="0vQ-Dv-Tgg" firstAttribute="centerX" secondItem="wVV-1w-OLD" secondAttribute="centerX" type="default" id="7Gk-gz-L2B"/>
+                            <constraint firstAttribute="trailing" secondItem="hjb-Kf-6V0" secondAttribute="trailing" constant="21" id="7TZ-sm-yA4"/>
+                            <constraint firstAttribute="trailing" secondItem="cZb-8u-tR4" secondAttribute="trailing" constant="103" id="Bta-02-fBM"/>
+                            <constraint firstItem="rud-Nc-WWE" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="52" id="DWA-Wx-xtJ"/>
                             <constraint firstItem="0vQ-Dv-Tgg" firstAttribute="bottom" secondItem="wa3-Vh-Ndj" secondAttribute="bottom" type="default" id="HCV-qy-vkn"/>
-                            <constraint firstItem="rud-Nc-WWE" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="141" id="HRe-vf-dPm"/>
-                            <constraint firstItem="1mJ-df-B0W" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="152" id="LiU-N6-Ghg"/>
-                            <constraint firstAttribute="trailing" secondItem="wVV-1w-OLD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="NSA-0n-hiM"/>
+                            <constraint firstItem="BrL-fE-jJP" firstAttribute="trailing" secondItem="rud-Nc-WWE" secondAttribute="trailing" type="default" id="HNB-SX-F3R"/>
+                            <constraint firstAttribute="trailing" secondItem="1mJ-df-B0W" secondAttribute="trailing" constant="27" id="I3V-gB-f0h"/>
+                            <constraint firstItem="MXe-2j-lTf" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="20" symbolic="YES" type="default" id="KAC-wd-X14"/>
+                            <constraint firstItem="wVV-1w-OLD" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="20" symbolic="YES" type="default" id="KnV-OP-39q"/>
+                            <constraint firstItem="rud-Nc-WWE" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="104" id="NOg-Bx-dby"/>
                             <constraint firstItem="0vQ-Dv-Tgg" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" type="default" id="SX6-mD-g23"/>
-                            <constraint firstItem="Bgo-dQ-5qe" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" type="default" id="Stp-9v-cRX"/>
-                            <constraint firstItem="Bgo-dQ-5qe" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="TkY-8x-6z5"/>
-                            <constraint firstItem="wVV-1w-OLD" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="66" id="XJL-BV-PHT"/>
-                            <constraint firstItem="1mJ-df-B0W" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="282" id="ZRx-N5-Nwa"/>
+                            <constraint firstAttribute="bottom" secondItem="nAX-dD-qam" secondAttribute="bottom" constant="48" id="UPW-wG-lcb"/>
                             <constraint firstItem="MaT-2q-5AZ" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" type="default" id="ZSB-yF-Xah"/>
-                            <constraint firstItem="MXe-2j-lTf" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="52" id="cTX-hD-bJK"/>
-                            <constraint firstItem="nAX-dD-qam" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="11" id="cez-OP-bIq"/>
+                            <constraint firstAttribute="bottom" secondItem="cZb-8u-tR4" secondAttribute="bottom" constant="11" id="atO-KA-vb8"/>
                             <constraint firstItem="0vQ-Dv-Tgg" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" type="default" id="cfQ-1m-Qh5"/>
-                            <constraint firstItem="rud-Nc-WWE" firstAttribute="centerX" secondItem="wVV-1w-OLD" secondAttribute="centerX" type="default" id="fHm-ro-955"/>
-                            <constraint firstAttribute="bottom" secondItem="MaT-2q-5AZ" secondAttribute="bottom" constant="113" id="kEe-5a-Uvs"/>
-                            <constraint firstItem="MXe-2j-lTf" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="137" id="mXm-vk-ama"/>
-                            <constraint firstItem="BrL-fE-jJP" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="268" id="nZ0-k8-OFU"/>
-                            <constraint firstAttribute="bottom" secondItem="nAX-dD-qam" secondAttribute="bottom" constant="51" id="vLe-tL-C3C"/>
+                            <constraint firstItem="BrL-fE-jJP" firstAttribute="bottom" secondItem="wa3-Vh-Ndj" secondAttribute="bottom" type="default" id="fcW-X3-zlb"/>
+                            <constraint firstAttribute="bottom" secondItem="1mJ-df-B0W" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="hTo-gE-tPU"/>
+                            <constraint firstAttribute="bottom" secondItem="MaT-2q-5AZ" secondAttribute="bottom" constant="77" id="sER-ki-khr"/>
+                            <constraint firstItem="nAX-dD-qam" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="33" id="u49-aZ-CXN"/>
+                            <constraint firstItem="MXe-2j-lTf" firstAttribute="centerX" secondItem="wVV-1w-OLD" secondAttribute="centerX" type="default" id="zlA-xI-e44"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gIe-C9-TUr"/>
                     <connections>
                         <outlet property="specialsLabel" destination="rud-Nc-WWE" id="2QF-wo-mCN"/>
-                        <segue destination="WDN-2L-Qp3" kind="modal" identifier="specialsToCoffees" modalTransitionStyle="crossDissolve" animates="NO" id="M4w-mA-gEb"/>
                         <segue destination="ohC-3f-rmB" kind="modal" identifier="specialsToCredits" modalTransitionStyle="flipHorizontal" id="xSp-Hw-STk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1L9-Bl-ckW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46" y="-462"/>
+            <point key="canvasLocation" x="-4" y="-402"/>
         </scene>
     </scenes>
     <resources>
         <image name="Coffee_bean_small.png" width="41" height="30"/>
         <image name="Coffee_bean_small_flip.png" width="41" height="30"/>
+        <image name="arrow-east.png" width="19" height="16"/>
+        <image name="arrow-west.png" width="19" height="16"/>
+        <image name="bg-menuitem.png" width="50" height="50"/>
         <image name="bkgd-grayStripe.png" width="320" height="480"/>
         <image name="bkgd-woodgrain.png" width="320" height="480"/>
         <image name="chalkboard-icon-512x512.png" width="512" height="512"/>
-        <image name="coffesTitle.png" width="384" height="84"/>
         <image name="giddyCreditsGreen.png" width="184" height="90"/>
-        <image name="giddyTitle.png" width="479" height="183"/>
         <image name="giddyTitle1.png" width="479" height="81"/>
         <image name="giddyTitle2.png" width="479" height="81"/>
     </resources>
@@ -359,7 +397,6 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dIu-PA-Yoa"/>
-        <segue reference="12L-0J-sDb"/>
+        <segue reference="rsg-Bc-NXk"/>
     </inferredMetricsTieBreakers>
 </document>

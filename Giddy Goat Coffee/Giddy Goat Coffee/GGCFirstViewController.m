@@ -7,8 +7,7 @@
 //
 
 #import "GGCFirstViewController.h"
-#import <Twitter/Twitter.h>
-#import <MapKit/MapKit.h>
+#import "IIViewDeckController.h"
 
 
 @implementation GGCFirstViewController
@@ -387,4 +386,7 @@
 //}
 
 
+- (IBAction)backToCenter:(id)sender {
+    [self.viewDeckController toggleLeftViewAnimated:YES];
+}
 @end

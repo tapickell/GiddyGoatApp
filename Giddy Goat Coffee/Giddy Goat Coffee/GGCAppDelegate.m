@@ -39,8 +39,8 @@
                                                                                     leftViewController:_firstVC
                                                                                    rightViewController:_secondVC];
 
-    deckController.rightLedge = 40;
-    deckController.leftLedge = 40;
+    deckController.rightLedge = 10;
+    deckController.leftLedge = 10;
     
     self.window.rootViewController = deckController;
     [self.window makeKeyAndVisible];

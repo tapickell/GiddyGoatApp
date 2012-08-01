@@ -7,8 +7,8 @@
 //
 
 #import "GGCSecondViewController.h"
-#import <Twitter/Twitter.h>
-#import <MapKit/MapKit.h>
+#import "IIViewDeckController.h"
+
 
 @interface GGCSecondViewController ()
 
@@ -341,4 +341,7 @@
 //    }
 //}
 
+- (IBAction)returnToCenter:(id)sender {
+    [self.viewDeckController toggleRightViewAnimated:YES];
+}
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "GGCPunchViewController.h"
+#import "IIViewDeckController.h"
 #import <Twitter/Twitter.h>
 #import <MapKit/MapKit.h>
 
@@ -76,14 +77,14 @@
 	// Do any additional setup after loading the view.
     NSString *itemBack = @"bg-menuitem.png";
     
+    AwesomeMenuItem *menuItem0 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"arrow-west.png"] highlightedContentImage:nil];
     AwesomeMenuItem *menuItem1 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"map-marker.png"] highlightedContentImage:nil];
     AwesomeMenuItem *menuItem2 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"bubbleIcon.png"] highlightedContentImage:nil];
-    AwesomeMenuItem *menuItem3 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"pricetag.png"] highlightedContentImage:nil];
-    AwesomeMenuItem *menuItem4 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"coffeeCup.png"] highlightedContentImage:nil];
-    AwesomeMenuItem *menuItem5 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"group.png"] highlightedContentImage:nil];
-    AwesomeMenuItem *menuItem6 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"phone.png"] highlightedContentImage:nil];
+    AwesomeMenuItem *menuItem3 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"group.png"] highlightedContentImage:nil];
+    AwesomeMenuItem *menuItem4 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"phone.png"] highlightedContentImage:nil];
+    AwesomeMenuItem *menuItem5 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"arrow-east.png"] highlightedContentImage:nil];
     
-    NSArray *menus = [NSArray arrayWithObjects:menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, menuItem6,  nil];
+    NSArray *menus = [NSArray arrayWithObjects:menuItem0, menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, nil];
     
     
     menu = [[AwesomeMenu alloc] initWithFrame:self.view.window.bounds menus:menus];
@@ -102,33 +103,31 @@
     NSLog(@"Select the index : %d",idx);
     switch (idx) {
         case 0:
+            [self.viewDeckController toggleLeftViewAnimated:YES];
+            break;
+            
+        case 1:
             //go to maps
             [self gotoMap:self];
             break;
-        case 1:
+            
+        case 2:
             //go to social
             [self getPhotoForSharing:self];
             break;
-        case 2:
-            //got to specials
-            [self performSegueWithIdentifier:@"segueToSpecials" sender:self];
-            //[self popToViewController: mvc1 animated: YES];
-            
-            break;
         case 3:
-            //go to cofffees
-            [self performSegueWithIdentifier:@"segueToCoffees" sender:self];
-            break;
-        case 4:
-            //go to credits
-            //[self presentDetailsView];
+            //got to credits
             [self performSegueWithIdentifier:@"segueToCredits" sender:self];
             break;
-        case 5:
+            
+        case 4:
             //call giddy
             [self callPopup:self];
             break;
             
+        case 5:
+            [self.viewDeckController toggleRightViewAnimated:YES];
+            break;
         default:
             break;
     }

@@ -21,6 +21,7 @@
 //    UIImagePickerController *imagePicker;
 //    UIImage *imageSelected;
 }
+- (IBAction)returnToCenter:(id)sender;
 
 @property (nonatomic)NSMutableArray *nameArray;
 @property (nonatomic)NSMutableArray *descripArray;

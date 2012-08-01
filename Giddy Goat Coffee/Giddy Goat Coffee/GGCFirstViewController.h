@@ -21,6 +21,8 @@
 //    NSURL *imageURL;
 }
 
+- (IBAction)backToCenter:(id)sender;
+
 @property (nonatomic)NSMutableArray *updateArray;
 @property (weak, nonatomic) IBOutlet UILabel *specialsLabel;
 //@property (weak, nonatomic)UIImagePickerController *imagePicker;
