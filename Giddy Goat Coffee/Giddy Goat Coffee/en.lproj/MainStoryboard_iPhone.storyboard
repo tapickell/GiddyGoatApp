@@ -375,6 +375,48 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
         <image name="plastiquePin.png" width="145" height="143"/>
         <image name="routedAction.png" width="162" height="162"/>
     </resources>
+    <classes>
+        <class className="AwesomeMenu" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AwesomeMenu.h"/>
+        </class>
+        <class className="GGCDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTapped:"/>
+                <relationship kind="outlet" name="itemDescripLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGCFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCFirstViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getPhotoForSharing:"/>
+                <relationship kind="action" name="gotoMap:"/>
+                <relationship kind="action" name="shareMe:"/>
+                <relationship kind="outlet" name="menu" candidateClass="AwesomeMenu"/>
+                <relationship kind="outlet" name="specialsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGCSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCSecondViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="callPopup:"/>
+                <relationship kind="action" name="getPhotoForSharing:"/>
+                <relationship kind="action" name="gotoMap:"/>
+                <relationship kind="action" name="shareMe:"/>
+                <relationship kind="outlet" name="coffeeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="coffeePicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="menu" candidateClass="AwesomeMenu"/>
+            </relationships>
+        </class>
+        <class className="GGCThridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCThridViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="callPopup:"/>
+                <relationship kind="outlet" name="callButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

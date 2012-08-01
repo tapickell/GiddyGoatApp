@@ -13,6 +13,8 @@
 		261493FE15C8142200302BFB /* big-green-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 261493FC15C8142200302BFB /* big-green-button.png */; };
 		2614940115C8158900302BFB /* big-green-button-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 261493FF15C8158800302BFB /* big-green-button-highlighted.png */; };
 		2614940215C8158900302BFB /* big-green-button-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2614940015C8158800302BFB /* big-green-button-highlighted@2x.png */; };
+		2614940515C89C1400302BFB /* bg-menuitem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2614940415C89C1400302BFB /* bg-menuitem@2x.png */; };
+		2614940715C89E7C00302BFB /* bg-menuitem.png in Resources */ = {isa = PBXBuildFile; fileRef = 2614940615C89E7C00302BFB /* bg-menuitem.png */; };
 		2626D3DF15C6C0B900776CE9 /* GGCPunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2626D3DE15C6C0B900776CE9 /* GGCPunchViewController.m */; };
 		2626D3E215C6C8EF00776CE9 /* NewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2626D3E115C6C8EF00776CE9 /* NewStoryboard.storyboard */; };
 		2626D3E815C6ECD700776CE9 /* AwesomeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2626D3E515C6ECD700776CE9 /* AwesomeMenu.m */; };
@@ -106,6 +108,8 @@
 		261493FC15C8142200302BFB /* big-green-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big-green-button.png"; sourceTree = "<group>"; };
 		261493FF15C8158800302BFB /* big-green-button-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big-green-button-highlighted.png"; sourceTree = "<group>"; };
 		2614940015C8158800302BFB /* big-green-button-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big-green-button-highlighted@2x.png"; sourceTree = "<group>"; };
+		2614940415C89C1400302BFB /* bg-menuitem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-menuitem@2x.png"; sourceTree = "<group>"; };
+		2614940615C89E7C00302BFB /* bg-menuitem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-menuitem.png"; sourceTree = "<group>"; };
 		2626D3DD15C6C0B900776CE9 /* GGCPunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGCPunchViewController.h; path = ../GGCPunchViewController.h; sourceTree = "<group>"; };
 		2626D3DE15C6C0B900776CE9 /* GGCPunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGCPunchViewController.m; path = ../GGCPunchViewController.m; sourceTree = "<group>"; };
 		2626D3E115C6C8EF00776CE9 /* NewStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewStoryboard.storyboard; sourceTree = "<group>"; };
@@ -432,6 +436,8 @@
 		5FB7772815A6623900EC7F00 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				2614940615C89E7C00302BFB /* bg-menuitem.png */,
+				2614940415C89C1400302BFB /* bg-menuitem@2x.png */,
 				261493FF15C8158800302BFB /* big-green-button-highlighted.png */,
 				2614940015C8158800302BFB /* big-green-button-highlighted@2x.png */,
 				261493FB15C8142200302BFB /* big-green-button@2x.png */,
@@ -612,6 +618,8 @@
 				261493FE15C8142200302BFB /* big-green-button.png in Resources */,
 				2614940115C8158900302BFB /* big-green-button-highlighted.png in Resources */,
 				2614940215C8158900302BFB /* big-green-button-highlighted@2x.png in Resources */,
+				2614940515C89C1400302BFB /* bg-menuitem@2x.png in Resources */,
+				2614940715C89E7C00302BFB /* bg-menuitem.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,7 +739,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Todd Pickell";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Todd Pickell (A8RGDK8GJ8)";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Giddy Goat Coffee/Giddy Goat Coffee-Prefix.pch";
@@ -744,7 +752,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D4084C3-38BE-4080-9C7F-2BC8B0C65BE1";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

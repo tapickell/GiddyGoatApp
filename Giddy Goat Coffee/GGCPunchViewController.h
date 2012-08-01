@@ -32,6 +32,5 @@
 
 - (IBAction)callPopup:(id)sender;
 
-- (void)presentDetailsView;
 
 @end

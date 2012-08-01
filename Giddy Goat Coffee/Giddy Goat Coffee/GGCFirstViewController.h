@@ -35,8 +35,8 @@
 
 - (IBAction)getPhotoForSharing:(id)sender;
 
-
 - (IBAction)shareMe:(id)sender;
+
 - (void)getStatusData;
 - (void)fetchSpecials;
 - (NSString *)statusArrayFilePath;
