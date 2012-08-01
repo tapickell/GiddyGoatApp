@@ -12,4 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (retain, nonatomic) UIViewController *punchVC;
+@property (retain, nonatomic) UIViewController *firstVC;
+@property (retain, nonatomic) UIViewController *secondVC;
+
 @end

@@ -13,13 +13,13 @@
 #import "TBXML.h"
 
 @interface GGCSecondViewController : UIViewController
-<UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, AwesomeMenuDelegate>
+<UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 {
     NSMutableArray *nameArray;
     NSMutableArray *descripArray;
     TBXML *tbxml;
-    UIImagePickerController *imagePicker;
-    UIImage *imageSelected;
+//    UIImagePickerController *imagePicker;
+//    UIImage *imageSelected;
 }
 
 @property (nonatomic)NSMutableArray *nameArray;
@@ -29,19 +29,19 @@
 @property (strong, nonatomic) NSArray *coffees;
 @property (strong, nonatomic) NSArray *descrips;
 
-@property (weak, nonatomic)UIImagePickerController *imagePicker;
-@property (weak, nonatomic)UIImage *imageSelected;
-@property (nonatomic, retain)IBOutlet AwesomeMenu *menu;
-
-- (IBAction)gotoMap:(id)sender;
-
-- (void)getMenuDisplay;
-
-- (IBAction)getPhotoForSharing:(id)sender;
-
-- (IBAction)shareMe:(id)sender;
-
-- (IBAction)callPopup:(id)sender;
+//@property (weak, nonatomic)UIImagePickerController *imagePicker;
+//@property (weak, nonatomic)UIImage *imageSelected;
+//@property (nonatomic, retain)IBOutlet AwesomeMenu *menu;
+//
+//- (IBAction)gotoMap:(id)sender;
+//
+//- (void)getMenuDisplay;
+//
+//- (IBAction)getPhotoForSharing:(id)sender;
+//
+//- (IBAction)shareMe:(id)sender;
+//
+//- (IBAction)callPopup:(id)sender;
 
 - (void)fetchCoffees;
 

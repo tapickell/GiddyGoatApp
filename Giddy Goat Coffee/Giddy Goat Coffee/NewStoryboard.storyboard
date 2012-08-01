@@ -13,20 +13,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="bkgd-woodgrain.png" id="HVY-UA-QKV"/>
-                            <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="giddyTitle.png" id="hpc-Uo-NW2">
+                            <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="giddyTitle1.png" id="hpc-Uo-NW2">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="117" id="86b-LF-mXm"/>
+                                    <constraint firstAttribute="height" constant="48" id="5AJ-Sh-l1b"/>
+                                </constraints>
+                            </imageView>
+                            <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="giddyTitle2.png" id="Gbh-Vv-niG">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="SsQ-6E-RlZ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Gbh-Vv-niG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0BI-Nr-iq6"/>
                             <constraint firstItem="HVY-UA-QKV" firstAttribute="top" secondItem="xBB-tC-vwS" secondAttribute="top" type="default" id="5nu-Hp-Ofg"/>
-                            <constraint firstItem="hpc-Uo-NW2" firstAttribute="top" secondItem="xBB-tC-vwS" secondAttribute="top" type="default" id="Rdp-vn-mhf"/>
+                            <constraint firstItem="Gbh-Vv-niG" firstAttribute="top" secondItem="xBB-tC-vwS" secondAttribute="top" constant="35" id="X8k-Uh-2Em"/>
+                            <constraint firstItem="Gbh-Vv-niG" firstAttribute="leading" secondItem="xBB-tC-vwS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="d6j-Ty-0Za"/>
                             <constraint firstItem="hpc-Uo-NW2" firstAttribute="leading" secondItem="xBB-tC-vwS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nDP-2G-npX"/>
                             <constraint firstAttribute="trailing" secondItem="hpc-Uo-NW2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pgi-1h-UQR"/>
                             <constraint firstItem="HVY-UA-QKV" firstAttribute="leading" secondItem="xBB-tC-vwS" secondAttribute="leading" type="default" id="qqw-PX-nvx"/>
                             <constraint firstItem="HVY-UA-QKV" firstAttribute="bottom" secondItem="xBB-tC-vwS" secondAttribute="bottom" type="default" id="uoH-aB-NB6"/>
+                            <constraint firstItem="hpc-Uo-NW2" firstAttribute="top" secondItem="xBB-tC-vwS" secondAttribute="top" type="default" id="yQu-NS-hnF"/>
                         </constraints>
                     </view>
                     <connections>
@@ -37,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p90-Sj-om9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-911" y="-706"/>
+            <point key="canvasLocation" x="-553" y="-468"/>
         </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="xlV-Yh-thQ">
@@ -115,13 +123,11 @@
                         <outlet property="coffeeLabel" destination="C1y-sA-bbw" id="5kf-tI-FHv"/>
                         <outlet property="coffeePicker" destination="Lvz-Hj-ssU" id="kw2-8f-54m"/>
                         <segue destination="ohC-3f-rmB" kind="modal" identifier="coffeesToCredits" modalTransitionStyle="flipHorizontal" id="rsg-Bc-NXk"/>
-                        <segue destination="ijl-Gu-uXS" kind="modal" identifier="coffeesToSpecials" modalTransitionStyle="crossDissolve" animates="NO" id="vxH-oV-REa"/>
-                        <segue destination="uPT-cH-3Uf" kind="modal" identifier="coffeesToCard" modalTransitionStyle="crossDissolve" animates="NO" id="iMK-tg-16s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeJ-6G-Xhw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="337"/>
+            <point key="canvasLocation" x="46" y="175"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="hVT-JS-LYd">
@@ -198,7 +204,7 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNx-eX-dXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-615" y="363"/>
+            <point key="canvasLocation" x="1121" y="-286"/>
         </scene>
         <!--First View Controller - First-->
         <scene sceneID="AH8-K2-HAQ">
@@ -287,14 +293,13 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
                     <navigationItem key="navigationItem" id="gIe-C9-TUr"/>
                     <connections>
                         <outlet property="specialsLabel" destination="rud-Nc-WWE" id="2QF-wo-mCN"/>
-                        <segue destination="uPT-cH-3Uf" kind="modal" identifier="segueToCardFromSpecials" modalTransitionStyle="crossDissolve" animates="NO" id="Rj9-wM-QHa"/>
                         <segue destination="WDN-2L-Qp3" kind="modal" identifier="specialsToCoffees" modalTransitionStyle="crossDissolve" animates="NO" id="M4w-mA-gEb"/>
                         <segue destination="ohC-3f-rmB" kind="modal" identifier="specialsToCredits" modalTransitionStyle="flipHorizontal" id="xSp-Hw-STk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1L9-Bl-ckW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="-504"/>
+            <point key="canvasLocation" x="46" y="-462"/>
         </scene>
     </scenes>
     <resources>
@@ -306,16 +311,55 @@ Thanks to Ben &amp; Jen Bell, Owners of The Giddy Goat Coffee House  Rolla, MO t
         <image name="coffesTitle.png" width="384" height="84"/>
         <image name="giddyCreditsGreen.png" width="184" height="90"/>
         <image name="giddyTitle.png" width="479" height="183"/>
+        <image name="giddyTitle1.png" width="479" height="81"/>
+        <image name="giddyTitle2.png" width="479" height="81"/>
     </resources>
+    <classes>
+        <class className="AwesomeMenu" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AwesomeMenu.h"/>
+        </class>
+        <class className="GGCDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTapped:"/>
+                <relationship kind="outlet" name="itemDescripLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGCFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCFirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="specialsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGCPunchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCPunchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="callPopup:"/>
+                <relationship kind="action" name="getPhotoForSharing:"/>
+                <relationship kind="action" name="gotoMap:"/>
+                <relationship kind="action" name="shareMe:"/>
+                <relationship kind="outlet" name="menu" candidateClass="AwesomeMenu"/>
+            </relationships>
+        </class>
+        <class className="GGCSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCSecondViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="coffeeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="coffeePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xSp-Hw-STk"/>
-        <segue reference="i82-mK-Mc3"/>
-        <segue reference="Rj9-wM-QHa"/>
-        <segue reference="M4w-mA-gEb"/>
+        <segue reference="dIu-PA-Yoa"/>
+        <segue reference="12L-0J-sDb"/>
     </inferredMetricsTieBreakers>
 </document>

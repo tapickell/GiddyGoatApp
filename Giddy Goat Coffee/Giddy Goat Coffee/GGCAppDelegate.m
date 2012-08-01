@@ -8,14 +8,43 @@
 
 #import "GGCAppDelegate.h"
 
+#import "IIViewDeckController.h"
+#import "GGCPunchViewController.h"
+#import "GGCFirstViewController.h"
+#import "GGCSecondViewController.h"
+
+
 @implementation GGCAppDelegate
 
 @synthesize window = _window;
+@synthesize punchVC = _punchVC;
+@synthesize firstVC = _firstVC;
+@synthesize secondVC = _secondVC;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [TestFlight takeOff:@"4b4e8a904763818917de01b7c76985f2_OTg3MzcyMDEyLTA2LTEwIDE5OjQ0OjQ2LjAyNTkxMg"];
+    
+    //stuff for viewDeck
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    UIStoryboard *stb = [UIStoryboard storyboardWithName:@"NewStoryboard" bundle:nil];
+    
+    _punchVC = [stb instantiateViewControllerWithIdentifier:@"punch"];
+    _firstVC = [stb instantiateViewControllerWithIdentifier:@"specials"];
+    _secondVC = [stb instantiateViewControllerWithIdentifier:@"coffees"];
+    
+    IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:_punchVC
+                                                                                    leftViewController:_firstVC
+                                                                                   rightViewController:_secondVC];
+
+    deckController.rightLedge = 40;
+    deckController.leftLedge = 40;
+    
+    self.window.rootViewController = deckController;
+    [self.window makeKeyAndVisible];
+    //end stuff for viewDeck
     return YES;
 }
 							

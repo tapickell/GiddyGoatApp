@@ -16,12 +16,19 @@
 
 @implementation GGCPunchViewController
 
+//@synthesize scrollView = _scrollView;
+//@synthesize pageControl;
 @synthesize imagePicker = _imagePicker;
 @synthesize imageSelected = _imageSelected;
 @synthesize menu;
+//@synthesize mvc1;
+//@synthesize mvc2;
 
 #define CAMERA @"Camera"
 #define LIBRARY @"Photo Library"
+
+
+#pragma mark - view methods
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,13 +39,35 @@
     return self;
 }
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self getMenuDisplay];
+//    [self getViewsForScrolling];
 }
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+//#pragma mark - scroll view methods
+//
+//- (void)scrollViewDidScroll:(UIScrollView *)sender {
+//    // Update the page when more than 50% of the previous/next page is visible
+//    CGFloat pageWidth = self.scrollView.frame.size.width;
+//    int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+//    self.pageControl.currentPage = page;
+//}
+//
+//- (void)getViewsForScrolling
+//{
+////    UIStoryboard *stb = [UIStoryboard storyboardWithName:@"NewStoryboard" bundle:nil];
+////    mvc1 = [stb instantiateViewControllerWithIdentifier:@"specials"];
+////    mvc2 = [stb instantiateViewControllerWithIdentifier:@"coffees"];
+//    
+//}
 
 #pragma mark - awesome menu display methods
 
@@ -83,6 +112,8 @@
         case 2:
             //got to specials
             [self performSegueWithIdentifier:@"segueToSpecials" sender:self];
+            //[self popToViewController: mvc1 animated: YES];
+            
             break;
         case 3:
             //go to cofffees
@@ -102,6 +133,7 @@
             break;
     }
 }
+
 
 #pragma mark - Maps Integration for iOS5 and iOS6
 
@@ -255,10 +287,6 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 @end

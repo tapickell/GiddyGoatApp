@@ -12,30 +12,30 @@
 #import "AwesomeMenu/AwesomeMenu.h"
 #import "AwesomeMenu/AwesomeMenuItem.h"
 
-@interface GGCFirstViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AwesomeMenuDelegate>
+@interface GGCFirstViewController : UIViewController <UINavigationControllerDelegate>
 {
     NSMutableArray *updateArray;
     TBXML *tbxml;
-    UIImagePickerController *imagePicker;
-    UIImage *imageSelected;
-    NSURL *imageURL;
+//    UIImagePickerController *imagePicker;
+//    UIImage *imageSelected;
+//    NSURL *imageURL;
 }
 
 @property (nonatomic)NSMutableArray *updateArray;
 @property (weak, nonatomic) IBOutlet UILabel *specialsLabel;
-@property (weak, nonatomic)UIImagePickerController *imagePicker;
-@property (weak, nonatomic)UIImage *imageSelected;
-@property (weak, nonatomic)NSURL *imageUrl;
+//@property (weak, nonatomic)UIImagePickerController *imagePicker;
+//@property (weak, nonatomic)UIImage *imageSelected;
+//@property (weak, nonatomic)NSURL *imageUrl;
 
-@property (nonatomic, retain)IBOutlet AwesomeMenu *menu;
-
-- (void)getMenuDisplay;
-
-- (IBAction)gotoMap:(id)sender;
-
-- (IBAction)getPhotoForSharing:(id)sender;
-
-- (IBAction)shareMe:(id)sender;
+//@property (nonatomic, retain)IBOutlet AwesomeMenu *menu;
+//
+//- (void)getMenuDisplay;
+//
+//- (IBAction)gotoMap:(id)sender;
+//
+//- (IBAction)getPhotoForSharing:(id)sender;
+//
+//- (IBAction)shareMe:(id)sender;
 
 - (void)getStatusData;
 - (void)fetchSpecials;
