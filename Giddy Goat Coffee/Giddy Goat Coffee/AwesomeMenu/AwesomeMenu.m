@@ -64,10 +64,6 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
         self.menusArray = aMenusArray;
         
         // add the "Add" Button.
-//        _addButton = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg-addbutton.png"]
-//                                       highlightedImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"] 
-//                                           ContentImage:[UIImage imageNamed:@"icon-plus.png"] 
-//                                highlightedContentImage:[UIImage imageNamed:@"icon-plus-highlighted.png"]];
         _addButton = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"big-green-button.png"] highlightedImage:[UIImage imageNamed:@"big-green-button-highlighted.png"] ContentImage:nil highlightedContentImage:nil];
         _addButton.delegate = self;
         _addButton.center = self.startPoint;
@@ -165,6 +161,7 @@ static CGPoint RotateCGPointAroundCenter(CGPoint point, CGPoint center, float an
 - (void)AwesomeMenuItemTouchesEnd:(AwesomeMenuItem *)item
 {
     //NSLog(@"Item in touches ended: %@", item);
+    [TestFlight passCheckpoint:@"using awesome menu"];
     // exclude the "add" button
     if (item == _addButton) 
     {

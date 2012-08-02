@@ -45,6 +45,17 @@
 		26DD295315C989D300E6F940 /* arrow-west.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD294F15C989D300E6F940 /* arrow-west.png */; };
 		26DD295415C989D300E6F940 /* arrow-east.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD295015C989D300E6F940 /* arrow-east.png */; };
 		26DD295515C989D300E6F940 /* arrow-east@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD295115C989D300E6F940 /* arrow-east@2x.png */; };
+		26DD295815C9C4DC00E6F940 /* giddyTitleDark1.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD295615C9C4DC00E6F940 /* giddyTitleDark1.png */; };
+		26DD295915C9C4DC00E6F940 /* giddyTitleDark2.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD295715C9C4DC00E6F940 /* giddyTitleDark2.png */; };
+		26DD296215C9EC4600E6F940 /* punchButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD296015C9EC4600E6F940 /* punchButton.png */; };
+		26DD296315C9EC4600E6F940 /* punchButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD296115C9EC4600E6F940 /* punchButtonPressed.png */; };
+		26DD296515C9F77200E6F940 /* pocketCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD296415C9F77000E6F940 /* pocketCard.png */; };
+		26DD296815C9F98200E6F940 /* specialsTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD296615C9F98100E6F940 /* specialsTitle.png */; };
+		26DD296915C9F98200E6F940 /* coffeesTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD296715C9F98200E6F940 /* coffeesTitle.png */; };
+		26DD296D15C9FEB900E6F940 /* giddyIconWhiteHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD296C15C9FEB700E6F940 /* giddyIconWhiteHighlight.png */; };
+		26DD296F15C9FEBF00E6F940 /* giddyIconWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD296E15C9FEBE00E6F940 /* giddyIconWhite.png */; };
+		26DD297115CA0AC800E6F940 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD297015CA0AC800E6F940 /* background@2x.png */; };
+		26DD297315CA0D3A00E6F940 /* creditsTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DD297215CA0D3900E6F940 /* creditsTitle.png */; };
 		5F2811EA15AD2182008C1C0A /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2811E915AD2182008C1C0A /* phone.png */; };
 		5F2811F915ADC5DD008C1C0A /* giddyCreditsGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2811F815ADC5DD008C1C0A /* giddyCreditsGreen.png */; };
 		5F2811FF15ADCB7E008C1C0A /* giddyInformation.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2811FE15ADCB7E008C1C0A /* giddyInformation.png */; };
@@ -153,6 +164,17 @@
 		26DD294F15C989D300E6F940 /* arrow-west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-west.png"; sourceTree = "<group>"; };
 		26DD295015C989D300E6F940 /* arrow-east.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-east.png"; sourceTree = "<group>"; };
 		26DD295115C989D300E6F940 /* arrow-east@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-east@2x.png"; sourceTree = "<group>"; };
+		26DD295615C9C4DC00E6F940 /* giddyTitleDark1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giddyTitleDark1.png; sourceTree = "<group>"; };
+		26DD295715C9C4DC00E6F940 /* giddyTitleDark2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giddyTitleDark2.png; sourceTree = "<group>"; };
+		26DD296015C9EC4600E6F940 /* punchButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = punchButton.png; sourceTree = "<group>"; };
+		26DD296115C9EC4600E6F940 /* punchButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = punchButtonPressed.png; sourceTree = "<group>"; };
+		26DD296415C9F77000E6F940 /* pocketCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pocketCard.png; sourceTree = "<group>"; };
+		26DD296615C9F98100E6F940 /* specialsTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = specialsTitle.png; sourceTree = "<group>"; };
+		26DD296715C9F98200E6F940 /* coffeesTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffeesTitle.png; sourceTree = "<group>"; };
+		26DD296C15C9FEB700E6F940 /* giddyIconWhiteHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giddyIconWhiteHighlight.png; sourceTree = "<group>"; };
+		26DD296E15C9FEBE00E6F940 /* giddyIconWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giddyIconWhite.png; sourceTree = "<group>"; };
+		26DD297015CA0AC800E6F940 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		26DD297215CA0D3900E6F940 /* creditsTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = creditsTitle.png; sourceTree = "<group>"; };
 		5F2811E915AD2182008C1C0A /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
 		5F2811F815ADC5DD008C1C0A /* giddyCreditsGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giddyCreditsGreen.png; sourceTree = "<group>"; };
 		5F2811FE15ADCB7E008C1C0A /* giddyInformation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giddyInformation.png; sourceTree = "<group>"; };
@@ -466,6 +488,17 @@
 		5FB7772815A6623900EC7F00 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				26DD297215CA0D3900E6F940 /* creditsTitle.png */,
+				26DD297015CA0AC800E6F940 /* background@2x.png */,
+				26DD296E15C9FEBE00E6F940 /* giddyIconWhite.png */,
+				26DD296C15C9FEB700E6F940 /* giddyIconWhiteHighlight.png */,
+				26DD296615C9F98100E6F940 /* specialsTitle.png */,
+				26DD296715C9F98200E6F940 /* coffeesTitle.png */,
+				26DD296415C9F77000E6F940 /* pocketCard.png */,
+				26DD296015C9EC4600E6F940 /* punchButton.png */,
+				26DD296115C9EC4600E6F940 /* punchButtonPressed.png */,
+				26DD295615C9C4DC00E6F940 /* giddyTitleDark1.png */,
+				26DD295715C9C4DC00E6F940 /* giddyTitleDark2.png */,
 				2614940615C89E7C00302BFB /* bg-menuitem.png */,
 				2614940415C89C1400302BFB /* bg-menuitem@2x.png */,
 				261493FF15C8158800302BFB /* big-green-button-highlighted.png */,
@@ -662,6 +695,17 @@
 				26DD295315C989D300E6F940 /* arrow-west.png in Resources */,
 				26DD295415C989D300E6F940 /* arrow-east.png in Resources */,
 				26DD295515C989D300E6F940 /* arrow-east@2x.png in Resources */,
+				26DD295815C9C4DC00E6F940 /* giddyTitleDark1.png in Resources */,
+				26DD295915C9C4DC00E6F940 /* giddyTitleDark2.png in Resources */,
+				26DD296215C9EC4600E6F940 /* punchButton.png in Resources */,
+				26DD296315C9EC4600E6F940 /* punchButtonPressed.png in Resources */,
+				26DD296515C9F77200E6F940 /* pocketCard.png in Resources */,
+				26DD296815C9F98200E6F940 /* specialsTitle.png in Resources */,
+				26DD296915C9F98200E6F940 /* coffeesTitle.png in Resources */,
+				26DD296D15C9FEB900E6F940 /* giddyIconWhiteHighlight.png in Resources */,
+				26DD296F15C9FEBF00E6F940 /* giddyIconWhite.png in Resources */,
+				26DD297115CA0AC800E6F940 /* background@2x.png in Resources */,
+				26DD297315CA0D3A00E6F940 /* creditsTitle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,10 +815,12 @@
 					"\"$(SRCROOT)/TestFlightSDK1-1\"",
 					"\"$(SRCROOT)/Giddy Goat Coffee/ZBarSDK\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B3DB0D3-305F-4F43-A9DB-FF704D10B8CC";
 				TARGETED_DEVICE_FAMILY = 1;
+				"VALID_ARCHS[sdk=*]" = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -782,8 +828,8 @@
 		5FB776F515A6157D00EC7F00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Todd Pickell (A8RGDK8GJ8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Todd Pickell";
 				COPY_PHASE_STRIP = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Giddy Goat Coffee/Giddy Goat Coffee-Prefix.pch";
@@ -794,10 +840,12 @@
 					"\"$(SRCROOT)/TestFlightSDK1-1\"",
 					"\"$(SRCROOT)/Giddy Goat Coffee/ZBarSDK\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D4084C3-38BE-4080-9C7F-2BC8B0C65BE1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B22BC85F-FFA2-4ADE-9C66-ADCD21C0207C";
 				TARGETED_DEVICE_FAMILY = 1;
+				"VALID_ARCHS[sdk=*]" = armv6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

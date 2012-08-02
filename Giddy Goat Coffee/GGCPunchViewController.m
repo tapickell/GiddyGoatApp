@@ -17,13 +17,9 @@
 
 @implementation GGCPunchViewController
 
-//@synthesize scrollView = _scrollView;
-//@synthesize pageControl;
 @synthesize imagePicker = _imagePicker;
 @synthesize imageSelected = _imageSelected;
 @synthesize menu;
-//@synthesize mvc1;
-//@synthesize mvc2;
 
 #define CAMERA @"Camera"
 #define LIBRARY @"Photo Library"
@@ -44,31 +40,14 @@
 {
     [super viewDidLoad];
     [self getMenuDisplay];
-//    [self getViewsForScrolling];
 }
 
 - (void)didReceiveMemoryWarning
 {
+    [TestFlight passCheckpoint:@"Did Recieve Memory Warning!!!"];
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-//#pragma mark - scroll view methods
-//
-//- (void)scrollViewDidScroll:(UIScrollView *)sender {
-//    // Update the page when more than 50% of the previous/next page is visible
-//    CGFloat pageWidth = self.scrollView.frame.size.width;
-//    int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-//    self.pageControl.currentPage = page;
-//}
-//
-//- (void)getViewsForScrolling
-//{
-////    UIStoryboard *stb = [UIStoryboard storyboardWithName:@"NewStoryboard" bundle:nil];
-////    mvc1 = [stb instantiateViewControllerWithIdentifier:@"specials"];
-////    mvc2 = [stb instantiateViewControllerWithIdentifier:@"coffees"];
-//    
-//}
 
 #pragma mark - awesome menu display methods
 
@@ -77,6 +56,7 @@
 	// Do any additional setup after loading the view.
     NSString *itemBack = @"bg-menuitem.png";
     
+    //create menu items
     AwesomeMenuItem *menuItem0 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"arrow-west.png"] highlightedContentImage:nil];
     AwesomeMenuItem *menuItem1 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"map-marker.png"] highlightedContentImage:nil];
     AwesomeMenuItem *menuItem2 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"bubbleIcon.png"] highlightedContentImage:nil];
@@ -84,26 +64,34 @@
     AwesomeMenuItem *menuItem4 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"phone.png"] highlightedContentImage:nil];
     AwesomeMenuItem *menuItem5 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"arrow-east.png"] highlightedContentImage:nil];
     
+    //add menu items to array
     NSArray *menus = [NSArray arrayWithObjects:menuItem0, menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, nil];
     
-    
+    //create menu
     menu = [[AwesomeMenu alloc] initWithFrame:self.view.window.bounds menus:menus];
+    
+    //configure menu options
     menu.startPoint = CGPointMake(160.0, 435.0);
     menu.menuWholeAngle = M_PI;
     menu.rotateAngle = -1.3;
-    menu.nearRadius = 80.0f;
-    menu.endRadius = 100.0f;
+    menu.nearRadius = 60.0f;
+    menu.endRadius = 90.0f;
     menu.farRadius = 130.0f;
     menu.delegate = self;
+    
+    //add menu to view
     [self.view addSubview:menu];
 }
 
 - (void)AwesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx
 {
-    NSLog(@"Select the index : %d",idx);
+    //NSLog(@"Select the index : %d",idx);
+    //switch to call methods when menu items are selected
     switch (idx) {
         case 0:
+            //reveal left view
             [self.viewDeckController toggleLeftViewAnimated:YES];
+            [TestFlight passCheckpoint:@"Menu Nav to Specials View"];
             break;
             
         case 1:
@@ -126,8 +114,11 @@
             break;
             
         case 5:
+            //reveal right view
             [self.viewDeckController toggleRightViewAnimated:YES];
+            [TestFlight passCheckpoint:@"Menu Nav to Coffees View"];
             break;
+            
         default:
             break;
     }
@@ -136,33 +127,40 @@
 
 #pragma mark - Maps Integration for iOS5 and iOS6
 
-- (IBAction)gotoMap:(id)sender {
+- (IBAction)gotoMap:(id)sender
+{
+    //get ios version
     NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
+    
+    //if ios5 or lower use google maps
     if (versionNumber < 6) {
         [TestFlight passCheckpoint:@"USING_GOOGLE_MAPS_IOS5"];
         NSURL *mapUrl = [[NSURL alloc] initWithString:@"http://maps.google.com/maps?q=704+n+bishop+Ave+suite+2+rolla+mo+65401&ll=37.949807,-91.776859"];
         [[UIApplication sharedApplication] openURL:mapUrl];
         mapUrl = nil;
     } else {
-        //code for ios 6 map integration
+        //if ios6 use apple maps
         ////NSLog(@"opening maps app in iOS 6");
         [TestFlight passCheckpoint:@"USING_APPLE_MAPS_IOS6"];
+        
         //new code using mkmapitem & mkplacemark
         MKPlacemark *giddyPlacemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(37.949807,-91.776859) addressDictionary:nil];
         MKMapItem *giddyLocation = [[MKMapItem alloc] initWithPlacemark:giddyPlacemark];
+        
         //add extra features to display in map app
         giddyLocation.name = @"Giddy Goat Coffee";
         giddyLocation.phoneNumber = @"+15734266750";
         giddyLocation.url = [NSURL URLWithString:@"http://tggch.com"];
         
-        //open in iOS6 maps
+        //open in iOS6 maps app
         [giddyLocation openInMapsWithLaunchOptions:nil];
     }
 }
 
 #pragma mark - Social Integration / Photo Upload
 
-- (IBAction)getPhotoForSharing:(id)sender {
+- (IBAction)getPhotoForSharing:(id)sender
+{
     //create image picker controller
     imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
@@ -178,19 +176,18 @@
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     
     //if camera is available add that to the popup list of options
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        //imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
         //add button for camera
         [actionSheet addButtonWithTitle:CAMERA];
     }
     //if photo library is available add that to the popup list of options
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
         //add button for library
         [actionSheet addButtonWithTitle:LIBRARY];
     }
     //show action sheet
-    //issues with displaying
-    //[actionSheet showInView:self.parentViewController.view];
     [actionSheet showInView:self.view];
 }
 
@@ -198,7 +195,8 @@
 {
     NSString *desired = (NSString *)kUTTypeImage;
     NSString *choice = [actionSheet buttonTitleAtIndex:buttonIndex];
-    if (buttonIndex == [actionSheet cancelButtonIndex]) {
+    if (buttonIndex == [actionSheet cancelButtonIndex])
+    {
         //No Photos jump to shareMe
         [TestFlight passCheckpoint:@"NOT_SHARING_PHOTO"];
         imageSelected = nil;
@@ -214,10 +212,10 @@
         [TestFlight passCheckpoint:@"GETTING_PIC_FROM_LIBRARY"];
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
+    
     imagePicker.allowsEditing = YES;
     imagePicker.mediaTypes = [NSArray arrayWithObject:desired];
-    //issues on new view
-    //[self.parentViewController presentModalViewController:imagePicker animated:YES];
+
     [self presentModalViewController:imagePicker animated:YES];
 }
 
@@ -225,10 +223,6 @@
 {
     //extract image
     imageSelected = [info objectForKey:UIImagePickerControllerEditedImage];
-    //imageURL = [info valueForKey:UIImagePickerControllerReferenceURL];
-    //NSLog(@"imageSelected url: %@",imageURL);
-    
-    //[self dismissViewControllerAnimated:YES completion:^([self shareMe:self])];
     [self dismissViewControllerAnimated:YES completion:^{[self shareMe:self];}];
 }
 
@@ -244,13 +238,17 @@
     [TestFlight passCheckpoint:@"USING_SOCIAL_FEATURES"];
     NSString *textToShare = @"@TGGCHRolla ";
     NSArray *activityItems;
-    if (imageSelected) {
-        //NSLog(@"Image Selected: %@", imageSelected);
-        
+    
+    //add items to array
+    if (imageSelected)
+    {
+        //if there is an image to be passed
         activityItems = @[textToShare, imageSelected];
     } else {
+        //no image
         activityItems = @[textToShare];
     }
+    
     NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
     if (versionNumber < 6) {
         if ([TWTweetComposeViewController canSendTweet])
@@ -269,7 +267,6 @@
         [self presentViewController:activityVC animated:YES completion:nil];
     }
     imageSelected = nil;
-    //imageURL = nil;
 }
 
 #pragma mark - call features
@@ -277,7 +274,8 @@
 - (IBAction)callPopup:(id)sender
 {
     UIDevice *device = [UIDevice currentDevice];
-    if ([[device model] isEqualToString:@"iPhone"] ) {
+    if ([[device model] isEqualToString:@"iPhone"] )
+    {
         //NSLog(@"Calling Giddy Goat Coffee House");
         [TestFlight passCheckpoint:@"USING_CALL_FEATURE"];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://5734266750"]]];
@@ -288,4 +286,9 @@
 
 
 
+- (IBAction)getCardPunch:(id)sender
+{
+    [TestFlight passCheckpoint:@"USING_PUNCH_CASR_FEATURE"];
+    //method to add punch to punch card
+}
 @end

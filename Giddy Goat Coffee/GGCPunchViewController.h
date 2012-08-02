@@ -13,21 +13,12 @@
 
 @interface GGCPunchViewController : UIViewController < UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AwesomeMenuDelegate>
 {
-//    UIViewController *mvc1;
-//    UIViewController *mvc2;
-//    
-//    UIPageControl* pageControl;
-//    UIScrollView* scrollView;
     UIImagePickerController *imagePicker;
     UIImage *imageSelected;
-    //AwesomeMenu *menu;
 }
 
-//@property UIViewController *mvc1;
-//@property UIViewController *mvc2;
+- (IBAction)getCardPunch:(id)sender;
 
-//@property (nonatomic, retain) IBOutlet UIPageControl* pageControl;
-//@property (nonatomic, retain) IBOutlet UIScrollView* scrollView;
 @property (weak, nonatomic)UIImagePickerController *imagePicker;
 @property (weak, nonatomic)UIImage *imageSelected;
 @property (nonatomic, retain)IBOutlet AwesomeMenu *menu;
