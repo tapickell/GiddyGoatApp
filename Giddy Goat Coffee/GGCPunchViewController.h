@@ -27,8 +27,6 @@
 
 - (void)getMenuDisplay;
 
-- (void)getViewsForScrolling;
-
 - (IBAction)getPhotoForSharing:(id)sender;
 
 - (IBAction)shareMe:(id)sender;
