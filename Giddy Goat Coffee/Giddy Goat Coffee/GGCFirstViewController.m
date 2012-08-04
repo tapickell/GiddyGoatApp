@@ -20,6 +20,7 @@
 {
     [super viewDidLoad];
 //    [self getMenuDisplay];
+    NSLog(@"first view did load");
     
         //get downloads on async thread
     dispatch_queue_t downloadQueue = dispatch_queue_create("status downloader", NULL);
@@ -173,6 +174,6 @@
 - (IBAction)backToCenter:(id)sender
 {
     [self.viewDeckController toggleLeftViewAnimated:YES];
-    [TestFlight passCheckpoint:@"button nav from specials view"];
+    [TestFlight passCheckpoint:@"Button nav from specials view"];
 }
 @end

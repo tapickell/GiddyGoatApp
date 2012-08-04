@@ -34,7 +34,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 //    [self getMenuDisplay];
-    
+    NSLog(@"second view did load");
     [self fetchCoffees];
     
         //load nsarray objects
@@ -123,6 +123,6 @@
 - (IBAction)returnToCenter:(id)sender
 {
     [self.viewDeckController toggleRightViewAnimated:YES];
-    [TestFlight passCheckpoint:@"button nav from coffees view"];
+    [TestFlight passCheckpoint:@"Button nav from coffees view"];
 }
 @end

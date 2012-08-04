@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"detail view did load");
 	// Do any additional setup after loading the view.
     [TestFlight passCheckpoint:@"VIEWING_CREDITS_PAGE"];
 }

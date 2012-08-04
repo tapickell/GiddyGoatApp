@@ -28,8 +28,10 @@
     
     //stuff for viewDeck
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    NSLog(@"alloc window");
     
     UIStoryboard *stb = [UIStoryboard storyboardWithName:@"NewStoryboard" bundle:nil];
+    NSLog(@"got storyboard");
     
     _punchVC = [stb instantiateViewControllerWithIdentifier:@"punch"];
     _firstVC = [stb instantiateViewControllerWithIdentifier:@"specials"];
@@ -38,12 +40,14 @@
     IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:_punchVC
                                                                                     leftViewController:_firstVC
                                                                                    rightViewController:_secondVC];
-
+    NSLog(@"added vc's to new deck controller");
     deckController.rightLedge = 10;
     deckController.leftLedge = 10;
     
     self.window.rootViewController = deckController;
+    NSLog(@"set deck controller as root view controller");
     [self.window makeKeyAndVisible];
+    NSLog(@"make window key and visible");
     //end stuff for viewDeck
     return YES;
 }

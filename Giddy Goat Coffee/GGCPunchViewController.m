@@ -11,6 +11,7 @@
 #import <Twitter/Twitter.h>
 #import <MapKit/MapKit.h>
 
+
 @interface GGCPunchViewController ()
 
 @end
@@ -20,6 +21,8 @@
 @synthesize imagePicker = _imagePicker;
 @synthesize imageSelected = _imageSelected;
 @synthesize menu;
+@synthesize passLib = _passLib;
+@synthesize passes = _passes;
 
 #define CAMERA @"Camera"
 #define LIBRARY @"Photo Library"
@@ -39,7 +42,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"punch view did load");
     [self getMenuDisplay];
+    //get pass from pass library
+    passLib = [[PKPassLibrary alloc] init];
+    passes = [passLib passes];
+    noteCenter = [NSNotificationCenter defaultCenter];
+    //[noteCenter addObserver:self selector:@selector(passLibraryDidChange) name:PKPassLibraryDidChangeNotification object:passLib];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -288,7 +298,59 @@
 
 - (IBAction)getCardPunch:(id)sender
 {
-    [TestFlight passCheckpoint:@"USING_PUNCH_CASR_FEATURE"];
+    [TestFlight passCheckpoint:@"USING_PUNCH_CARD_FEATURE"];
     //method to add punch to punch card
+    
+    if (passLib) {
+        //you have pass library
+        NSLog(@"user has pass library");
+        if ([passes count] == 0) {
+            //you dont have our pass yet, lets get you a new one, shall we.
+            NSLog(@"user doesnt have our pass");
+            
+        } else {
+            //you have our pass let update the punch count for you
+            NSLog(@"Number of passes: %d", [passes count]);
+            NSLog(@"user has our pass: %@", passes);
+            PKPass *myPass = [passes objectAtIndex:0];
+            NSLog(@"\nPass Info\n passTypeID: %@ \n organizationName: %@ \n serialNumber: %@ \n passURL: %@ \n punches: %@",
+                 [myPass passTypeIdentifier],
+                 [myPass organizationName],
+                 [myPass serialNumber],
+                 [myPass passURL],
+                 [myPass localizedValueForFieldKey:@"punches"]);
+            
+            //get updated pass from server
+            NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cn="];
+            [urlString appendString:[myPass serialNumber]];
+            [urlString appendString:@"&cp="];
+            [urlString appendString:[myPass localizedValueForFieldKey:@"punches"]];
+            NSURL *url = [NSURL URLWithString:urlString];
+            NSLog(@"URL: %@", urlString);
+            NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+            PKPass *updatedPass = [[PKPass alloc] initWithData:data error:nil];
+            NSLog(@"\nPass Info\n passTypeID: %@ \n organizationName: %@ \n serialNumber: %@ \n passURL: %@ \n punches: %@",
+                  [updatedPass passTypeIdentifier],
+                  [updatedPass organizationName],
+                  [updatedPass serialNumber],
+                  [updatedPass passURL],
+                  [updatedPass localizedValueForFieldKey:@"punches"]);
+            [passLib replacePassWithPass:updatedPass];
+        }
+    } else {
+        //sorry you dont have pass library
+        NSLog(@"user doesnt have pass library");
+    }
+    
+    
 }
+
+
+
+
+
+
+
+
+
 @end
