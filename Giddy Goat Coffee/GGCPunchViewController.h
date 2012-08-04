@@ -20,6 +20,9 @@
     PKPassLibrary *passLib;
     NSArray *passes;
     NSNotificationCenter *noteCenter;
+    NSURL *url;
+    NSData *data;
+    PKPass *updatedPass;
 }
 
 - (IBAction)getCardPunch:(id)sender;
@@ -37,7 +40,7 @@
 
 - (void)getPassesFromLib:(NSNotificationCenter *)notification;
 
-- (PKPass *)getPassFromServer:(NSMutableString *)urlString;
+- (void)getPassFromServer:(NSMutableString *)urlString;
 
 - (IBAction)getPhotoForSharing:(id)sender;
 

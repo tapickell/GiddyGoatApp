@@ -62,12 +62,25 @@
 
 #pragma mark - passbook integration
 
-- (PKPass *)getPassFromServer:(NSMutableString *)urlString
+//- (void)getPassFromServer:(NSMutableString *)urlString
+//{
+//    url = [NSURL URLWithString:urlString];
+//    dispatch_queue_t passQueue = dispatch_queue_create("pass queue", NULL);
+//    dispatch_async(passQueue, ^{
+//    data = [[NSData alloc] initWithContentsOfURL:url];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            updatedPass = [[PKPass alloc] initWithData:data error:nil];
+//        });
+//    });
+//    
+//}
+
+
+- (void)getPassFromServer:(NSMutableString *)urlString
 {
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
-    PKPass *updatedPass = [[PKPass alloc] initWithData:data error:nil];
-    return updatedPass;
+    url = [NSURL URLWithString:urlString];
+    data = [[NSData alloc] initWithContentsOfURL:url];
+    updatedPass = [[PKPass alloc] initWithData:data error:nil];
 }
 
 - (void)getPassesFromLib:(NSNotificationCenter *)notification
@@ -76,6 +89,55 @@
         //get pass from pass library
         passes = [passLib passes];
     });
+}
+
+- (IBAction)getCardPunch:(id)sender
+{
+    [TestFlight passCheckpoint:@"USING_PUNCH_CARD_FEATURE"];
+    //method to add punch to punch card
+    
+    if (passLib) {
+        //you have pass library
+        NSLog(@"user has pass library");
+        if ([passes count] == 0) {
+            //you dont have our pass yet, lets get you a new one, shall we.
+            NSLog(@"user doesnt have our pass");
+            NSMutableString *newUrlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cp=12"];
+            
+            dispatch_queue_t newPassQueue = dispatch_queue_create("new pass downloader", NULL);
+            dispatch_async(newPassQueue, ^{
+                [self getPassFromServer:newUrlString];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //pop addPassView
+                    PKAddPassesViewController *addPassesVC = [[PKAddPassesViewController alloc] initWithPass:updatedPass];
+                    [self presentViewController:addPassesVC animated:YES completion:^{}];
+                });
+            });
+        } else {
+            //you have our pass let update the punch count for you
+            NSLog(@"user has our pass: %@", passes);
+            PKPass *myPass = [passes objectAtIndex:0];
+            
+            //get updated pass from server
+            NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cn="];
+            [urlString appendString:[myPass serialNumber]];
+            [urlString appendString:@"&cp="];
+            [urlString appendString:[myPass localizedValueForFieldKey:@"punches"]];
+            
+            dispatch_queue_t passUpdateQueue = dispatch_queue_create("pass update downloader", NULL);
+            dispatch_async(passUpdateQueue, ^{
+                [self getPassFromServer:urlString];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [passLib replacePassWithPass:updatedPass];
+                });
+            });
+        }
+    } else {
+        //sorry you dont have pass library
+        NSLog(@"user doesnt have pass library");
+    }
+    
+    
 }
 
 #pragma mark - awesome menu display methods
@@ -313,55 +375,6 @@
         //NSLog(@"Your device doesn't support this feature.");
     }
 }
-
-
-
-- (IBAction)getCardPunch:(id)sender
-{
-    [TestFlight passCheckpoint:@"USING_PUNCH_CARD_FEATURE"];
-    //method to add punch to punch card
-    
-    if (passLib) {
-        //you have pass library
-        NSLog(@"user has pass library");
-        if ([passes count] == 0) {
-            //you dont have our pass yet, lets get you a new one, shall we.
-            NSLog(@"user doesnt have our pass");
-            NSMutableString *newUrlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cp=12"];
-            PKPass *newPass = [self getPassFromServer:newUrlString];
-            //pop addPassView
-            PKAddPassesViewController *addPassesVC = [[PKAddPassesViewController alloc] initWithPass:newPass];
-            [self presentViewController:addPassesVC animated:YES completion:^{}];
-            
-        } else {
-            //you have our pass let update the punch count for you
-            NSLog(@"user has our pass: %@", passes);
-            PKPass *myPass = [passes objectAtIndex:0];
-            
-            //get updated pass from server
-            NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cn="];
-            [urlString appendString:[myPass serialNumber]];
-            [urlString appendString:@"&cp="];
-            [urlString appendString:[myPass localizedValueForFieldKey:@"punches"]];
-            PKPass *updatedPass;
-            updatedPass = [self getPassFromServer:urlString];
-
-            [passLib replacePassWithPass:updatedPass];
-        }
-    } else {
-        //sorry you dont have pass library
-        NSLog(@"user doesnt have pass library");
-    }
-    
-    
-}
-
-
-
-
-
-
-
 
 
 @end
