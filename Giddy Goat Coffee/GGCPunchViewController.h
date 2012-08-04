@@ -35,6 +35,10 @@
 
 - (void)getMenuDisplay;
 
+- (void)getPassesFromLib:(NSNotificationCenter *)notification;
+
+- (PKPass *)getPassFromServer:(NSMutableString *)urlString;
+
 - (IBAction)getPhotoForSharing:(id)sender;
 
 - (IBAction)shareMe:(id)sender;

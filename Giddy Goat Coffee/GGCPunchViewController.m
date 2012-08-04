@@ -39,16 +39,17 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     NSLog(@"punch view did load");
     [self getMenuDisplay];
-    //get pass from pass library
     passLib = [[PKPassLibrary alloc] init];
     passes = [passLib passes];
     noteCenter = [NSNotificationCenter defaultCenter];
-    //[noteCenter addObserver:self selector:@selector(passLibraryDidChange) name:PKPassLibraryDidChangeNotification object:passLib];
+    [noteCenter addObserver:self selector:@selector(getPassesFromLib:) name:PKPassLibraryDidChangeNotification object:passLib];
     
 }
 
@@ -57,6 +58,24 @@
     [TestFlight passCheckpoint:@"Did Recieve Memory Warning!!!"];
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - passbook integration
+
+- (PKPass *)getPassFromServer:(NSMutableString *)urlString
+{
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+    PKPass *updatedPass = [[PKPass alloc] initWithData:data error:nil];
+    return updatedPass;
+}
+
+- (void)getPassesFromLib:(NSNotificationCenter *)notification
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //get pass from pass library
+        passes = [passLib passes];
+    });
 }
 
 #pragma mark - awesome menu display methods
@@ -136,6 +155,7 @@
 
 
 #pragma mark - Maps Integration for iOS5 and iOS6
+
 
 - (IBAction)gotoMap:(id)sender
 {
@@ -307,34 +327,25 @@
         if ([passes count] == 0) {
             //you dont have our pass yet, lets get you a new one, shall we.
             NSLog(@"user doesnt have our pass");
+            NSMutableString *newUrlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cp=12"];
+            PKPass *newPass = [self getPassFromServer:newUrlString];
+            //pop addPassView
+            PKAddPassesViewController *addPassesVC = [[PKAddPassesViewController alloc] initWithPass:newPass];
+            [self presentViewController:addPassesVC animated:YES completion:^{}];
             
         } else {
             //you have our pass let update the punch count for you
-            NSLog(@"Number of passes: %d", [passes count]);
             NSLog(@"user has our pass: %@", passes);
             PKPass *myPass = [passes objectAtIndex:0];
-            NSLog(@"\nPass Info\n passTypeID: %@ \n organizationName: %@ \n serialNumber: %@ \n passURL: %@ \n punches: %@",
-                 [myPass passTypeIdentifier],
-                 [myPass organizationName],
-                 [myPass serialNumber],
-                 [myPass passURL],
-                 [myPass localizedValueForFieldKey:@"punches"]);
             
             //get updated pass from server
             NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cn="];
             [urlString appendString:[myPass serialNumber]];
             [urlString appendString:@"&cp="];
             [urlString appendString:[myPass localizedValueForFieldKey:@"punches"]];
-            NSURL *url = [NSURL URLWithString:urlString];
-            NSLog(@"URL: %@", urlString);
-            NSData *data = [[NSData alloc] initWithContentsOfURL:url];
-            PKPass *updatedPass = [[PKPass alloc] initWithData:data error:nil];
-            NSLog(@"\nPass Info\n passTypeID: %@ \n organizationName: %@ \n serialNumber: %@ \n passURL: %@ \n punches: %@",
-                  [updatedPass passTypeIdentifier],
-                  [updatedPass organizationName],
-                  [updatedPass serialNumber],
-                  [updatedPass passURL],
-                  [updatedPass localizedValueForFieldKey:@"punches"]);
+            PKPass *updatedPass;
+            updatedPass = [self getPassFromServer:urlString];
+
             [passLib replacePassWithPass:updatedPass];
         }
     } else {
