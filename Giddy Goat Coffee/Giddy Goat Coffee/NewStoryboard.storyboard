@@ -69,8 +69,8 @@
                             </imageView>
                             <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="22S-Nv-syu">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="SAn-KY-XnY"/>
                                     <constraint firstAttribute="height" constant="44" id="bnv-J1-cqT"/>
+                                    <constraint firstAttribute="width" constant="100" id="cCF-Dh-a7g"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="punchButton.png">
@@ -84,6 +84,16 @@
                                     <action selector="getCardPunch:" destination="uPT-cH-3Uf" eventType="touchUpInside" id="Wqj-ke-YkS"/>
                                 </connections>
                             </button>
+                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="fRb-Tr-BOS">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="nuS-AY-xgb"/>
+                                    <constraint firstAttribute="width" constant="29" id="yIM-lq-cNS"/>
+                                </constraints>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="shadowColor" red="0.37254902719999999" green="0.36862745879999997" blue="0.36862745879999997" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -99,8 +109,9 @@
                             <constraint firstAttribute="trailing" secondItem="ZsX-Cg-NQm" secondAttribute="trailing" constant="25" id="F1p-Cx-gZB"/>
                             <constraint firstAttribute="bottom" secondItem="2gu-fs-YAw" secondAttribute="bottom" constant="127" id="G6J-Zc-bic"/>
                             <constraint firstItem="T5t-Oh-VJi" firstAttribute="leading" secondItem="xBB-tC-vwS" secondAttribute="leading" constant="246" id="HbD-Gs-dQb"/>
+                            <constraint firstAttribute="bottom" secondItem="fRb-Tr-BOS" secondAttribute="bottom" constant="148" id="Hl3-qs-tUb"/>
                             <constraint firstItem="tYN-J1-Oha" firstAttribute="top" secondItem="xBB-tC-vwS" secondAttribute="top" constant="240" id="IsM-aq-3j8"/>
-                            <constraint firstAttribute="bottom" secondItem="22S-Nv-syu" secondAttribute="bottom" constant="134" id="LKM-C4-bWl"/>
+                            <constraint firstAttribute="bottom" secondItem="22S-Nv-syu" secondAttribute="bottom" constant="134" id="LQm-Bc-LDi"/>
                             <constraint firstItem="2gu-fs-YAw" firstAttribute="leading" secondItem="xBB-tC-vwS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="P5c-MG-alB"/>
                             <constraint firstItem="22S-Nv-syu" firstAttribute="centerX" secondItem="Gbh-Vv-niG" secondAttribute="centerX" type="default" id="Qsz-bG-h4e"/>
                             <constraint firstItem="1hh-y0-pCC" firstAttribute="leading" secondItem="xBB-tC-vwS" secondAttribute="leading" constant="247" id="T1m-PH-stO"/>
@@ -113,10 +124,12 @@
                             <constraint firstAttribute="trailing" secondItem="hpc-Uo-NW2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pgi-1h-UQR"/>
                             <constraint firstItem="HVY-UA-QKV" firstAttribute="leading" secondItem="xBB-tC-vwS" secondAttribute="leading" type="default" id="qqw-PX-nvx"/>
                             <constraint firstItem="Gbh-Vv-niG" firstAttribute="top" secondItem="xBB-tC-vwS" secondAttribute="top" constant="34" id="sEf-hp-l7R"/>
+                            <constraint firstItem="fRb-Tr-BOS" firstAttribute="leading" secondItem="xBB-tC-vwS" secondAttribute="leading" constant="83" id="ukZ-fP-8ep"/>
                             <constraint firstItem="HVY-UA-QKV" firstAttribute="bottom" secondItem="xBB-tC-vwS" secondAttribute="bottom" type="default" id="uoH-aB-NB6"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="punchLabel" destination="fRb-Tr-BOS" id="0Ee-oF-MB2"/>
                         <segue destination="ohC-3f-rmB" kind="modal" identifier="segueToCredits" modalTransitionStyle="flipHorizontal" id="12L-0J-sDb"/>
                     </connections>
                 </viewController>
@@ -453,6 +466,49 @@ The Giddy Goat Coffee House       www.tggch.com</string>
         <image name="punchButtonPressed.png" width="107" height="45"/>
         <image name="specialsTitle.png" width="429" height="81"/>
     </resources>
+    <classes>
+        <class className="AwesomeMenu" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AwesomeMenu.h"/>
+        </class>
+        <class className="GGCDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTapped:"/>
+                <relationship kind="outlet" name="itemDescripLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGCFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCFirstViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backToCenter:"/>
+                <relationship kind="outlet" name="specialsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGCPunchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCPunchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="callPopup:"/>
+                <relationship kind="action" name="getCardPunch:"/>
+                <relationship kind="action" name="getPhotoForSharing:"/>
+                <relationship kind="action" name="gotoMap:"/>
+                <relationship kind="action" name="shareMe:"/>
+                <relationship kind="outlet" name="menu" candidateClass="AwesomeMenu"/>
+                <relationship kind="outlet" name="punchLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGCSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGCSecondViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="returnToCenter:"/>
+                <relationship kind="outlet" name="coffeeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="coffeePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

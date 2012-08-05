@@ -23,9 +23,12 @@
     NSURL *url;
     NSData *data;
     PKPass *updatedPass;
+
 }
 
 - (IBAction)getCardPunch:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *punchLabel;
 
 @property (weak, nonatomic)UIImagePickerController *imagePicker;
 @property (weak, nonatomic)UIImage *imageSelected;

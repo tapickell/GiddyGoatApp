@@ -18,6 +18,7 @@
 
 @implementation GGCPunchViewController
 
+@synthesize punchLabel;
 @synthesize imagePicker = _imagePicker;
 @synthesize imageSelected = _imageSelected;
 @synthesize menu;
@@ -48,6 +49,13 @@
     [self getMenuDisplay];
     passLib = [[PKPassLibrary alloc] init];
     passes = [passLib passes];
+    if (passLib) {
+        if ([passes count] > 0) {
+            PKPass *temp = [passes objectAtIndex:0];
+            [punchLabel setText:[temp localizedValueForFieldKey:@"punches"]];
+        }
+    }
+
     noteCenter = [NSNotificationCenter defaultCenter];
     [noteCenter addObserver:self selector:@selector(getPassesFromLib:) name:PKPassLibraryDidChangeNotification object:passLib];
     
@@ -62,25 +70,18 @@
 
 #pragma mark - passbook integration
 
-//- (void)getPassFromServer:(NSMutableString *)urlString
-//{
-//    url = [NSURL URLWithString:urlString];
-//    dispatch_queue_t passQueue = dispatch_queue_create("pass queue", NULL);
-//    dispatch_async(passQueue, ^{
-//    data = [[NSData alloc] initWithContentsOfURL:url];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            updatedPass = [[PKPass alloc] initWithData:data error:nil];
-//        });
-//    });
-//    
-//}
-
-
 - (void)getPassFromServer:(NSMutableString *)urlString
 {
     url = [NSURL URLWithString:urlString];
     data = [[NSData alloc] initWithContentsOfURL:url];
-    updatedPass = [[PKPass alloc] initWithData:data error:nil];
+    if (data != NULL) {
+        updatedPass = [[PKPass alloc] initWithData:data error:nil];
+    } else {
+        //warning unable to contact server
+        NSLog(@"Unable to contact server");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"Unable to connect to server to update punch card. Please check your network connection and try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)getPassesFromLib:(NSNotificationCenter *)notification
@@ -88,6 +89,8 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         //get pass from pass library
         passes = [passLib passes];
+        PKPass *temp = [passes objectAtIndex:0];
+        [punchLabel setText:[temp localizedValueForFieldKey:@"punches"]];
     });
 }
 
@@ -107,11 +110,13 @@
             dispatch_queue_t newPassQueue = dispatch_queue_create("new pass downloader", NULL);
             dispatch_async(newPassQueue, ^{
                 [self getPassFromServer:newUrlString];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //pop addPassView
-                    PKAddPassesViewController *addPassesVC = [[PKAddPassesViewController alloc] initWithPass:updatedPass];
-                    [self presentViewController:addPassesVC animated:YES completion:^{}];
-                });
+                if (updatedPass != NULL) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        //pop addPassView
+                        PKAddPassesViewController *addPassesVC = [[PKAddPassesViewController alloc] initWithPass:updatedPass];
+                        [self presentViewController:addPassesVC animated:YES completion:^{}];
+                    });
+                }
             });
         } else {
             //you have our pass let update the punch count for you
@@ -127,9 +132,11 @@
             dispatch_queue_t passUpdateQueue = dispatch_queue_create("pass update downloader", NULL);
             dispatch_async(passUpdateQueue, ^{
                 [self getPassFromServer:urlString];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [passLib replacePassWithPass:updatedPass];
-                });
+                if (updatedPass != NULL) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [passLib replacePassWithPass:updatedPass];
+                    });
+                }
             });
         }
     } else {
@@ -377,4 +384,9 @@
 }
 
 
+- (void)viewDidUnload {
+    punchLabel = nil;
+    [self setPunchLabel:nil];
+    [super viewDidUnload];
+}
 @end
