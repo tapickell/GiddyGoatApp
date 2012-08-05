@@ -47,7 +47,6 @@
 
 - (IBAction)backgroundTapped:(id)sender {
         //NSLog(@"Background tapped");
-    [TestFlight passCheckpoint:@"DONE_VIEWING_CREDITS_PAGE"];
     [self dismissModalViewControllerAnimated:YES];
 }
 

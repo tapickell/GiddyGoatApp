@@ -11,9 +11,10 @@
 #import <PassKit/PassKit.h>
 #import "AwesomeMenu.h"
 #import "AwesomeMenuItem.h"
+#import "ZBarReaderViewController.h"
 
 
-@interface GGCPunchViewController : UIViewController < UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AwesomeMenuDelegate>
+@interface GGCPunchViewController : UIViewController < UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AwesomeMenuDelegate, ZBarReaderDelegate>
 {
     UIImagePickerController *imagePicker;
     UIImage *imageSelected;
