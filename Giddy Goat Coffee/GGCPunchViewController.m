@@ -121,7 +121,7 @@
         } else {
             //you have our pass let update the punch count for you
             NSLog(@"user has our pass: %@", passes);
-            PKPass *myPass = [passes objectAtIndex:0];
+            //PKPass *myPass = [passes objectAtIndex:0];
             
             //get Iphone to employee
             UIAlertView *givePhone = [[UIAlertView alloc] initWithTitle:@"Hand iPhone to Barista" message:@"Please hand your iPhone to your Giddy Goat Barista. They will add a punch to your card for you." delegate:nil cancelButtonTitle:@"Continue" otherButtonTitles:nil];
@@ -130,17 +130,17 @@
             [self performSegueWithIdentifier:@"segueToScanView" sender:self];
             
             //get updated pass from server
-            NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cn="];
-            [urlString appendString:[myPass serialNumber]];
-            [urlString appendString:@"&cp="];
-            [urlString appendString:[myPass localizedValueForFieldKey:@"punches"]];
+//            NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cn="];
+//            [urlString appendString:[myPass serialNumber]];
+//            [urlString appendString:@"&cp="];
+//            [urlString appendString:[myPass localizedValueForFieldKey:@"punches"]];
             
             dispatch_queue_t passUpdateQueue = dispatch_queue_create("pass update downloader", NULL);
             dispatch_async(passUpdateQueue, ^{
-                [self getPassFromServer:urlString];
+                //[self getPassFromServer:urlString];
                 if (updatedPass != NULL) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [passLib replacePassWithPass:updatedPass];
+                        //[passLib replacePassWithPass:updatedPass];
                     });
                 }
             });
