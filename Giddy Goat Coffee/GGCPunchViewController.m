@@ -105,7 +105,8 @@
         if ([passes count] == 0) {
             //you dont have our pass yet, lets get you a new one, shall we.
             NSLog(@"user doesnt have our pass");
-            NSMutableString *newUrlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cp=12"];
+            NSMutableString *newUrlString = [[NSMutableString alloc] initWithString:@"http://toddpickell.me/card/punchMe.php?cp=12"];
+            //NSMutableString *newUrlString = [[NSMutableString alloc] initWithString:@"http://localhost/~toddpickell/punchMe.php?cp=12"];
             
             dispatch_queue_t newPassQueue = dispatch_queue_create("new pass downloader", NULL);
             dispatch_async(newPassQueue, ^{

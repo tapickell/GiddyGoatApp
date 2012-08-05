@@ -75,7 +75,7 @@
     if ([scan isEqualToString:checkString]) {
         //get updated pass from server
         PKPass *myPass = [passes objectAtIndex:0];
-        NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cn="];
+        NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://www.toddpickell.me/card/punchMe.php?cn="];
         [urlString appendString:[myPass serialNumber]];
         [urlString appendString:@"&cp="];
         [urlString appendString:[myPass localizedValueForFieldKey:@"punches"]];
