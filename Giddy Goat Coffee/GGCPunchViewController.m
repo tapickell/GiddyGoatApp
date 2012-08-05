@@ -135,15 +135,15 @@
 //            [urlString appendString:@"&cp="];
 //            [urlString appendString:[myPass localizedValueForFieldKey:@"punches"]];
             
-            dispatch_queue_t passUpdateQueue = dispatch_queue_create("pass update downloader", NULL);
-            dispatch_async(passUpdateQueue, ^{
-                //[self getPassFromServer:urlString];
-                if (updatedPass != NULL) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        //[passLib replacePassWithPass:updatedPass];
-                    });
-                }
-            });
+//            dispatch_queue_t passUpdateQueue = dispatch_queue_create("pass update downloader", NULL);
+//            dispatch_async(passUpdateQueue, ^{
+//                //[self getPassFromServer:urlString];
+//                if (updatedPass != NULL) {
+//                    dispatch_async(dispatch_get_main_queue(), ^{
+//                        //[passLib replacePassWithPass:updatedPass];
+//                    });
+//                }
+//            });
         }
     } else {
         //sorry you dont have pass library
