@@ -24,6 +24,8 @@
 @property (nonatomic) IBOutlet ZBarReaderView *readerView;
 @property (weak, nonatomic)PKPassLibrary *passLib;
 @property (weak, nonatomic)NSArray *passes;
+@property (weak, nonatomic) IBOutlet UILabel *punchLabel;
+@property (nonatomic)UIActivityIndicatorView *spinner;
 
 - (IBAction)cancelButtonPressed:(id)sender;
 

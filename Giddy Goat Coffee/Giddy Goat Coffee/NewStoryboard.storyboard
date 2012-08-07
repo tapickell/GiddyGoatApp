@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2818" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uPT-cH-3Uf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2829" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uPT-cH-3Uf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1900"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1914"/>
     </dependencies>
     <scenes>
         <!--Punch View Controller - Punch-->
@@ -67,7 +67,7 @@
                                     <constraint firstAttribute="width" constant="45" id="EKL-HL-mo9"/>
                                 </constraints>
                             </imageView>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="22S-Nv-syu">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="22S-Nv-syu">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="bnv-J1-cqT"/>
                                     <constraint firstAttribute="width" constant="100" id="cCF-Dh-a7g"/>
@@ -192,7 +192,7 @@
                                     <constraint firstAttribute="width" constant="45" id="OL3-pn-aAb"/>
                                 </constraints>
                             </imageView>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="LQR-iP-Pc5">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LQR-iP-Pc5">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="0ME-4e-0e5"/>
                                     <constraint firstAttribute="width" constant="44" id="Kl5-r0-LwL"/>
@@ -303,7 +303,7 @@ The Giddy Goat Coffee House       www.tggch.com</string>
                                     <constraint firstAttribute="height" constant="86" id="xnJ-k6-paL"/>
                                 </constraints>
                             </imageView>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="Ogh-Qi-5gO">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ogh-Qi-5gO">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="WxX-5j-qzI"/>
                                 </constraints>
@@ -358,7 +358,13 @@ The Giddy Goat Coffee House       www.tggch.com</string>
                             <view translatesAutoresizingMaskIntoConstraints="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="vlO-ZG-SG9" customClass="ZBarReaderView">
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="dpk-DF-wLM">
+                            <imageView translatesAutoresizingMaskIntoConstraints="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="frame.png" id="IDL-NH-8PJ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="382" id="f01-7b-z6m"/>
+                                    <constraint firstAttribute="width" constant="292" id="uVB-ck-jUj"/>
+                                </constraints>
+                            </imageView>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dpk-DF-wLM">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="144" id="1FY-NF-kp0"/>
                                     <constraint firstAttribute="height" constant="59" id="PKq-pt-RNV"/>
@@ -375,24 +381,38 @@ The Giddy Goat Coffee House       www.tggch.com</string>
                                     <action selector="cancelButtonPressed:" destination="PaJ-gI-H9f" eventType="touchUpInside" id="gnL-Tk-9Wr"/>
                                 </connections>
                             </button>
+                            <label translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="Rt0-vx-7c9">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="S0z-vl-aoz"/>
+                                    <constraint firstAttribute="height" constant="81" id="mkw-8x-uTK"/>
+                                </constraints>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="r7P-py-qSd" firstAttribute="top" secondItem="3TS-X3-PwF" secondAttribute="top" type="default" id="165-LN-wdT"/>
+                            <constraint firstItem="vlO-ZG-SG9" firstAttribute="leading" secondItem="3TS-X3-PwF" secondAttribute="leading" constant="56" id="1GS-0b-zEh"/>
+                            <constraint firstItem="IDL-NH-8PJ" firstAttribute="top" secondItem="3TS-X3-PwF" secondAttribute="top" constant="-17" id="1iA-X2-mAT"/>
+                            <constraint firstItem="rAG-pq-YGX" firstAttribute="centerX" secondItem="r7P-py-qSd" secondAttribute="centerX" type="default" id="1ic-0h-THh"/>
                             <constraint firstItem="r7P-py-qSd" firstAttribute="trailing" secondItem="3TS-X3-PwF" secondAttribute="trailing" type="default" id="4Yh-Gv-nAv"/>
-                            <constraint firstItem="rAG-pq-YGX" firstAttribute="centerX" secondItem="vlO-ZG-SG9" secondAttribute="centerX" type="default" id="Auw-EY-d1k"/>
-                            <constraint firstItem="vlO-ZG-SG9" firstAttribute="top" secondItem="3TS-X3-PwF" secondAttribute="top" constant="53" id="JPD-dD-4ki"/>
+                            <constraint firstAttribute="bottom" secondItem="vlO-ZG-SG9" secondAttribute="bottom" constant="210" id="5OU-Yh-HlX"/>
+                            <constraint firstItem="Rt0-vx-7c9" firstAttribute="leading" secondItem="3TS-X3-PwF" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="FCu-dD-xjD"/>
                             <constraint firstItem="rAG-pq-YGX" firstAttribute="top" secondItem="3TS-X3-PwF" secondAttribute="top" constant="-12" id="Qib-1Q-FpX"/>
-                            <constraint firstAttribute="trailing" secondItem="vlO-ZG-SG9" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Svy-XZ-lcI"/>
+                            <constraint firstItem="rAG-pq-YGX" firstAttribute="centerX" secondItem="IDL-NH-8PJ" secondAttribute="centerX" type="default" id="TTv-RS-xIV"/>
                             <constraint firstItem="r7P-py-qSd" firstAttribute="leading" secondItem="3TS-X3-PwF" secondAttribute="leading" type="default" id="TcJ-w5-XfR"/>
-                            <constraint firstAttribute="bottom" secondItem="vlO-ZG-SG9" secondAttribute="bottom" constant="177" id="VZM-Kn-QoM"/>
+                            <constraint firstItem="vlO-ZG-SG9" firstAttribute="top" secondItem="3TS-X3-PwF" secondAttribute="top" constant="80" id="bg6-kK-mPu"/>
                             <constraint firstItem="dpk-DF-wLM" firstAttribute="leading" secondItem="3TS-X3-PwF" secondAttribute="leading" constant="7" id="cpG-p6-YFt"/>
-                            <constraint firstAttribute="bottom" secondItem="dpk-DF-wLM" secondAttribute="bottom" constant="5" id="fzq-ub-W8M"/>
+                            <constraint firstAttribute="trailing" secondItem="vlO-ZG-SG9" secondAttribute="trailing" constant="30" id="cyP-8i-igk"/>
+                            <constraint firstItem="dpk-DF-wLM" firstAttribute="top" secondItem="Rt0-vx-7c9" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="moS-KN-lkK"/>
+                            <constraint firstAttribute="bottom" secondItem="dpk-DF-wLM" secondAttribute="bottom" constant="5" id="pbg-Ae-ApD"/>
                             <constraint firstItem="r7P-py-qSd" firstAttribute="bottom" secondItem="3TS-X3-PwF" secondAttribute="bottom" type="default" id="qRG-wC-QS6"/>
-                            <constraint firstItem="vlO-ZG-SG9" firstAttribute="leading" secondItem="3TS-X3-PwF" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="uUY-qz-aSU"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="punchLabel" destination="Rt0-vx-7c9" id="TTs-Sg-9mB"/>
                         <outlet property="readerView" destination="vlO-ZG-SG9" id="SBP-Pr-eDD"/>
                     </connections>
                 </viewController>
@@ -449,7 +469,7 @@ The Giddy Goat Coffee House       www.tggch.com</string>
                                     <constraint firstAttribute="width" constant="45" id="Hbm-Ya-pgb"/>
                                 </constraints>
                             </imageView>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="hjb-Kf-6V0">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hjb-Kf-6V0">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="LsM-Lf-J6p"/>
                                     <constraint firstAttribute="width" constant="44" id="MWW-Eg-dTN"/>
@@ -523,6 +543,7 @@ The Giddy Goat Coffee House       www.tggch.com</string>
         <image name="chalkboard-icon-512x512.png" width="512" height="512"/>
         <image name="coffeesTitle.png" width="429" height="81"/>
         <image name="creditsTitle.png" width="429" height="81"/>
+        <image name="frame.png" width="835" height="680"/>
         <image name="giddyTitleDark1.png" width="429" height="81"/>
         <image name="giddyTitleDark2.png" width="429" height="81"/>
         <image name="giddykittyBackground.png" width="480" height="640"/>
@@ -567,6 +588,7 @@ The Giddy Goat Coffee House       www.tggch.com</string>
             <relationships>
                 <relationship kind="action" name="cancelButtonPressed:"/>
                 <relationship kind="action" name="scanPunchCode:"/>
+                <relationship kind="outlet" name="punchLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="readerView" candidateClass="ZBarReaderView"/>
             </relationships>
         </class>

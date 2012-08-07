@@ -36,6 +36,14 @@
     
     passLib = [[PKPassLibrary alloc] init];
     passes = [passLib passes];
+    PKPass *temp = [passes objectAtIndex:0];
+    [_punchLabel setText:[temp localizedValueForFieldKey:@"punches"]];
+    
+    _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [_spinner setCenter:CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0)]; // I do this because I'm in landscape mode
+    [_spinner setColor:[UIColor greenColor]];
+    [self.view addSubview:_spinner]; // spinner is not visible until started
+    
     readerView.readerDelegate = self;
 }
 
@@ -70,6 +78,7 @@
 
 - (void)processPunchScan
 {
+    [_spinner startAnimating];
     NSLog(@"Scan: %@", scan);
     NSString *checkString = @"2a73e02a88ee9bcb965cc0f22c0cabbf68d5e823992884b4514bc242b0146ff16d5cf349c374cf7c";
     if ([scan isEqualToString:checkString]) {
@@ -86,6 +95,9 @@
             if (updatedPass != NULL) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [passLib replacePassWithPass:updatedPass];
+                    if ([_spinner isAnimating]) {
+                        [_spinner stopAnimating];
+                    }
                     [self dismissModalViewControllerAnimated:YES];
                 });
             }
@@ -93,6 +105,9 @@
     } else {
         NSLog(@"Invalid Scan");
         UIAlertView *scanAlert = [[UIAlertView alloc] initWithTitle:@"Invalid Scan" message:@"Scan does not match, please try again. If unable to get scan to work contact administrator." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        if ([_spinner isAnimating]) {
+            [_spinner stopAnimating];
+        }
         [scanAlert show];
     }
 }
@@ -146,4 +161,8 @@
 
 
 
+- (void)viewDidUnload {
+    [self setPunchLabel:nil];
+    [super viewDidUnload];
+}
 @end
