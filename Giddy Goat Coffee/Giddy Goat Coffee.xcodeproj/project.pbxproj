@@ -27,6 +27,7 @@
 		2626D40D15C6F26800776CE9 /* group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2626D40C15C6F26800776CE9 /* group@2x.png */; };
 		2626D41015C6F38300776CE9 /* pricetag.png in Resources */ = {isa = PBXBuildFile; fileRef = 2626D40E15C6F38300776CE9 /* pricetag.png */; };
 		2626D41515C6F48B00776CE9 /* pricetag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2626D41415C6F48B00776CE9 /* pricetag@2x.png */; };
+		26398DA2160149B8006CF17B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26398DA1160149B8006CF17B /* Default-568h@2x.png */; };
 		26AA575215CE988A006654EC /* GGCScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AA575115CE988A006654EC /* GGCScanViewController.m */; };
 		26AA575C15CEA962006654EC /* baristaScanTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AA575B15CEA962006654EC /* baristaScanTitle.png */; };
 		26AA576A15CEDCC1006654EC /* giddykittyBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AA576915CEDCC1006654EC /* giddykittyBackground.png */; };
@@ -132,6 +133,7 @@
 		2626D40C15C6F26800776CE9 /* group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "group@2x.png"; sourceTree = "<group>"; };
 		2626D40E15C6F38300776CE9 /* pricetag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pricetag.png; sourceTree = "<group>"; };
 		2626D41415C6F48B00776CE9 /* pricetag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pricetag@2x.png"; sourceTree = "<group>"; };
+		26398DA1160149B8006CF17B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		26AA575015CE988A006654EC /* GGCScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGCScanViewController.h; sourceTree = "<group>"; };
 		26AA575115CE988A006654EC /* GGCScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGCScanViewController.m; sourceTree = "<group>"; };
 		26AA575B15CEA962006654EC /* baristaScanTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baristaScanTitle.png; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 		5FB776BC15A6157B00EC7F00 = {
 			isa = PBXGroup;
 			children = (
+				26398DA1160149B8006CF17B /* Default-568h@2x.png */,
 				26B5DBD315CD3F34003F502F /* PassKit.framework */,
 				5F7C97FC15C1956D00B7A94A /* libiconv.dylib */,
 				5F7C97FA15C1955800B7A94A /* QuartzCore.framework */,
@@ -658,6 +661,7 @@
 				26BE294515D136E000AE9EAD /* Icon-72@2x.png in Resources */,
 				26BE294715D136E500AE9EAD /* Icon-72.png in Resources */,
 				26BE294915D139B100AE9EAD /* background.png in Resources */,
+				26398DA2160149B8006CF17B /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
