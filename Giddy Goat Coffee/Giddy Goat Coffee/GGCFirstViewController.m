@@ -57,7 +57,7 @@
                 [specialsLabel setText:[updateArray objectAtIndex:1]];
         });
     });
-    dispatch_release(downloadQueue);
+    //dispatch_release(downloadQueue);
 }
 
 - (void)viewDidUnload
