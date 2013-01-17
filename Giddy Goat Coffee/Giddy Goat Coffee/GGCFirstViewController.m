@@ -85,9 +85,9 @@
         NSInteger days;
         [self compareDates:arrayFromFile months_p:&months days_p:&days];
             
-            ////NSLog(@"Months: %d Days: %d", months, days);
+            NSLog(@"Months: %d Days: %d", months, days);
         
-        if (days > 0 || months > 0) {
+        if (days != 0 || months != 0) {
                 //get fresh feed
                 //NSLog(@"Getting fresh data");
             [self fetchSpecials];

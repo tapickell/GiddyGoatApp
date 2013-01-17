@@ -29,7 +29,7 @@
     <coffees>
         <index>3</index>
         <name>White Mocha</name>
-        <descrip>Our house blend espresso blended with Ghiradelli white chocolate and steamed milk.</descrip>
+        <descrip>Our house blend espresso blended with Ghirardelli white chocolate and steamed milk.</descrip>
     </coffees>
     <coffees>
         <index>4</index>
@@ -99,7 +99,7 @@
     <coffees>
         <index>17</index>
         <name>Mexican Mocha</name>
-        <descrip>Dark Chocolate and cinnamon powder.</descrip>
+        <descrip>Dark Chocolate and Cinnamon.</descrip>
     </coffees>
     <coffees>
         <index>18</index>
@@ -119,7 +119,7 @@
     <coffees>
         <index>21</index>
         <name>Italian Job Mocha</name>
-        <descrip>White Chocolate and Tirimisu.</descrip>
+        <descrip>White Chocolate and Tiramisu.</descrip>
     </coffees>
     <coffees>
         <index>22</index>
@@ -139,7 +139,7 @@
     <coffees>
         <index>25</index>
         <name>Macadamia Nut Mocha</name>
-        <descrip>MilkChocolate and Macadamia Nut.</descrip>
+        <descrip>Milk Chocolate and Macadamia Nut.</descrip>
     </coffees>
     <coffees>
         <index>26</index>
@@ -163,7 +163,7 @@
     </coffees>
     <coffees>
         <index>30</index>
-        <name>Caramel Macchiatto</name>
+        <name>Caramel Macchiato</name>
         <descrip>Yes, the one Starbucks made famous...Lite Vanilla syrup, espresso, steamed milk, topped with thick velvety foam and a caramel drizzle!</descrip>
     </coffees>
     <coffees>
@@ -173,27 +173,57 @@
     </coffees>
     <coffees>
         <index>32</index>
-        <name>Cin Hazelnut Vanilla Latte</name>
-        <descrip>Cinnamon, Hazelnut and Vanilla ...yes, those three syrups!</descrip>
-    </coffees>
-    <coffees>
-        <index>33</index>
         <name>Banana's Foster Latte </name>
         <descrip>Banana, Butter Rum and Caramel.</descrip>
     </coffees>
     <coffees>
-        <index>34</index>
+        <index>33</index>
         <name>Honey Bunny Latte</name>
         <descrip>Honey, Vanilla and Almond.</descrip>
     </coffees>
     <coffees>
-        <index>35</index>
+        <index>34</index>
         <name>Lucky Irishman Latte</name>
         <descrip>Caramel Sauce and Irish Cream.</descrip>
     </coffees>
     <coffees>
-        <index>36</index>
+        <index>35</index>
         <name>Banana Bread Latte</name>
         <descrip>Banana and Brown Sugar Cinnamon.</descrip>
+    </coffees>
+    <coffees>
+        <index>36</index>
+        <name>Dumbledore</name>
+        <descrip>White Chocolate, Caramel, Banana and Butter Rum topped with Nutmeg.</descrip>
+    </coffees>
+    <coffees>
+        <index>37</index>
+        <name>Master Chief</name>
+        <descrip>Dark Chocolate, Tiramisu and Almond.</descrip>
+    </coffees>
+    <coffees>
+        <index>38</index>
+        <name>Giddy Bomb</name>
+        <descrip>4 shots of espresso, chocolate, white chocolate, caramel and a splash of cream.</descrip>
+    </coffees>
+    <coffees>
+        <index>39</index>
+        <name>Hot Teas</name>
+        <descrip>Montana Tea and Spice Co. Teas.</descrip>
+    </coffees>
+    <coffees>
+        <index>40</index>
+        <name>Frozen Coffees</name>
+        <descrip>A blend of RA base mixes, cold brewed house espresso, milk and syrups.</descrip>
+    </coffees>
+    <coffees>
+        <index>41</index>
+        <name>Seasonals</name>
+        <descrip>Ask about our seasonal specials.</descrip>
+    </coffees>
+    <coffees>
+        <index>42</index>
+        <name>Milks Available</name>
+        <descrip>Whole, Skim, Half and Half, Soy or Almond.</descrip>
     </coffees>
 </coffeeDescrips>
