@@ -104,6 +104,7 @@
     } else {
         //warning unable to contact server
         NSLog(@"Unable to contact server");
+        //moved to put it back on UI thread
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"Unable to connect to server to update punch card. Please check your network connection and try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //        [alert show];
     }
@@ -138,7 +139,7 @@
                 //back to main thread for ui 
                 dispatch_async(dispatch_get_main_queue(), ^{   
                     if (updatedPass != NULL) {
-                        //dispatch_async(dispatch_get_main_queue(), ^{
+                        //dispatch_async(dispatch_get_main_queue(), ^{ #### moved outside to encompass if and else ####
                             //pop addPassView
                             PKAddPassesViewController *addPassesVC = [[PKAddPassesViewController alloc] initWithPass:updatedPass];
                             [self presentViewController:addPassesVC animated:YES completion:^{}];
@@ -150,7 +151,11 @@
                 });//end dispatch get main queue
             });//end new pass queue
         } else {
+<<<<<<< HEAD
             //you have our pass lets update the punch count for you
+=======
+            //you have our pass let us update the punch count for you
+>>>>>>> a3f15a246fec146cf39f85d55a6410ff8f01ee45
             NSLog(@"user has our pass: %@", passes);
             //PKPass *myPass = [passes objectAtIndex:0];
             
@@ -160,6 +165,8 @@
             //need to get back bool from scanner to update card???
             [self performSegueWithIdentifier:@"segueToScanView" sender:self];
             
+            
+////        ##### test setup for local server #####
             //get updated pass from server
 //            NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cn="];
 //            [urlString appendString:[myPass serialNumber]];
@@ -178,6 +185,7 @@
         }
     } else {
         //sorry you dont have pass library
+        // #### should fail on iPad's (w/out passbook) 
         NSLog(@"user doesnt have pass library");
     }
     
@@ -270,6 +278,7 @@
     //get ios version
     NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
     
+    //   ##### This can be refactored now that app is only or iOS 6 and doesnt rely upon google maps call #####
     //if ios5 or lower use google maps
     if (versionNumber < 6) {
         [TestFlight passCheckpoint:@"USING_GOOGLE_MAPS_IOS5"];
@@ -355,6 +364,8 @@
     imagePicker.mediaTypes = [NSArray arrayWithObject:desired];
 
     [self presentModalViewController:imagePicker animated:YES];
+    //This became deprecated after initial release version, need to research more current way acheive same results
+    //with an updated call so this doesnt break later down the road
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -389,7 +400,7 @@
     
     NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
     if (versionNumber < 6) {
-        if ([TWTweetComposeViewController canSendTweet])
+        if ([TWTweetComposeViewController canSendTweet]) // #### Tweet compose view controller deprecated after initial release ####
         {
             TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
             [tweetSheet setInitialText:textToShare];

@@ -105,6 +105,10 @@
 {
     [_spinner startAnimating];
     NSLog(@"Scan: %@", scan);
+<<<<<<< HEAD
+=======
+    // #### would like to hide this else where in a constant that is non descrip ####
+>>>>>>> a3f15a246fec146cf39f85d55a6410ff8f01ee45
     NSString *checkString = @"2a73e02a88ee9bcb965cc0f22c0cabbf68d5e823992884b4514bc242b0146ff16d5cf349c374cf7c";
     if ([scan isEqualToString:checkString]) {
         //get updated pass from server
@@ -156,6 +160,8 @@
 - (IBAction)cancelButtonPressed:(id)sender
 {
     [self dismissModalViewControllerAnimated:YES];
+    //This became deprecated after initial release version, need to research more current way acheive same results
+    //with an updated call so this doesnt break later down the road
 }
 
 #pragma mark - old scan methods
@@ -170,6 +176,8 @@
     [scanner setSymbology:ZBAR_QRCODE config:ZBAR_CFG_ENABLE to:0];
     reader.readerView.zoom = 1.0;
     [self presentModalViewController:reader animated:YES];
+    //This became deprecated after initial release version, need to research more current way acheive same results
+    //with an updated call so this doesnt break later down the road
 }
 
 - (void)imagePickerController:(UIImagePickerController *)reader didFinishPickingMediaWithInfo:(NSDictionary *)info
