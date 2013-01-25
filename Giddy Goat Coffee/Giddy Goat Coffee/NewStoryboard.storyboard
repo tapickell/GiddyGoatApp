@@ -504,13 +504,15 @@ The Giddy Goat Coffee House       www.tggch.com</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="z8i-oK-Esk" firstAttribute="centerX" secondItem="wVV-1w-OLD" secondAttribute="centerX" type="default" id="1j1-JM-ly0"/>
-                            <constraint firstAttribute="trailing" secondItem="cZb-8u-tR4" secondAttribute="trailing" constant="103" id="Bta-02-fBM"/>
+                            <constraint firstItem="wVV-1w-OLD" firstAttribute="centerX" secondItem="wa3-Vh-Ndj" secondAttribute="centerX" type="default" id="66T-4X-RNg"/>
+                            <constraint firstAttribute="trailing" secondItem="hjb-Kf-6V0" secondAttribute="trailing" constant="14" id="8fx-7c-JCd"/>
                             <constraint firstAttribute="bottom" secondItem="cZb-8u-tR4" secondAttribute="bottom" constant="11" type="user" id="Coe-qh-A7F"/>
                             <constraint firstItem="rud-Nc-WWE" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="52" id="DWA-Wx-xtJ"/>
                             <constraint firstItem="0vQ-Dv-Tgg" firstAttribute="bottom" secondItem="wa3-Vh-Ndj" secondAttribute="bottom" type="user" id="HCV-qy-vkn"/>
                             <constraint firstItem="wVV-1w-OLD" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="J4d-Dr-fHV"/>
                             <constraint firstItem="wVV-1w-OLD" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="29" id="J8x-dL-GUh"/>
                             <constraint firstItem="wVV-1w-OLD" firstAttribute="centerX" secondItem="1mJ-df-B0W" secondAttribute="centerX" type="default" id="LpV-D5-o5A"/>
+                            <constraint firstAttribute="trailing" secondItem="cZb-8u-tR4" secondAttribute="trailing" constant="102" id="MAD-2J-JoK"/>
                             <constraint firstAttribute="bottom" secondItem="hjb-Kf-6V0" secondAttribute="bottom" constant="25" id="MGj-rR-Gps"/>
                             <constraint firstItem="BrL-fE-jJP" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="431" type="user" id="STV-27-pD7"/>
                             <constraint firstItem="0vQ-Dv-Tgg" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" type="default" id="SX6-mD-g23"/>
@@ -523,12 +525,10 @@ The Giddy Goat Coffee House       www.tggch.com</string>
                             <constraint firstItem="BrL-fE-jJP" firstAttribute="trailing" secondItem="rud-Nc-WWE" secondAttribute="trailing" type="default" id="bHM-cL-STe"/>
                             <constraint firstItem="0vQ-Dv-Tgg" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" type="user" id="cfQ-1m-Qh5"/>
                             <constraint firstItem="nAX-dD-qam" firstAttribute="leading" secondItem="wa3-Vh-Ndj" secondAttribute="leading" constant="33" id="f5k-tv-VWp"/>
-                            <constraint firstAttribute="trailing" secondItem="hjb-Kf-6V0" secondAttribute="trailing" constant="15" id="lz4-O6-wfp"/>
                             <constraint firstItem="rud-Nc-WWE" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="114" id="rE0-Jm-WwJ"/>
                             <constraint firstAttribute="bottom" secondItem="1mJ-df-B0W" secondAttribute="bottom" constant="54" type="user" id="uzP-J3-Y1R"/>
                             <constraint firstItem="1mJ-df-B0W" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="376" type="user" id="w23-Q9-qNQ"/>
                             <constraint firstItem="nAX-dD-qam" firstAttribute="top" secondItem="wa3-Vh-Ndj" secondAttribute="top" constant="382" type="user" id="yG9-W9-nh3"/>
-                            <constraint firstAttribute="trailing" secondItem="wVV-1w-OLD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zau-SW-pLj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gIe-C9-TUr"/>

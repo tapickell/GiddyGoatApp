@@ -104,8 +104,8 @@
     } else {
         //warning unable to contact server
         NSLog(@"Unable to contact server");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"Unable to connect to server to update punch card. Please check your network connection and try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"Unable to connect to server to update punch card. Please check your network connection and try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//        [alert show];
     }
 }
 
@@ -130,20 +130,25 @@
         if ([passes count] == 0) {
             //you dont have our pass yet, lets get you a new one, shall we.
             NSLog(@"user doesnt have our pass");
-            NSMutableString *newUrlString = [[NSMutableString alloc] initWithString:@"https://toddpickell.me/card/punchMe.php?cp=12"];
-            //NSMutableString *newUrlString = [[NSMutableString alloc] initWithString:@"http://localhost/~toddpickell/punchMe.php?cp=12"];
+            NSMutableString *newUrlString = [[NSMutableString alloc] initWithString:@"http://toddpickell.me/card/punchMe.php?cp=12"];
             
             dispatch_queue_t newPassQueue = dispatch_queue_create("new pass downloader", NULL);
             dispatch_async(newPassQueue, ^{
-                [self getPassFromServer:newUrlString];
-                if (updatedPass != NULL) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        //pop addPassView
-                        PKAddPassesViewController *addPassesVC = [[PKAddPassesViewController alloc] initWithPass:updatedPass];
-                        [self presentViewController:addPassesVC animated:YES completion:^{}];
-                    });
-                }
-            });
+                [self getPassFromServer:newUrlString]; //bug fix needed, calls UIAlertView on this thread if fails to get from server!!!FIXED
+                //back to main thread for ui 
+                dispatch_async(dispatch_get_main_queue(), ^{   
+                    if (updatedPass != NULL) {
+                        //dispatch_async(dispatch_get_main_queue(), ^{
+                            //pop addPassView
+                            PKAddPassesViewController *addPassesVC = [[PKAddPassesViewController alloc] initWithPass:updatedPass];
+                            [self presentViewController:addPassesVC animated:YES completion:^{}];
+                        //});
+                    } else {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"Unable to connect to server to update punch card. Please check your network connection and try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [alert show];
+                    }//else UIAlertView failed to retrieve from server or will this never get called
+                });//end dispatch get main queue
+            });//end new pass queue
         } else {
             //you have our pass let update the punch count for you
             NSLog(@"user has our pass: %@", passes);
