@@ -105,7 +105,7 @@
 {
     [_spinner startAnimating];
     NSLog(@"Scan: %@", scan);
-    NSString *checkString = @"?";
+    NSString *checkString = @"2a73e02a88ee9bcb965cc0f22c0cabbf68d5e823992884b4514bc242b0146ff16d5cf349c374cf7c";
     if ([scan isEqualToString:checkString]) {
         //get updated pass from server
         PKPass *myPass = [passes objectAtIndex:0];
