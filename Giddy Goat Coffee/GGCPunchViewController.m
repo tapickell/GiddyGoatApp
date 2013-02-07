@@ -151,11 +151,11 @@
                 });//end dispatch get main queue
             });//end new pass queue
         } else {
-<<<<<<< HEAD
+//<<<<<<< HEAD
             //you have our pass lets update the punch count for you
-=======
+//=======
             //you have our pass let us update the punch count for you
->>>>>>> a3f15a246fec146cf39f85d55a6410ff8f01ee45
+//>>>>>>> a3f15a246fec146cf39f85d55a6410ff8f01ee45
             NSLog(@"user has our pass: %@", passes);
             //PKPass *myPass = [passes objectAtIndex:0];
             
