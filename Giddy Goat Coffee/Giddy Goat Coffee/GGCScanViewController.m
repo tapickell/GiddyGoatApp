@@ -127,7 +127,7 @@
                     if ([_spinner isAnimating]) {
                         [_spinner stopAnimating];
                     }
-                    [self dismissModalViewControllerAnimated:YES];
+                    [self dismissViewControllerAnimated:YES completion:nil];
                 });
             }
         });
@@ -159,7 +159,7 @@
 
 - (IBAction)cancelButtonPressed:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     //This became deprecated after initial release version, need to research more current way acheive same results
     //with an updated call so this doesnt break later down the road
 }
@@ -175,7 +175,7 @@
     ZBarImageScanner *scanner = reader.scanner;
     [scanner setSymbology:ZBAR_QRCODE config:ZBAR_CFG_ENABLE to:0];
     reader.readerView.zoom = 1.0;
-    [self presentModalViewController:reader animated:YES];
+    [self presentViewController:reader animated:YES completion:nil];
     //This became deprecated after initial release version, need to research more current way acheive same results
     //with an updated call so this doesnt break later down the road
 }

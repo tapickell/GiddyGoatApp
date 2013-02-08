@@ -72,7 +72,7 @@
 
 - (IBAction)backgroundTapped:(id)sender {
         //NSLog(@"Background tapped");
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

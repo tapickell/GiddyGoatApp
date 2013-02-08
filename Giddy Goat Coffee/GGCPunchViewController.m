@@ -377,7 +377,7 @@
     imagePicker.allowsEditing = YES;
     imagePicker.mediaTypes = [NSArray arrayWithObject:desired];
 
-    [self presentModalViewController:imagePicker animated:YES];
+    [self presentViewController:imagePicker animated:YES completion:nil];
     //This became deprecated after initial release version, need to research more current way acheive same results
     //with an updated call so this doesnt break later down the road
 }
@@ -414,15 +414,15 @@
     
     NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
     if (versionNumber < 6) {
-        if ([TWTweetComposeViewController canSendTweet]) // #### Tweet compose view controller deprecated after initial release ####
-        {
-            TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
-            [tweetSheet setInitialText:textToShare];
-            if (imageSelected) {
-                [tweetSheet addImage:imageSelected];
-            }
-            [self presentModalViewController:tweetSheet animated:YES];
-        }
+//        if ([TWTweetComposeViewController canSendTweet]) // #### Tweet compose view controller deprecated after initial release ####
+//        {
+//            TWTweetComposeViewController *tweetSheet = [[TWTweetComposeViewController alloc] init];
+//            [tweetSheet setInitialText:textToShare];
+//            if (imageSelected) {
+//                [tweetSheet addImage:imageSelected];
+//            }
+//            [self presentViewController:tweetSheet animated:YES completion:nil];
+//        }
     } else {
         //code for ios 6
         UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
