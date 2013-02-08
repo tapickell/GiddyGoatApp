@@ -151,17 +151,31 @@
                 });//end dispatch get main queue
             });//end new pass queue
         } else {
-//<<<<<<< HEAD
-            //you have our pass lets update the punch count for you
-//=======
             //you have our pass let us update the punch count for you
-//>>>>>>> a3f15a246fec146cf39f85d55a6410ff8f01ee45
+
             NSLog(@"user has our pass: %@", passes);
             //PKPass *myPass = [passes objectAtIndex:0];
             
             //get Iphone to employee
-            UIAlertView *givePhone = [[UIAlertView alloc] initWithTitle:@"Hand iPhone to Barista" message:@"Please hand your iPhone to your Giddy Goat Barista. They will add a punch to your card for you." delegate:nil cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-            [givePhone show];
+            /*punch card is at 10*/
+            if ([punchLabel.text isEqual: @"10"]) {
+                //card is full display custom alert for 10 punch rule
+                UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"YOUR GIDDY PUNCH CARD IS FULL!!!              Congrats on filling the punches on your Giddy Goat card. Please hand your iPhone to the Barista and they will give you the discount."
+                                                                         delegate:self
+                                                                cancelButtonTitle:@"Get The Discount"
+                                                           destructiveButtonTitle:nil
+                                                                otherButtonTitles:nil];
+                actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+                UIImageView *picView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red-and-star.png"]];
+                [actionSheet addSubview:picView];
+                [actionSheet sendSubviewToBack:picView];
+                [actionSheet showInView:self.view];
+                
+            } else {
+                UIAlertView *givePhone = [[UIAlertView alloc] initWithTitle:@"Hand iPhone to Barista" message:@"Please hand your iPhone to your Giddy Goat Barista. They will add a punch to your card for you." delegate:nil cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+                [givePhone show];
+            }
+            
             //need to get back bool from scanner to update card???
             [self performSegueWithIdentifier:@"segueToScanView" sender:self];
             
