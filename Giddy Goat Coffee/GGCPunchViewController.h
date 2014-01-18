@@ -49,6 +49,7 @@
     NSURL *url;
     NSData *data;
     PKPass *updatedPass;
+    NSInteger number_of_punches;
 
 }
 

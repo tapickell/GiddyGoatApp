@@ -44,6 +44,7 @@
     NSData *data;
     PKPass *updatedPass;
     ZBarReaderView *readerView;
+    NSInteger number_of_punches;
 }
 
 @property (nonatomic) IBOutlet ZBarReaderView *readerView;

@@ -50,6 +50,7 @@
 @synthesize passLib = _passLib;
 @synthesize passes = _passes;
 
+
 #define CAMERA @"Camera"
 #define LIBRARY @"Photo Library"
 
@@ -61,36 +62,107 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+
     }
     return self;
 }
-
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     NSLog(@"punch view did load");
+    number_of_punches = [self getPunchesFromLocalStorage];
+    [self updatePunchLabel];
+
     [self getMenuDisplay];
+    //    noteCenter = [NSNotificationCenter defaultCenter];
+    //    [noteCenter addObserver:self selector:@selector(getPassesFromLib:) name:PKPassLibraryDidChangeNotification object:passLib];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"punch view did appear");
+    number_of_punches = [self getPunchesFromLocalStorage];
+    [self updatePunchLabel];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - passbook bypass
+
+- (NSInteger)getPunchesFromLocalStorage
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSInteger not_using_passbook = [defaults integerForKey:@"not_using_passbook"];
+    if (not_using_passbook == 0) {
+        NSInteger count = [self punchesFromPKPass];
+        [defaults setInteger:1 forKey:@"not_using_passbook"];
+        [defaults setInteger:count forKey:@"punches"];
+    }
+    return [defaults integerForKey:@"punches"];
+}
+
+- (void)savePunchesToLocalStorage:(NSInteger)punches
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:punches forKey:@"punches"];
+}
+
+- (NSInteger)punchesFromPKPass
+{
+    NSInteger returnValue = 0;
     passLib = [[PKPassLibrary alloc] init];
     passes = [passLib passes];
     if (passLib) {
         if ([passes count] > 0) {
             PKPass *temp = [passes objectAtIndex:0];
-            [punchLabel setText:[temp localizedValueForFieldKey:@"punches"]];
+            returnValue = [[temp localizedValueForFieldKey:@"punches"] integerValue];
         }
     }
-
-    noteCenter = [NSNotificationCenter defaultCenter];
-    [noteCenter addObserver:self selector:@selector(getPassesFromLib:) name:PKPassLibraryDidChangeNotification object:passLib];
-    
+    return returnValue;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)updatePunchLabel
 {
-    [TestFlight passCheckpoint:@"Did Recieve Memory Warning!!!"];
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [punchLabel setText:[NSString stringWithFormat:@"%d", number_of_punches]];
+    });
+}
+
+- (void)displayFullPunchCardSheet
+{
+    //card is full display custom alert for 10 punch rule
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"YOUR GIDDY PUNCH CARD IS FULL!!!              Congrats on filling the punches on your Giddy Goat card. Please hand your iPhone to the Barista and they will give you the discount."
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Get The Discount"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    UIImageView *picView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red-and-star.png"]];
+    [actionSheet addSubview:picView];
+    [actionSheet sendSubviewToBack:picView];
+    [actionSheet showInView:self.view];
+}
+
+- (void)displayReadyToPunchAlert
+{
+    UIAlertView *givePhone = [[UIAlertView alloc] initWithTitle:@"Hand iPhone to Barista" message:@"Please hand your iPhone to your Giddy Goat Barista. They will add a punch to your card for you." delegate:nil cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+    [givePhone show];
+}
+
+- (IBAction)getCardPunch:(id)sender
+{
+    if (number_of_punches == 10) {
+        [self displayFullPunchCardSheet];
+        [self performSegueWithIdentifier:@"segueToScanView" sender:self];
+    } else {
+        [self displayReadyToPunchAlert];
+        [self performSegueWithIdentifier:@"segueToScanView" sender:self];
+    }
 }
 
 #pragma mark - passbook integration
@@ -102,11 +174,7 @@
     if (data != NULL) {
         updatedPass = [[PKPass alloc] initWithData:data error:nil];
     } else {
-        //warning unable to contact server
         NSLog(@"Unable to contact server");
-        //moved to put it back on UI thread
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"Unable to connect to server to update punch card. Please check your network connection and try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//        [alert show];
     }
 }
 
@@ -120,73 +188,60 @@
     });
 }
 
-- (IBAction)getCardPunch:(id)sender
+- (IBAction)getCardPunchOld:(id)sender
 {
-    [TestFlight passCheckpoint:@"USING_PUNCH_CARD_FEATURE"];
     //method to add punch to punch card
-    
+
     if (passLib) {
         //you have pass library
         NSLog(@"user has pass library");
         if ([passes count] == 0) {
-            //you dont have our pass yet, lets get you a new one, shall we.
-            NSLog(@"user doesnt have our pass");
-            NSMutableString *newUrlString = [[NSMutableString alloc] initWithString:@"http://toddpickell.me/card/punchMe.php?cp=12"];
-            
-            dispatch_queue_t newPassQueue = dispatch_queue_create("new pass downloader", NULL);
-            dispatch_async(newPassQueue, ^{
-                [self getPassFromServer:newUrlString]; //bug fix needed, calls UIAlertView on this thread if fails to get from server!!!FIXED
-                //back to main thread for ui 
-                dispatch_async(dispatch_get_main_queue(), ^{   
-                    if (updatedPass != NULL) {
-                        //dispatch_async(dispatch_get_main_queue(), ^{ #### moved outside to encompass if and else ####
-                            //pop addPassView
-                            PKAddPassesViewController *addPassesVC = [[PKAddPassesViewController alloc] initWithPass:updatedPass];
-                            [self presentViewController:addPassesVC animated:YES completion:^{}];
-                        //});
-                    } else {
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"Unable to connect to server to update punch card. Please check your network connection and try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                        [alert show];
-                    }//else UIAlertView failed to retrieve from server or will this never get called
-                });//end dispatch get main queue
-            });//end new pass queue
+//            //you dont have our pass yet, lets get you a new one, shall we.
+//            NSLog(@"user doesnt have our pass");
+//            NSMutableString *newUrlString = [[NSMutableString alloc] initWithString:@"http://toddpickell.me/card/punchMe.php?cp=12"];
+//
+//            dispatch_queue_t newPassQueue = dispatch_queue_create("new pass downloader", NULL);
+//            dispatch_async(newPassQueue, ^{
+//                [self getPassFromServer:newUrlString]; //bug fix needed, calls UIAlertView on this thread if fails to get from server!!!FIXED
+//                //back to main thread for ui
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    if (updatedPass != NULL) {
+//                        //dispatch_async(dispatch_get_main_queue(), ^{ #### moved outside to encompass if and else ####
+//                            //pop addPassView
+//                            PKAddPassesViewController *addPassesVC = [[PKAddPassesViewController alloc] initWithPass:updatedPass];
+//                            [self presentViewController:addPassesVC animated:YES completion:^{}];
+//                        //});
+//                    } else {
+//                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"Unable to connect to server to update punch card. Please check your network connection and try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//                        [alert show];
+//                    }//else UIAlertView failed to retrieve from server or will this never get called
+//                });//end dispatch get main queue
+//            });//end new pass queue
         } else {
             //you have our pass let us update the punch count for you
 
             NSLog(@"user has our pass: %@", passes);
             //PKPass *myPass = [passes objectAtIndex:0];
-            
-            //get Iphone to employee
-            /*punch card is at 10*/
+
+            //cahnge to check local variable instead of label maybe???
             if ([punchLabel.text isEqual: @"10"]) {
-                //card is full display custom alert for 10 punch rule
-                UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"YOUR GIDDY PUNCH CARD IS FULL!!!              Congrats on filling the punches on your Giddy Goat card. Please hand your iPhone to the Barista and they will give you the discount."
-                                                                         delegate:self
-                                                                cancelButtonTitle:@"Get The Discount"
-                                                           destructiveButtonTitle:nil
-                                                                otherButtonTitles:nil];
-                actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-                UIImageView *picView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"red-and-star.png"]];
-                [actionSheet addSubview:picView];
-                [actionSheet sendSubviewToBack:picView];
-                [actionSheet showInView:self.view];
-                
+                [self displayFullPunchCardSheet];
+
             } else {
-                UIAlertView *givePhone = [[UIAlertView alloc] initWithTitle:@"Hand iPhone to Barista" message:@"Please hand your iPhone to your Giddy Goat Barista. They will add a punch to your card for you." delegate:nil cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-                [givePhone show];
+                [self displayReadyToPunchAlert];
             }
-            
+
             //need to get back bool from scanner to update card???
             [self performSegueWithIdentifier:@"segueToScanView" sender:self];
-            
-            
+
+
 ////        ##### test setup for local server #####
             //get updated pass from server
 //            NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://mini.local/~toddpickell/punchMe?cn="];
 //            [urlString appendString:[myPass serialNumber]];
 //            [urlString appendString:@"&cp="];
 //            [urlString appendString:[myPass localizedValueForFieldKey:@"punches"]];
-            
+
 //            dispatch_queue_t passUpdateQueue = dispatch_queue_create("pass update downloader", NULL);
 //            dispatch_async(passUpdateQueue, ^{
 //                //[self getPassFromServer:urlString];
@@ -199,11 +254,11 @@
         }
     } else {
         //sorry you dont have pass library
-        // #### should fail on iPad's (w/out passbook) 
+        // #### should fail on iPad's (w/out passbook)
         NSLog(@"user doesnt have pass library");
     }
-    
-    
+
+
 }
 
 
@@ -214,7 +269,7 @@
 {
 	// Do any additional setup after loading the view.
     NSString *itemBack = @"bg-menuitem.png";
-    
+
     //create menu items
     AwesomeMenuItem *menuItem0 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"arrow-west.png"] highlightedContentImage:nil];
     AwesomeMenuItem *menuItem1 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"map-marker.png"] highlightedContentImage:nil];
@@ -222,22 +277,22 @@
     AwesomeMenuItem *menuItem3 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"group.png"] highlightedContentImage:nil];
     AwesomeMenuItem *menuItem4 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"phone.png"] highlightedContentImage:nil];
     AwesomeMenuItem *menuItem5 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:itemBack] highlightedImage:nil ContentImage:[UIImage imageNamed:@"arrow-east.png"] highlightedContentImage:nil];
-    
+
     //add menu items to array
     NSArray *menus = [NSArray arrayWithObjects:menuItem0, menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, nil];
-    
+
     //create menu
     menu = [[AwesomeMenu alloc] initWithFrame:self.view.window.bounds menus:menus];
-    
+
     //configure menu options
-    menu.startPoint = CGPointMake(160.0, 435.0);
+    menu.startPoint = CGPointMake(160.0, 485.0);
     menu.menuWholeAngle = M_PI;
     menu.rotateAngle = -1.3;
     menu.nearRadius = 60.0f;
     menu.endRadius = 90.0f;
     menu.farRadius = 130.0f;
     menu.delegate = self;
-    
+
     //add menu to view
     [self.view addSubview:menu];
 }
@@ -252,12 +307,12 @@
             [self.viewDeckController toggleLeftViewAnimated:YES];
             [TestFlight passCheckpoint:@"Menu Nav to Specials View"];
             break;
-            
+
         case 1:
             //go to maps
             [self gotoMap:self];
             break;
-            
+
         case 2:
             //go to social
             [self getPhotoForSharing:self];
@@ -266,18 +321,18 @@
             //got to credits
             [self performSegueWithIdentifier:@"segueToCredits" sender:self];
             break;
-            
+
         case 4:
             //call giddy
             [self callPopup:self];
             break;
-            
+
         case 5:
             //reveal right view
             [self.viewDeckController toggleRightViewAnimated:YES];
             [TestFlight passCheckpoint:@"Menu Nav to Coffees View"];
             break;
-            
+
         default:
             break;
     }
@@ -291,7 +346,7 @@
 {
     //get ios version
     NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
-    
+
     //   ##### This can be refactored now that app is only or iOS 6 and doesnt rely upon google maps call #####
     //if ios5 or lower use google maps
     if (versionNumber < 6) {
@@ -303,16 +358,16 @@
         //if ios6 use apple maps
         ////NSLog(@"opening maps app in iOS 6");
         [TestFlight passCheckpoint:@"USING_APPLE_MAPS_IOS6"];
-        
+
         //new code using mkmapitem & mkplacemark
         MKPlacemark *giddyPlacemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(37.949807,-91.776859) addressDictionary:nil];
         MKMapItem *giddyLocation = [[MKMapItem alloc] initWithPlacemark:giddyPlacemark];
-        
+
         //add extra features to display in map app
         giddyLocation.name = @"Giddy Goat Coffee";
         giddyLocation.phoneNumber = @"+15734266750";
         giddyLocation.url = [NSURL URLWithString:@"http://tggch.com"];
-        
+
         //open in iOS6 maps app
         [giddyLocation openInMapsWithLaunchOptions:nil];
     }
@@ -325,17 +380,17 @@
     //create image picker controller
     imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
-    
+
     //create action sheet to prompt user with options for pictures
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Send With Photo"
                                                              delegate:self
                                                     cancelButtonTitle:@"No Photo"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:nil];
-    
+
     //set action sheet style
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-    
+
     //if camera is available add that to the popup list of options
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
@@ -373,7 +428,7 @@
         [TestFlight passCheckpoint:@"GETTING_PIC_FROM_LIBRARY"];
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
-    
+
     imagePicker.allowsEditing = YES;
     imagePicker.mediaTypes = [NSArray arrayWithObject:desired];
 
@@ -401,7 +456,7 @@
     [TestFlight passCheckpoint:@"USING_SOCIAL_FEATURES"];
     NSString *textToShare = @"@TGGCHRolla ";
     NSArray *activityItems;
-    
+
     //add items to array
     if (imageSelected)
     {
@@ -411,7 +466,7 @@
         //no image
         activityItems = @[textToShare];
     }
-    
+
     NSInteger versionNumber = [[[UIDevice currentDevice] systemVersion] integerValue];
     if (versionNumber < 6) {
 //        if ([TWTweetComposeViewController canSendTweet]) // #### Tweet compose view controller deprecated after initial release ####
@@ -426,7 +481,7 @@
     } else {
         //code for ios 6
         UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-        
+
         [self presentViewController:activityVC animated:YES completion:nil];
     }
     imageSelected = nil;

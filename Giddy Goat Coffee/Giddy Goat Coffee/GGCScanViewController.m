@@ -58,17 +58,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    passLib = [[PKPassLibrary alloc] init];
-    passes = [passLib passes];
-    PKPass *temp = [passes objectAtIndex:0];
-    [_punchLabel setText:[temp localizedValueForFieldKey:@"punches"]];
-    
+
+    [self getPunchesOnViewDidLoad];
+
     _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [_spinner setCenter:CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0)]; // I do this because I'm in landscape mode
     [_spinner setColor:[UIColor greenColor]];
     [self.view addSubview:_spinner]; // spinner is not visible until started
-    
+
     readerView.readerDelegate = self;
 }
 
@@ -89,6 +86,42 @@
 }
 
 
+#pragma mark - passbook bypass
+
+- (void)getPunchesOnViewDidLoad
+{
+    number_of_punches = [self getPunchesFromLocalStorage];
+    [self updatePunchLabel];
+}
+
+- (NSInteger)getPunchesFromLocalStorage
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults integerForKey:@"punches"];
+}
+
+- (void)savePunchesToLocalStorage:(NSInteger)punches
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:punches forKey:@"punches"];
+}
+
+- (void)updatePunchLabel
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_punchLabel setText:[NSString stringWithFormat:@"%d", number_of_punches]];
+    });
+}
+
+- (NSInteger)processNumberOfPunches:(NSInteger)punches
+{
+    if (punches >= 10) {
+        return 0;
+    } else {
+        return punches + 1;
+    }
+}
+
 #pragma mark - scanner integration
 
 - (void)readerView:(ZBarReaderView *)readerView didReadSymbols:(ZBarSymbolSet *)symbols fromImage:(UIImage *)image
@@ -101,36 +134,49 @@
     [self processPunchScan];
 }
 
+- (void)updateCardFromServer
+{
+    //get updated pass from server
+    //pull this out and switch it to update internally
+    PKPass *myPass = [passes objectAtIndex:0];
+    NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://www.toddpickell.me/card/punchMe.php?cn="];
+    [urlString appendString:[myPass serialNumber]];
+    [urlString appendString:@"&cp="];
+    [urlString appendString:[myPass localizedValueForFieldKey:@"punches"]];
+
+    dispatch_queue_t passUpdateQueue = dispatch_queue_create("pass update downloader", NULL);
+    dispatch_async(passUpdateQueue, ^{
+        [self getPassFromServer:urlString];
+        if (updatedPass != NULL) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [passLib replacePassWithPass:updatedPass];
+                if ([_spinner isAnimating]) {
+                    [_spinner stopAnimating];
+                }
+                [self dismissViewControllerAnimated:YES completion:nil];
+            });
+        }
+    });
+}
+
+- (void)updateCardInternally
+{
+    [self savePunchesToLocalStorage:[self processNumberOfPunches:number_of_punches]];
+    [self getPunchesFromLocalStorage];
+    [self updatePunchLabel];
+    if ([_spinner isAnimating]) {
+        [_spinner stopAnimating];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)processPunchScan
 {
     [_spinner startAnimating];
     NSLog(@"Scan: %@", scan);
-//<<<<<<< HEAD
-//=======
-    // #### would like to hide this else where in a constant that is non descrip ####
-//>>>>>>> a3f15a246fec146cf39f85d55a6410ff8f01ee45
     NSString *checkString = @"2a73e02a88ee9bcb965cc0f22c0cabbf68d5e823992884b4514bc242b0146ff16d5cf349c374cf7c";
     if ([scan isEqualToString:checkString]) {
-        //get updated pass from server
-        PKPass *myPass = [passes objectAtIndex:0];
-        NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://www.toddpickell.me/card/punchMe.php?cn="];
-        [urlString appendString:[myPass serialNumber]];
-        [urlString appendString:@"&cp="];
-        [urlString appendString:[myPass localizedValueForFieldKey:@"punches"]];
-        
-        dispatch_queue_t passUpdateQueue = dispatch_queue_create("pass update downloader", NULL);
-        dispatch_async(passUpdateQueue, ^{
-            [self getPassFromServer:urlString];
-            if (updatedPass != NULL) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [passLib replacePassWithPass:updatedPass];
-                    if ([_spinner isAnimating]) {
-                        [_spinner stopAnimating];
-                    }
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                });
-            }
-        });
+        [self updateCardInternally];
     } else {
         NSLog(@"Invalid Scan");
         UIAlertView *scanAlert = [[UIAlertView alloc] initWithTitle:@"Invalid Scan" message:@"Scan does not match, please try again. If unable to get scan to work contact administrator." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
