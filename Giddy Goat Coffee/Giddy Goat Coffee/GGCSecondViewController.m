@@ -57,14 +57,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-//    [self getMenuDisplay];
-    NSLog(@"second view did load");
     [self fetchCoffees];
-    
-        //load nsarray objects
     _coffees = [[NSArray alloc] initWithArray:nameArray copyItems:YES];
-
     _descrips = [[NSArray alloc] initWithArray:descripArray copyItems:YES];
 }
 
@@ -73,7 +67,6 @@
     [self setCoffeePicker:nil];
     [self setCoffeeLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -110,36 +103,23 @@
 #pragma mark - XML methods
 
 - (void)fetchCoffees
-{    
-        //data container for xml from service
+{
     nameArray = [[NSMutableArray alloc] init];
     descripArray = [[NSMutableArray alloc] init];
-    
     NSString *space = @"  ";
-    
     [nameArray addObject:space];
     [descripArray addObject:space];
-    
     tbxml = [TBXML tbxmlWithXMLFile:@"coffees.xml"];
-    
-        //obtain root element
     TBXMLElement * root = tbxml.rootXMLElement;
     if (root) {
-            //NSLog(@"Got Root Element");
         TBXMLElement * elem_coffees = [TBXML childElementNamed:@"coffees" parentElement:root];
         while (elem_coffees != nil) {
-                //NSLog(@"elem_coffees != nil");
-            
             TBXMLElement * elem_name = [TBXML childElementNamed:@"name" parentElement:elem_coffees];
             NSString *name = [TBXML textForElement:elem_name];
-                //NSLog(@"NAME: %@", name);
             [nameArray addObject:name];
-            
             TBXMLElement * elem_descrip = [TBXML childElementNamed:@"descrip" parentElement:elem_coffees];
             NSString *descrip = [TBXML textForElement:elem_descrip];
-                //NSLog(@"DESCRIP: %@", descrip);
             [descripArray addObject:descrip];
-            
             elem_coffees = [TBXML nextSiblingNamed:@"coffees" searchFromElement:elem_coffees];
         }
     }
@@ -148,6 +128,5 @@
 - (IBAction)returnToCenter:(id)sender
 {
     [self.viewDeckController toggleRightViewAnimated:YES];
-    [TestFlight passCheckpoint:@"Button nav from coffees view"];
 }
 @end

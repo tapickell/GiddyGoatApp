@@ -57,15 +57,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-
     [self getPunchesOnViewDidLoad];
 
     _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [_spinner setCenter:CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0)]; // I do this because I'm in landscape mode
+    [_spinner setCenter:CGPointMake(self.view.bounds.size.width/2.0, self.view.bounds.size.height/2.0)];
     [_spinner setColor:[UIColor greenColor]];
-    [self.view addSubview:_spinner]; // spinner is not visible until started
-
+    [self.view addSubview:_spinner];
     readerView.readerDelegate = self;
 }
 
@@ -82,7 +79,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -126,7 +122,6 @@
 
 - (void)readerView:(ZBarReaderView *)readerView didReadSymbols:(ZBarSymbolSet *)symbols fromImage:(UIImage *)image
 {
-    // do something useful with results
     for(ZBarSymbol *sym in symbols) {
         scan = sym.data;
         break;
@@ -136,8 +131,6 @@
 
 - (void)updateCardFromServer
 {
-    //get updated pass from server
-    //pull this out and switch it to update internally
     PKPass *myPass = [passes objectAtIndex:0];
     NSMutableString *urlString = [[NSMutableString alloc] initWithString:@"http://www.toddpickell.me/card/punchMe.php?cn="];
     [urlString appendString:[myPass serialNumber]];
@@ -173,12 +166,10 @@
 - (void)processPunchScan
 {
     [_spinner startAnimating];
-    NSLog(@"Scan: %@", scan);
     NSString *checkString = @"2a73e02a88ee9bcb965cc0f22c0cabbf68d5e823992884b4514bc242b0146ff16d5cf349c374cf7c";
     if ([scan isEqualToString:checkString]) {
         [self updateCardInternally];
     } else {
-        NSLog(@"Invalid Scan");
         UIAlertView *scanAlert = [[UIAlertView alloc] initWithTitle:@"Invalid Scan" message:@"Scan does not match, please try again. If unable to get scan to work contact administrator." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         if ([_spinner isAnimating]) {
             [_spinner stopAnimating];
@@ -196,8 +187,6 @@
     if (data != NULL) {
         updatedPass = [[PKPass alloc] initWithData:data error:nil];
     } else {
-        //warning unable to contact server
-        NSLog(@"Unable to contact server");
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"Unable to connect to server to update punch card. Please check your network connection and try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
@@ -206,8 +195,6 @@
 - (IBAction)cancelButtonPressed:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    //This became deprecated after initial release version, need to research more current way acheive same results
-    //with an updated call so this doesnt break later down the road
 }
 
 #pragma mark - old scan methods
@@ -215,20 +202,15 @@
 
 
 - (IBAction)scanPunchCode:(id)sender {
-    //present scanner
     ZBarReaderViewController *reader = [ZBarReaderViewController new];
-    //reader.readerDelegate = self;
     ZBarImageScanner *scanner = reader.scanner;
     [scanner setSymbology:ZBAR_QRCODE config:ZBAR_CFG_ENABLE to:0];
     reader.readerView.zoom = 1.0;
     [self presentViewController:reader animated:YES completion:nil];
-    //This became deprecated after initial release version, need to research more current way acheive same results
-    //with an updated call so this doesnt break later down the road
 }
 
 - (void)imagePickerController:(UIImagePickerController *)reader didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSLog(@"imagePickerController didFinishPicking");
     id<NSFastEnumeration> results =
     [info objectForKey: ZBarReaderControllerResults];
     ZBarSymbol *symbol = nil;

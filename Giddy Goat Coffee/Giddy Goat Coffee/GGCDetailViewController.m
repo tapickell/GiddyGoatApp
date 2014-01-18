@@ -44,7 +44,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -52,9 +51,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"detail view did load");
-	// Do any additional setup after loading the view.
-    [TestFlight passCheckpoint:@"VIEWING_CREDITS_PAGE"];
 }
 
 - (void)viewDidUnload
@@ -62,7 +58,6 @@
     itemNameLabel = nil;
     itemDescripLabel = nil;
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -71,7 +66,6 @@
 }
 
 - (IBAction)backgroundTapped:(id)sender {
-        //NSLog(@"Background tapped");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
